@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       const response = await ai.models.generateContent({
-        model: process.env.GEMINI_MODEL ?? "gemini-2.5-flash",
+        model: process.env.GEMINI_MODEL ?? "gemini-3.5-flash-lite",
         contents: `Recent conversation context: ${JSON.stringify(history.slice(-8))}\nCurrent request: ${query}\nRetrieved synthetic training records and exact citations: ${JSON.stringify(grounded)}`,
         config: {
           systemInstruction: `You are Singularity, a departmental demonstration workspace. Answer in ${response_language === "as" ? "Assamese" : response_language === "hi" ? "Hindi" : "English"}. Answer only from the supplied fictional training evidence. Do not infer legal eligibility, invent citations, or claim official activity. Preserve uncertainty and distinguish a prepared action from an approved or executed action. Preserve original legal references and official wording.`,

@@ -514,7 +514,14 @@ create policy "roles authenticated read" on public.roles for select to authentic
 create policy "responsibilities scoped read" on public.responsibilities for select to authenticated using (employee_id = public.current_employee_id() or exists(select 1 from public.employees e where e.id=employee_id and e.office_id=public.current_office_id()));
 create policy "case scope read" on public.pension_cases for select to authenticated using (public.can_access_case(id));
 create policy "case controlled update" on public.pension_cases for update to authenticated using (owner_id=public.current_employee_id() and public.current_employee_role() in ('pension_assistant','grievance_officer')) with check (owner_id=public.current_employee_id());
-create policy "pensioner scope read" on public.pensioners for select to authenticated using (exists(select 1 from public.pension_cases c where c.pensioner_id=id and public.can_access_case(c.id)));
+create policy "pensioner scope read" on public.pensioners for select to authenticated using (
+  exists (
+    select 1
+    from public.pension_cases c
+    where c.pensioner_id = public.pensioners.id
+      and public.can_access_case(c.id)
+  )
+);
 create policy "case grant scoped read" on public.case_access_grants for select to authenticated using (employee_id=public.current_employee_id() or public.current_employee_role() in ('head_of_office','supervisor','leadership'));
 create policy "service scope read" on public.service_records for select to authenticated using (public.can_access_case(case_id));
 create policy "leave scope read" on public.leave_records for select to authenticated using (public.can_access_case(case_id));

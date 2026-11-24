@@ -1,10 +1,12 @@
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import nextEnv from "@next/env";
 import { createClient } from "@supabase/supabase-js";
 
 type RecordData = Record<string, unknown>;
 const projectRoot = process.cwd();
+nextEnv.loadEnvConfig(projectRoot);
 const fixtureRoot = path.join(projectRoot, "Singularity_D36V2_Implementation", "Singularity_D36V2_Implementation", "fixtures");
 const sourceRoot = path.join(projectRoot, "Singularity_D36V2_Implementation", "Singularity_D36V2_Implementation", "source-records");
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;

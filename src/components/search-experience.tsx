@@ -109,7 +109,7 @@ export function SearchExperience() {
   const home = messages.length === 0;
   return <div className={`search-workspace ${home ? "search-home" : "search-conversation"}`}>
     {home ? <>
-      <div className="welcome-brand"><BrandMark size={60}/><span>Singularity</span></div>
+      <div className="welcome-brand"><BrandMark size={108}/><span>Singularity</span></div>
       <h1 className="welcome-title">Welcome, <strong>{officerName}</strong></h1>
       <Composer query={query} setQuery={setQuery} onSubmit={() => void send()} busy={busy} onStop={() => aborter.current?.abort()} attachment={attachment?.name} onAttach={attachFile} inputRef={textarea} home/>
       <div className="home-suggestions">{suggestions.map(({ label, prompt, icon: Icon }) => <button key={label} className="home-suggestion" onClick={() => void send(prompt)}><Icon size={20}/><span>{label}</span></button>)}</div>
@@ -124,7 +124,7 @@ export function SearchExperience() {
           {message.kind === "task" && <div className="response-actions"><button className="btn btn-primary" onClick={createTask}>Prepare follow-up task</button></div>}
           {message.kind === "meeting" && <div className="response-actions"><button className="btn" onClick={() => { saveMeeting({ id: `MTG-${Date.now()}`, title: "Pension review meeting", participants: "Pension Section, Head of Office", status: "prepared", createdAt: new Date().toISOString() }); setError("Meeting saved as Prepared. No invitation was sent."); }}>Save meeting record</button></div>}
         </div>}
-      </article>)}{busy && <div className="assistant-loading"><LoaderCircle className="spin" size={18}/>Searching the demonstration records…</div>}{error && <p role="status" className="inline-notice">{error}</p>}</div>
+      </article>)}{busy && <div className="assistant-loading"><LoaderCircle className="spin" size={18}/>Searching linked records…</div>}{error && <p role="status" className="inline-notice">{error}</p>}</div>
       <Composer query={query} setQuery={setQuery} onSubmit={() => void send()} busy={busy} onStop={() => aborter.current?.abort()} attachment={attachment?.name} onAttach={attachFile} inputRef={textarea} />
     </>}
     {error && home && <p role="status" className="inline-notice home-notice">{error}</p>}

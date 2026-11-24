@@ -21,3 +21,6 @@ venv/
 *.sqlite3-shm
 *.db
 *.log
+
+.vercel
+.env*
