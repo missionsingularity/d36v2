@@ -1,0 +1,12 @@
+import Link from "next/link";
+import { demoAuditEvents, demoPeople, primaryCase } from "@/lib/demo/data";
+import { summarizeAudit } from "@/lib/agent/workflows";
+
+export default function LogsPage() {
+  const summary = summarizeAudit(demoAuditEvents);
+  return <section className="content"><div className="page-heading"><div><div className="eyebrow">Pension & Public Grievances</div><h1>Logs</h1><p className="mt-2 text-sm text-secondary">Review actions and access events in the supplied synthetic audit record.</p></div><span className="pill">{summary.total} historical events</span></div>
+    <div className="logs-layout"><div><h2 className="section-title">Case activity</h2><div className="audit-timeline">{demoAuditEvents.map((event) => { const person = (demoPeople.find((item) => item.id === event.actor_id)); return <article key={event.id}><span className={`timeline-dot ${/denied|blocked/i.test(event.decision) ? "denied" : ""}`}/><div className="audit-event"><div className="audit-event-heading"><b>{event.action.replaceAll("_", " ")}</b><span>{new Date(event.timestamp).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}</span></div><p>{event.decision.replaceAll("_", " ")} · {event.external_disclosure_confirmed ? "External disclosure confirmed in source" : "No external disclosure confirmation recorded"}</p><small>{person?.name ?? event.actor_id} · {event.id}</small></div></article>; })}</div></div>
+  <aside className="logs-aside"><section className="detail-card"><h2>Case Summary</h2><dl><dt>Current stage</dt><dd>{primaryCase.stage.replaceAll("_", " ")}</dd><dt>Case</dt><dd>{primaryCase.case_id}</dd><dt>District</dt><dd>{primaryCase.district}</dd><dt>Audit events</dt><dd>{summary.total}</dd><dt>Denied or blocked</dt><dd>{summary.denied_or_blocked}</dd><dt>Confirmed disclosure</dt><dd>{summary.external_disclosures_confirmed}</dd></dl><Link className="text-sm text-primary hover:underline" href={`/cases/${primaryCase.id}`}>Open case</Link></section><section className="detail-card"><h2>Interpretation</h2><p className="text-sm leading-6 text-secondary">Denied access and blocked export events are not evidence of a successful external disclosure. These are synthetic training events and do not establish intent.</p></section><section className="detail-card"><h2>Historical record</h2><p className="text-xs text-secondary">The timeline is supplied fixture data. Interactions in this browser are stored separately as local demonstration activity.</p></section></aside></div>
+  </section>;
+}
+

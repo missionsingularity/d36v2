@@ -1,15 +1,48 @@
-# Singularity V2 — standalone reference
+# Singularity — Assam Pension & Public Grievances
 
-This is a lightweight browser-only implementation of the uploaded Singularity Frontend Build Specification. It is separate from the existing D-36 V1 deployment. All officers, records, workflows and connections are fictional/simulated. No authentication, network integrations, paid APIs or external actions are included.
+Singularity is a directly accessible, fictional departmental workspace prototype based on the supplied D-36 casebook. It follows **Search, Context, Act** and does not require login, passwords, OTP or an authentication session. Every fixture, persona, source file and saved action is synthetic. The prototype is not an official Government of Assam service.
 
-## Start
-Open `index.html` from this extracted folder, or run `python -m http.server 8000` in the folder and visit http://localhost:8000. The standalone single-file HTML distributed separately contains the same app and needs no other files. Prefer localhost for reliable browser localStorage behavior.
+## Run the Next.js application
 
-## Contents
-Seven navigation sections; 50 records including the 20 named files; 15 tasks; 10 projects; 24 source entries; ten suggested assistant questions; local citations and previews; collections; review decisions; connector state and settings; light/dark and tablet layouts.
+Requirements: Node.js 22.6 or later.
 
-## Verification
-The JS syntax check passed. Chromium/Playwright tested seven sections, query results, document preview, saving, citations, task status, agent approval, source disconnection, theme changes and 768px overflow; no JS exceptions. The environment blocks normal browser navigation, so tests loaded the generated HTML into an isolated browser document with mocked localStorage and history. Storage serialization was verified; genuine reload persistence and live hosting were not tested. Screenshots are from the actual reference app under this harness. The full Next.js/React/Tailwind/shadcn/Zustand implementation was not run: npm dependencies are not available in this environment. Source tiles include original approximations and labeled placeholders, not verified official logo assets. Structured answers are local record tables, not live SQL. No pixel-perfect Glean fidelity is claimed.
+```powershell
+npm install
+npm run dev
+```
 
-## Next steps for Codex
-Use the uploaded PDF as the controlling specification, the linked YouTube walkthrough as a supplementary visual reference (frames were unavailable here), and https://docs.glean.com/ plus https://docs.glean.com/user-guide/assistant/query-bigquery-data-in-glean-assistant for documented patterns. Preserve V1 main and production deployment. Build a real Next.js App Router/TypeScript/React/Tailwind/shadcn/Zustand version on a separate branch or separate Vercel project. Use these screens and dataset as a reference, not as evidence of exact Glean fidelity. Replace approximation icons with permitted official assets; implement structured local query logic and test actual localStorage persistence and all responsive widths. Run npm install, npm run dev, production build and Playwright. Commit and push checkpoints early and at least every 5–7 minutes if feasible; never force push. Deploy only the V2 preview. Do not expose credentials or API keys. GitHub access in this chat was read-only, so no commit or push was made.
+Open <http://localhost:3000>. The production commands are `npm run build` and `npm start`.
+
+The existing Python training server remains available separately on port 8001 while migration work is verified. It is not required by Next.js or Vercel.
+
+## Online and offline storage
+
+The workspace opens with bundled fixture records when offline or when no Supabase project is configured. Conversations, draft revisions, tasks, meeting records, comments and persona selection save in browser storage and remain available after refresh on that browser.
+
+To share fictional workspace edits between browsers, apply `supabase/migrations/202611240002_public_demo_workspace.sql` to a dedicated demonstration Supabase project, then set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (or `NEXT_PUBLIC_SUPABASE_ANON_KEY`). The migration grants anonymous read, insert and update access only to `public.demo_workspace_records`; it does not grant access to case, pension, officer, source or audit tables. The on-screen sync indicator reports whether the last synchronization succeeded. Edits remain local if the cloud migration is unavailable.
+
+All visitors to a configured demo project share those saved demonstration edits. Persona selection is only for the prototype display; it is not an identity or authorization boundary. Never place real government or personal records in this public demo workspace.
+
+Optional server-side response wording can use `GEMINI_API_KEY` and `GEMINI_MODEL`. The application retrieves and cites the bundled synthetic records locally first. If the model service is absent, the deterministic evidence-grounded response still works.
+
+## Casebook and documents
+
+The 186 pension fixtures, 15 officers, 9 offices, grievances, 47 audit events, clarification records and 18 source passages are kept under `Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/`. The readable source files are served from `public/demo-sources/` and visibly identify themselves as simulated training records. Original source files are not edited. A working copy is saved as a new local revision and can be exported as DOCX, PDF, XLSX or PPTX.
+
+## Database setup
+
+The migrations in `supabase/migrations/` describe the optional departmental schema and the isolated public demonstration-state table. Apply the public demo table migration before expecting online sync. The local application remains usable without either migration. `npm run db:check` validates supplied fixture counts and source hashes without credentials or network writes. The privileged `npm run db:import` command is only for an explicitly configured database and must use a server-side service-role key that is never placed in a `NEXT_PUBLIC_` variable.
+
+## Checks
+
+```powershell
+npm run db:check
+npm run typecheck
+npm run test
+npm run lint
+npm run build
+```
+
+## Deployment status
+
+The existing Vercel project and production URL must be preserved. This workspace currently has no Vercel project credentials, no confirmed Supabase project settings, and no GitHub push permission. Do not claim deployment or cross-browser cloud persistence until the existing project is configured, the migration is applied, and the deployed URL is verified.
