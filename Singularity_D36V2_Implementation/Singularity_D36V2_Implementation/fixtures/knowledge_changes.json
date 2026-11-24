@@ -1,0 +1,36 @@
+[
+  {
+    "id": "KB-CHANGE-2026-0037",
+    "source_id": "DOC-017",
+    "requester_id": "P06",
+    "reviewer_id": "P09",
+    "state": "prepared",
+    "authority_verified": false,
+    "signature_verified": false,
+    "effective_date_verified": false,
+    "rule_compatibility_verified": false,
+    "publication_approved": false,
+    "potential_case_ids": [
+      "PEN-NGN-2026-041",
+      "PEN-NGN-2026-058",
+      "PEN-NGN-2026-077",
+      "PEN-NGN-2026-001",
+      "PEN-NGN-2026-002",
+      "PEN-NGN-2026-003",
+      "PEN-NGN-2026-004"
+    ],
+    "manual_review_case_ids": [
+      "PEN-NGN-2026-092"
+    ]
+  },
+  {
+    "id": "AUD-2026-11-24-00428",
+    "source_id": "DOC-014",
+    "proposal_id": "PEN-NGN-2026-058",
+    "requester_id": "P06",
+    "reviewer_id": "P09",
+    "state": "submitted",
+    "proposed_verification": "completed",
+    "executed": false
+  }
+]

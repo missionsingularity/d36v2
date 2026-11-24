@@ -1,0 +1,11 @@
+FICTIONAL DEMONSTRATION RECORD | NOT AN OFFICIAL GOVERNMENT DOCUMENT
+
+Guwahati Road Inspection Field Summary.txt
+Record ID: D043
+Date: 2026-11-22
+Owner: Rituparna Deka
+Simulated source: Google Drive
+
+Field summary: 12 stretches inspected; RD-01, RD-04 and RD-08 require resurfacing; RD-02 and RD-10 require drainage repairs. D003 is the measurement reference. The field team recommends engineering validation before estimates are approved.
+
+Reference IDs: D003, D018

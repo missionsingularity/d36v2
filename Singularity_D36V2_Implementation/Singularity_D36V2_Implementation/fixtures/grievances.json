@@ -1,0 +1,21 @@
+[
+  {
+    "id": "GRV-AS-2026-01192",
+    "proposal_id": "PEN-NGN-2026-041",
+    "received": "2026-08-14",
+    "status": "disposed",
+    "disposed": "2026-09-28",
+    "atr_date": "2026-09-22",
+    "outcome_verified": false,
+    "owner_id": "P07"
+  },
+  {
+    "id": "GRV-AS-2026-01874",
+    "proposal_id": "PEN-NGN-2026-041",
+    "received": "2026-11-03",
+    "status": "open",
+    "disposed": null,
+    "outcome_verified": false,
+    "owner_id": "P07"
+  }
+]

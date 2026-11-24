@@ -1,0 +1,11 @@
+FICTIONAL DEMONSTRATION RECORD | NOT AN OFFICIAL GOVERNMENT DOCUMENT
+
+D032 Cachar Expenditure review Officer review note.txt
+Record ID: D032
+Date: 2026-11-23
+Owner: Rituparna Deka
+Simulated source: SharePoint
+
+Finance review: INR 32 lakh expenditure against INR 50 lakh allocation (64%); INR 18 lakh unspent. Match four project ledger rows in D012 with vouchers before authorizing further release.
+
+Reference IDs: D012

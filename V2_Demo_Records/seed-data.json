@@ -1,0 +1,3038 @@
+{
+  "docs": [
+    {
+      "id": "D001",
+      "name": "Kamrup_Metro_Land_Encroachment_Report_2026.pdf",
+      "department": "Revenue",
+      "district": "Kamrup Metro",
+      "project": "Land records",
+      "source": "eOffice",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-18",
+      "body": "Field team identified 18 parcels for verification; 6 notices are awaiting officer review.",
+      "kind": "PDF",
+      "title": "Kamrup Metro land encroachment review",
+      "context": "Preliminary field verification for November 2026. Parcel identifiers are synthetic; a flag is not a finding of unlawful occupation. The circle office must verify land classification, ownership and service of notice before proceeding.",
+      "headers": [
+        "Circle",
+        "Parcels flagged",
+        "Notices awaiting review",
+        "Evidence outstanding"
+      ],
+      "rows": [
+        [
+          "Dispur",
+          7,
+          2,
+          "Updated cadastral extract"
+        ],
+        [
+          "Guwahati",
+          6,
+          3,
+          "Boundary reconciliation"
+        ],
+        [
+          "Chandrapur",
+          5,
+          1,
+          "Field sketch confirmation"
+        ]
+      ],
+      "actions": [
+        "Ananya Sharma to reconcile the 18 parcel files by 27 Nov.",
+        "Route six draft notices to the designated reviewer; do not issue without approval.",
+        "Retain original field sketches and record any objections."
+      ],
+      "decision": "Pending verification and notice review; no eviction or final finding is authorized.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Kamrup_Metro_Land_Encroachment_Report_2026.pdf",
+      "relatedIds": [
+        "D004",
+        "D020",
+        "D021",
+        "D040",
+        "D041",
+        "D044"
+      ],
+      "searchText": "Field team identified 18 parcels for verification; 6 notices are awaiting officer review.\nPreliminary field verification for November 2026. Parcel identifiers are synthetic; a flag is not a finding of unlawful occupation. The circle office must verify land classification, ownership and service of notice before proceeding.\nCircle | Parcels flagged | Notices awaiting review | Evidence outstanding\nDispur | 7 | 2 | Updated cadastral extract\nGuwahati | 6 | 3 | Boundary reconciliation\nChandrapur | 5 | 1 | Field sketch confirmation\nAnanya Sharma to reconcile the 18 parcel files by 27 Nov.\nRoute six draft notices to the designated reviewer; do not issue without approval.\nRetain original field sketches and record any objections.\nPending verification and notice review; no eviction or final finding is authorized."
+    },
+    {
+      "id": "D002",
+      "name": "Brahmaputra_Flood_Preparedness_Assessment_2026.pdf",
+      "department": "Disaster Management",
+      "district": "Dhemaji",
+      "project": "Flood readiness",
+      "source": "Google Drive",
+      "owner": "Pranjal Saikia",
+      "date": "2026-11-19",
+      "body": "Seven relief camps have been inspected; two require water supply repairs before activation.",
+      "kind": "PDF",
+      "title": "Brahmaputra flood preparedness assessment",
+      "context": "Post-monsoon readiness review in Dhemaji for future activation. The camp identifiers and capacities are illustrative; this is not a current emergency advisory.",
+      "headers": [
+        "Camp ID",
+        "Capacity (persons)",
+        "Water supply",
+        "Readiness"
+      ],
+      "rows": [
+        [
+          "RC-01",
+          120,
+          "Functional",
+          "Ready for review"
+        ],
+        [
+          "RC-02",
+          100,
+          "Functional",
+          "Ready for review"
+        ],
+        [
+          "RC-03",
+          150,
+          "Repair required",
+          "Conditional"
+        ],
+        [
+          "RC-04",
+          90,
+          "Functional",
+          "Ready for review"
+        ],
+        [
+          "RC-05",
+          110,
+          "Functional",
+          "Ready for review"
+        ],
+        [
+          "RC-06",
+          140,
+          "Repair required",
+          "Conditional"
+        ],
+        [
+          "RC-07",
+          80,
+          "Functional",
+          "Ready for review"
+        ]
+      ],
+      "actions": [
+        "Pranjal Saikia to obtain repair estimates for RC-03 and RC-06 by 27 Nov.",
+        "Check sanitation, access routes and stock records before any activation.",
+        "Record engineering follow-up with the Dhemaji embankment assessment (D015)."
+      ],
+      "decision": "Five camps ready for review; two conditional. Activation requires separate approval.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Brahmaputra_Flood_Preparedness_Assessment_2026.pdf",
+      "relatedIds": [
+        "D015",
+        "D022",
+        "D035",
+        "D042"
+      ],
+      "searchText": "Seven relief camps have been inspected; two require water supply repairs before activation.\nPost-monsoon readiness review in Dhemaji for future activation. The camp identifiers and capacities are illustrative; this is not a current emergency advisory.\nCamp ID | Capacity (persons) | Water supply | Readiness\nRC-01 | 120 | Functional | Ready for review\nRC-02 | 100 | Functional | Ready for review\nRC-03 | 150 | Repair required | Conditional\nRC-04 | 90 | Functional | Ready for review\nRC-05 | 110 | Functional | Ready for review\nRC-06 | 140 | Repair required | Conditional\nRC-07 | 80 | Functional | Ready for review\nPranjal Saikia to obtain repair estimates for RC-03 and RC-06 by 27 Nov.\nCheck sanitation, access routes and stock records before any activation.\nRecord engineering follow-up with the Dhemaji embankment assessment (D015).\nFive camps ready for review; two conditional. Activation requires separate approval."
+    },
+    {
+      "id": "D003",
+      "name": "PWD_Guwahati_Road_Inspection_Nov2026.xlsx",
+      "department": "PWD",
+      "district": "Kamrup Metro",
+      "project": "Road improvements",
+      "source": "Google Sheets",
+      "owner": "Rituparna Deka",
+      "date": "2026-11-20",
+      "body": "Inspection covered 12 road stretches; 3 need resurfacing and 2 need drainage repairs.",
+      "kind": "XLSX",
+      "title": "Guwahati road inspection register",
+      "context": "PWD visual inspection, 16–20 November 2026. Each row is an illustrative road stretch, not an actual road-condition assessment. Resurfacing and drainage categories are mutually exclusive in this register.",
+      "headers": [
+        "Stretch ID",
+        "Road stretch",
+        "Length (km)",
+        "Finding",
+        "Action status",
+        "Due date"
+      ],
+      "rows": [
+        [
+          "RD-01",
+          "GS Road",
+          1.2,
+          "Resurfacing",
+          "Estimate pending",
+          "2026-11-28"
+        ],
+        [
+          "RD-02",
+          "Beltola Road",
+          0.8,
+          "Drainage repair",
+          "Estimate pending",
+          "2026-11-28"
+        ],
+        [
+          "RD-03",
+          "Zoo Road",
+          1.1,
+          "Routine monitoring",
+          "Inspected",
+          "2026-12-05"
+        ],
+        [
+          "RD-04",
+          "VIP Road",
+          1.4,
+          "Resurfacing",
+          "Estimate pending",
+          "2026-11-28"
+        ],
+        [
+          "RD-05",
+          "AT Road",
+          0.7,
+          "Routine monitoring",
+          "Inspected",
+          "2026-12-05"
+        ],
+        [
+          "RD-06",
+          "RG Baruah Road",
+          1.0,
+          "Routine monitoring",
+          "Inspected",
+          "2026-12-05"
+        ],
+        [
+          "RD-07",
+          "Chandmari Road",
+          0.6,
+          "Routine monitoring",
+          "Inspected",
+          "2026-12-05"
+        ],
+        [
+          "RD-08",
+          "Lokhra Road",
+          1.3,
+          "Resurfacing",
+          "Estimate pending",
+          "2026-11-28"
+        ],
+        [
+          "RD-09",
+          "Maligaon Road",
+          0.9,
+          "Routine monitoring",
+          "Inspected",
+          "2026-12-05"
+        ],
+        [
+          "RD-10",
+          "Six Mile Road",
+          0.8,
+          "Drainage repair",
+          "Estimate pending",
+          "2026-11-28"
+        ],
+        [
+          "RD-11",
+          "Basistha Road",
+          1.1,
+          "Routine monitoring",
+          "Inspected",
+          "2026-12-05"
+        ],
+        [
+          "RD-12",
+          "Panjabari Road",
+          0.7,
+          "Routine monitoring",
+          "Inspected",
+          "2026-12-05"
+        ]
+      ],
+      "actions": [
+        "Rituparna Deka to prepare revised inspection note and separate drainage estimate.",
+        "Confirm measurements and budget head before submitting for review.",
+        "Cross-reference the DC meeting minutes D018 and tender review D019; no award is implied."
+      ],
+      "decision": "Five actionable stretches; revised estimate pending.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/PWD_Guwahati_Road_Inspection_Nov2026.xlsx",
+      "relatedIds": [
+        "D018",
+        "D023",
+        "D024",
+        "D038",
+        "D043"
+      ],
+      "searchText": "Inspection covered 12 road stretches; 3 need resurfacing and 2 need drainage repairs.\nPWD visual inspection, 16–20 November 2026. Each row is an illustrative road stretch, not an actual road-condition assessment. Resurfacing and drainage categories are mutually exclusive in this register.\nStretch ID | Road stretch | Length (km) | Finding | Action status | Due date\nRD-01 | GS Road | 1.2 | Resurfacing | Estimate pending | 2026-11-28\nRD-02 | Beltola Road | 0.8 | Drainage repair | Estimate pending | 2026-11-28\nRD-03 | Zoo Road | 1.1 | Routine monitoring | Inspected | 2026-12-05\nRD-04 | VIP Road | 1.4 | Resurfacing | Estimate pending | 2026-11-28\nRD-05 | AT Road | 0.7 | Routine monitoring | Inspected | 2026-12-05\nRD-06 | RG Baruah Road | 1.0 | Routine monitoring | Inspected | 2026-12-05\nRD-07 | Chandmari Road | 0.6 | Routine monitoring | Inspected | 2026-12-05\nRD-08 | Lokhra Road | 1.3 | Resurfacing | Estimate pending | 2026-11-28\nRD-09 | Maligaon Road | 0.9 | Routine monitoring | Inspected | 2026-12-05\nRD-10 | Six Mile Road | 0.8 | Drainage repair | Estimate pending | 2026-11-28\nRD-11 | Basistha Road | 1.1 | Routine monitoring | Inspected | 2026-12-05\nRD-12 | Panjabari Road | 0.7 | Routine monitoring | Inspected | 2026-12-05\nRituparna Deka to prepare revised inspection note and separate drainage estimate.\nConfirm measurements and budget head before submitting for review.\nCross-reference the DC meeting minutes D018 and tender review D019; no award is implied.\nFive actionable stretches; revised estimate pending."
+    },
+    {
+      "id": "D004",
+      "name": "Revenue_Circle_Office_Dispatch_Register_2026.xlsx",
+      "department": "Revenue",
+      "district": "Kamrup Metro",
+      "project": "Land records",
+      "source": "eOffice",
+      "owner": "Arindam Bora",
+      "date": "2026-11-21",
+      "body": "Of 42 dispatch entries, 35 were issued and 7 await signature.",
+      "kind": "XLSX",
+      "title": "Revenue circle office dispatch register",
+      "context": "November dispatch position as of 21 Nov. Entry references are synthetic and contain no citizen personal information. The seven unsigned entries must remain in the internal queue.",
+      "headers": [
+        "Dispatch ID",
+        "Date",
+        "Subject",
+        "Destination",
+        "Status"
+      ],
+      "rows": [
+        [
+          "DSP-2026-001",
+          "2026-11-10",
+          "Land verification note",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-002",
+          "2026-11-10",
+          "Record request",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-003",
+          "2026-11-10",
+          "Case review memo",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-004",
+          "2026-11-10",
+          "Routine acknowledgment",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-005",
+          "2026-11-11",
+          "Land verification note",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-006",
+          "2026-11-11",
+          "Record request",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-007",
+          "2026-11-11",
+          "Case review memo",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-008",
+          "2026-11-11",
+          "Routine acknowledgment",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-009",
+          "2026-11-12",
+          "Land verification note",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-010",
+          "2026-11-12",
+          "Record request",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-011",
+          "2026-11-12",
+          "Case review memo",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-012",
+          "2026-11-12",
+          "Routine acknowledgment",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-013",
+          "2026-11-13",
+          "Land verification note",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-014",
+          "2026-11-13",
+          "Record request",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-015",
+          "2026-11-13",
+          "Case review memo",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-016",
+          "2026-11-13",
+          "Routine acknowledgment",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-017",
+          "2026-11-14",
+          "Land verification note",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-018",
+          "2026-11-14",
+          "Record request",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-019",
+          "2026-11-14",
+          "Case review memo",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-020",
+          "2026-11-14",
+          "Routine acknowledgment",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-021",
+          "2026-11-15",
+          "Land verification note",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-022",
+          "2026-11-15",
+          "Record request",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-023",
+          "2026-11-15",
+          "Case review memo",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-024",
+          "2026-11-15",
+          "Routine acknowledgment",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-025",
+          "2026-11-16",
+          "Land verification note",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-026",
+          "2026-11-16",
+          "Record request",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-027",
+          "2026-11-16",
+          "Case review memo",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-028",
+          "2026-11-16",
+          "Routine acknowledgment",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-029",
+          "2026-11-17",
+          "Land verification note",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-030",
+          "2026-11-17",
+          "Record request",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-031",
+          "2026-11-17",
+          "Case review memo",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-032",
+          "2026-11-17",
+          "Routine acknowledgment",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-033",
+          "2026-11-18",
+          "Land verification note",
+          "Chandrapur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-034",
+          "2026-11-18",
+          "Record request",
+          "Dispur Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-035",
+          "2026-11-18",
+          "Case review memo",
+          "Guwahati Circle",
+          "Issued"
+        ],
+        [
+          "DSP-2026-036",
+          "2026-11-18",
+          "Routine acknowledgment",
+          "Chandrapur Circle",
+          "Awaiting signature"
+        ],
+        [
+          "DSP-2026-037",
+          "2026-11-19",
+          "Land verification note",
+          "Dispur Circle",
+          "Awaiting signature"
+        ],
+        [
+          "DSP-2026-038",
+          "2026-11-19",
+          "Record request",
+          "Guwahati Circle",
+          "Awaiting signature"
+        ],
+        [
+          "DSP-2026-039",
+          "2026-11-19",
+          "Case review memo",
+          "Chandrapur Circle",
+          "Awaiting signature"
+        ],
+        [
+          "DSP-2026-040",
+          "2026-11-19",
+          "Routine acknowledgment",
+          "Dispur Circle",
+          "Awaiting signature"
+        ],
+        [
+          "DSP-2026-041",
+          "2026-11-20",
+          "Land verification note",
+          "Guwahati Circle",
+          "Awaiting signature"
+        ],
+        [
+          "DSP-2026-042",
+          "2026-11-20",
+          "Record request",
+          "Chandrapur Circle",
+          "Awaiting signature"
+        ]
+      ],
+      "actions": [
+        "Arindam Bora to reconcile dispatch IDs 036–042 against the signature queue.",
+        "Verify recipient and document version prior to dispatch."
+      ],
+      "decision": "35 issued; seven awaiting signature.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Revenue_Circle_Office_Dispatch_Register_2026.xlsx",
+      "relatedIds": [
+        "D001",
+        "D020",
+        "D021",
+        "D040",
+        "D041",
+        "D044"
+      ],
+      "searchText": "Of 42 dispatch entries, 35 were issued and 7 await signature.\nNovember dispatch position as of 21 Nov. Entry references are synthetic and contain no citizen personal information. The seven unsigned entries must remain in the internal queue.\nDispatch ID | Date | Subject | Destination | Status\nDSP-2026-001 | 2026-11-10 | Land verification note | Dispur Circle | Issued\nDSP-2026-002 | 2026-11-10 | Record request | Guwahati Circle | Issued\nDSP-2026-003 | 2026-11-10 | Case review memo | Chandrapur Circle | Issued\nDSP-2026-004 | 2026-11-10 | Routine acknowledgment | Dispur Circle | Issued\nDSP-2026-005 | 2026-11-11 | Land verification note | Guwahati Circle | Issued\nDSP-2026-006 | 2026-11-11 | Record request | Chandrapur Circle | Issued\nDSP-2026-007 | 2026-11-11 | Case review memo | Dispur Circle | Issued\nDSP-2026-008 | 2026-11-11 | Routine acknowledgment | Guwahati Circle | Issued\nDSP-2026-009 | 2026-11-12 | Land verification note | Chandrapur Circle | Issued\nDSP-2026-010 | 2026-11-12 | Record request | Dispur Circle | Issued\nDSP-2026-011 | 2026-11-12 | Case review memo | Guwahati Circle | Issued\nDSP-2026-012 | 2026-11-12 | Routine acknowledgment | Chandrapur Circle | Issued\nDSP-2026-013 | 2026-11-13 | Land verification note | Dispur Circle | Issued\nDSP-2026-014 | 2026-11-13 | Record request | Guwahati Circle | Issued\nDSP-2026-015 | 2026-11-13 | Case review memo | Chandrapur Circle | Issued\nDSP-2026-016 | 2026-11-13 | Routine acknowledgment | Dispur Circle | Issued\nDSP-2026-017 | 2026-11-14 | Land verification note | Guwahati Circle | Issued\nDSP-2026-018 | 2026-11-14 | Record request | Chandrapur Circle | Issued\nDSP-2026-019 | 2026-11-14 | Case review memo | Dispur Circle | Issued\nDSP-2026-020 | 2026-11-14 | Routine acknowledgment | Guwahati Circle | Issued\nDSP-2026-021 | 2026-11-15 | Land verification note | Chandrapur Circle | Issued\nDSP-2026-022 | 2026-11-15 | Record request | Dispur Circle | Issued\nDSP-2026-023 | 2026-11-15 | Case review memo | Guwahati Circle | Issued\nDSP-2026-024 | 2026-11-15 | Routine acknowledgment | Chandrapur Circle | Issued\nDSP-2026-025 | 2026-11-16 | Land verification note | Dispur Circle | Issued\nDSP-2026-026 | 2026-11-16 | Record request | Guwahati Circle | Issued\nDSP-2026-027 | 2026-11-16 | Case review memo | Chandrapur Circle | Issued\nDSP-2026-028 | 2026-11-16 | Routine acknowledgment | Dispur Circle | Issued\nDSP-2026-029 | 2026-11-17 | Land verification note | Guwahati Circle | Issued\nDSP-2026-030 | 2026-11-17 | Record request | Chandrapur Circle | Issued\nDSP-2026-031 | 2026-11-17 | Case review memo | Dispur Circle | Issued\nDSP-2026-032 | 2026-11-17 | Routine acknowledgment | Guwahati Circle | Issued\nDSP-2026-033 | 2026-11-18 | Land verification note | Chandrapur Circle | Issued\nDSP-2026-034 | 2026-11-18 | Record request | Dispur Circle | Issued\nDSP-2026-035 | 2026-11-18 | Case review memo | Guwahati Circle | Issued\nDSP-2026-036 | 2026-11-18 | Routine acknowledgment | Chandrapur Circle | Awaiting signature\nDSP-2026-037 | 2026-11-19 | Land verification note | Dispur Circle | Awaiting signature\nDSP-2026-038 | 2026-11-19 | Record request | Guwahati Circle | Awaiting signature\nDSP-2026-039 | 2026-11-19 | Case review memo | Chandrapur Circle | Awaiting signature\nDSP-2026-040 | 2026-11-19 | Routine acknowledgment | Dispur Circle | Awaiting signature\nDSP-2026-041 | 2026-11-20 | Land verification note | Guwahati Circle | Awaiting signature\nDSP-2026-042 | 2026-11-20 | Record request | Chandrapur Circle | Awaiting signature\nArindam Bora to reconcile dispatch IDs 036–042 against the signature queue.\nVerify recipient and document version prior to dispatch.\n35 issued; seven awaiting signature."
+    },
+    {
+      "id": "D005",
+      "name": "Dibrugarh_District_Health_Infrastructure_Review.pdf",
+      "department": "Health",
+      "district": "Dibrugarh",
+      "project": "Health upgrades",
+      "source": "SharePoint",
+      "owner": "Mousumi Kalita",
+      "date": "2026-11-22",
+      "body": "Four facilities inspected; two require equipment procurement.",
+      "kind": "PDF",
+      "title": "Dibrugarh health infrastructure review",
+      "context": "Four anonymized public facility records were reviewed for basic equipment availability and maintenance. No patient records are included.",
+      "headers": [
+        "Facility ID",
+        "Facility type",
+        "Finding",
+        "Next step"
+      ],
+      "rows": [
+        [
+          "DIB-H01",
+          "Primary health centre",
+          "Laboratory centrifuge unavailable",
+          "Procurement assessment"
+        ],
+        [
+          "DIB-H02",
+          "Community health centre",
+          "Oxygen concentrator replacement required",
+          "Procurement assessment"
+        ],
+        [
+          "DIB-H03",
+          "Primary health centre",
+          "Equipment serviceable",
+          "Routine maintenance"
+        ],
+        [
+          "DIB-H04",
+          "Sub-centre",
+          "Equipment serviceable",
+          "Routine maintenance"
+        ]
+      ],
+      "actions": [
+        "Mousumi Kalita to obtain inventory verification and specifications by 29 Nov.",
+        "Confirm budget availability before initiating procurement."
+      ],
+      "decision": "Two procurement assessments pending; no purchase order issued.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Dibrugarh_District_Health_Infrastructure_Review.pdf",
+      "relatedIds": [
+        "D025",
+        "D045"
+      ],
+      "searchText": "Four facilities inspected; two require equipment procurement.\nFour anonymized public facility records were reviewed for basic equipment availability and maintenance. No patient records are included.\nFacility ID | Facility type | Finding | Next step\nDIB-H01 | Primary health centre | Laboratory centrifuge unavailable | Procurement assessment\nDIB-H02 | Community health centre | Oxygen concentrator replacement required | Procurement assessment\nDIB-H03 | Primary health centre | Equipment serviceable | Routine maintenance\nDIB-H04 | Sub-centre | Equipment serviceable | Routine maintenance\nMousumi Kalita to obtain inventory verification and specifications by 29 Nov.\nConfirm budget availability before initiating procurement.\nTwo procurement assessments pending; no purchase order issued."
+    },
+    {
+      "id": "D006",
+      "name": "Jorhat_School_Inspection_Summary_2026.docx",
+      "department": "Education",
+      "district": "Jorhat",
+      "project": "School inspection",
+      "source": "Google Docs",
+      "owner": "Diganta Hazarika",
+      "date": "2026-11-23",
+      "body": "Nine schools inspected; three require sanitation improvements.",
+      "kind": "DOCX",
+      "title": "Jorhat school inspection summary",
+      "context": "Inspection sample covering nine anonymized schools. The team reviewed drinking water, sanitation, classroom maintenance and record completeness. Findings are fictional.",
+      "headers": [
+        "School ID",
+        "Sanitation",
+        "Water",
+        "Follow-up"
+      ],
+      "rows": [
+        [
+          "JOR-S01",
+          "Satisfactory",
+          "Available",
+          "Routine monitoring"
+        ],
+        [
+          "JOR-S02",
+          "Improvement needed",
+          "Available",
+          "Repair plan"
+        ],
+        [
+          "JOR-S03",
+          "Satisfactory",
+          "Available",
+          "Routine monitoring"
+        ],
+        [
+          "JOR-S04",
+          "Satisfactory",
+          "Available",
+          "Routine monitoring"
+        ],
+        [
+          "JOR-S05",
+          "Improvement needed",
+          "Available",
+          "Repair plan"
+        ],
+        [
+          "JOR-S06",
+          "Satisfactory",
+          "Available",
+          "Routine monitoring"
+        ],
+        [
+          "JOR-S07",
+          "Satisfactory",
+          "Available",
+          "Routine monitoring"
+        ],
+        [
+          "JOR-S08",
+          "Improvement needed",
+          "Available",
+          "Repair plan"
+        ],
+        [
+          "JOR-S09",
+          "Satisfactory",
+          "Available",
+          "Routine monitoring"
+        ]
+      ],
+      "actions": [
+        "Diganta Hazarika to request repair plans for JOR-S02, S05 and S08.",
+        "Record completion evidence and arrange a follow-up inspection."
+      ],
+      "decision": "Three schools need sanitation improvements; six routine monitoring.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Jorhat_School_Inspection_Summary_2026.docx",
+      "relatedIds": [
+        "D026",
+        "D046"
+      ],
+      "searchText": "Nine schools inspected; three require sanitation improvements.\nInspection sample covering nine anonymized schools. The team reviewed drinking water, sanitation, classroom maintenance and record completeness. Findings are fictional.\nSchool ID | Sanitation | Water | Follow-up\nJOR-S01 | Satisfactory | Available | Routine monitoring\nJOR-S02 | Improvement needed | Available | Repair plan\nJOR-S03 | Satisfactory | Available | Routine monitoring\nJOR-S04 | Satisfactory | Available | Routine monitoring\nJOR-S05 | Improvement needed | Available | Repair plan\nJOR-S06 | Satisfactory | Available | Routine monitoring\nJOR-S07 | Satisfactory | Available | Routine monitoring\nJOR-S08 | Improvement needed | Available | Repair plan\nJOR-S09 | Satisfactory | Available | Routine monitoring\nDiganta Hazarika to request repair plans for JOR-S02, S05 and S08.\nRecord completion evidence and arrange a follow-up inspection.\nThree schools need sanitation improvements; six routine monitoring."
+    },
+    {
+      "id": "D007",
+      "name": "Majuli_Erosion_Mitigation_Proposal.pdf",
+      "department": "Water Resources",
+      "district": "Majuli",
+      "project": "Erosion mitigation",
+      "source": "Google Drive",
+      "owner": "Priyanka Gogoi",
+      "date": "2026-11-18",
+      "body": "Proposal covers two vulnerable riverbank sections; technical review is pending.",
+      "kind": "PDF",
+      "title": "Majuli erosion mitigation proposal",
+      "context": "Preliminary concept for two riverbank sections. Proposed treatment and estimated quantities are for demonstration only; hydraulic modelling, environmental review and engineering sanction are outstanding.",
+      "headers": [
+        "Section",
+        "Length (m)",
+        "Observed issue",
+        "Proposed review"
+      ],
+      "rows": [
+        [
+          "MJL-E01",
+          450,
+          "Bank retreat",
+          "Survey and toe protection options"
+        ],
+        [
+          "MJL-E02",
+          320,
+          "Localized scour",
+          "Hydraulic assessment and bank stabilization options"
+        ]
+      ],
+      "actions": [
+        "Priyanka Gogoi to arrange joint technical survey by 30 Nov.",
+        "Obtain cost estimates, environmental screening and design alternatives."
+      ],
+      "decision": "Technical review pending; no construction authorization.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Majuli_Erosion_Mitigation_Proposal.pdf",
+      "relatedIds": [
+        "D027",
+        "D047"
+      ],
+      "searchText": "Proposal covers two vulnerable riverbank sections; technical review is pending.\nPreliminary concept for two riverbank sections. Proposed treatment and estimated quantities are for demonstration only; hydraulic modelling, environmental review and engineering sanction are outstanding.\nSection | Length (m) | Observed issue | Proposed review\nMJL-E01 | 450 | Bank retreat | Survey and toe protection options\nMJL-E02 | 320 | Localized scour | Hydraulic assessment and bank stabilization options\nPriyanka Gogoi to arrange joint technical survey by 30 Nov.\nObtain cost estimates, environmental screening and design alternatives.\nTechnical review pending; no construction authorization."
+    },
+    {
+      "id": "D008",
+      "name": "Sivasagar_Wetland_Conservation_Records.xlsx",
+      "department": "Environment",
+      "district": "Sivasagar",
+      "project": "Wetland conservation",
+      "source": "BigQuery",
+      "owner": "Nilutpal Das",
+      "date": "2026-11-19",
+      "body": "Survey recorded 14 water bodies; five require follow-up monitoring.",
+      "kind": "XLSX",
+      "title": "Sivasagar wetland conservation records",
+      "context": "Illustrative November inventory of 14 water bodies. Follow-up is based on visible vegetation, waste or inlet obstruction; it does not establish legal boundaries or ecological status.",
+      "headers": [
+        "Water body ID",
+        "Area (ha)",
+        "Observation",
+        "Status"
+      ],
+      "rows": [
+        [
+          "SIV-W01",
+          12,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W02",
+          8.5,
+          "Inlet obstruction",
+          "Follow-up"
+        ],
+        [
+          "SIV-W03",
+          6,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W04",
+          14,
+          "Vegetation expansion",
+          "Follow-up"
+        ],
+        [
+          "SIV-W05",
+          4,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W06",
+          7,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W07",
+          9,
+          "Vegetation expansion",
+          "Follow-up"
+        ],
+        [
+          "SIV-W08",
+          11,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W09",
+          5,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W10",
+          15,
+          "Vegetation expansion",
+          "Follow-up"
+        ],
+        [
+          "SIV-W11",
+          3.5,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W12",
+          8,
+          "No immediate issue recorded",
+          "Routine"
+        ],
+        [
+          "SIV-W13",
+          10,
+          "Vegetation expansion",
+          "Follow-up"
+        ],
+        [
+          "SIV-W14",
+          6.5,
+          "No immediate issue recorded",
+          "Routine"
+        ]
+      ],
+      "actions": [
+        "Nilutpal Das to schedule repeat observations for five flagged records.",
+        "Document field evidence and compare with the previous survey."
+      ],
+      "decision": "Five follow-ups, nine routine records.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Sivasagar_Wetland_Conservation_Records.xlsx",
+      "relatedIds": [
+        "D028",
+        "D048"
+      ],
+      "searchText": "Survey recorded 14 water bodies; five require follow-up monitoring.\nIllustrative November inventory of 14 water bodies. Follow-up is based on visible vegetation, waste or inlet obstruction; it does not establish legal boundaries or ecological status.\nWater body ID | Area (ha) | Observation | Status\nSIV-W01 | 12 | No immediate issue recorded | Routine\nSIV-W02 | 8.5 | Inlet obstruction | Follow-up\nSIV-W03 | 6 | No immediate issue recorded | Routine\nSIV-W04 | 14 | Vegetation expansion | Follow-up\nSIV-W05 | 4 | No immediate issue recorded | Routine\nSIV-W06 | 7 | No immediate issue recorded | Routine\nSIV-W07 | 9 | Vegetation expansion | Follow-up\nSIV-W08 | 11 | No immediate issue recorded | Routine\nSIV-W09 | 5 | No immediate issue recorded | Routine\nSIV-W10 | 15 | Vegetation expansion | Follow-up\nSIV-W11 | 3.5 | No immediate issue recorded | Routine\nSIV-W12 | 8 | No immediate issue recorded | Routine\nSIV-W13 | 10 | Vegetation expansion | Follow-up\nSIV-W14 | 6.5 | No immediate issue recorded | Routine\nNilutpal Das to schedule repeat observations for five flagged records.\nDocument field evidence and compare with the previous survey.\nFive follow-ups, nine routine records."
+    },
+    {
+      "id": "D009",
+      "name": "Nagaon_Land_Revenue_Case_Review_2026.pdf",
+      "department": "Revenue",
+      "district": "Nagaon",
+      "project": "Land records",
+      "source": "eOffice",
+      "owner": "Junmoni Baruah",
+      "date": "2026-11-20",
+      "body": "Twenty-four cases reviewed; eight require additional ownership documents.",
+      "kind": "PDF",
+      "title": "Nagaon land revenue case review",
+      "context": "Case review of 24 anonymized land revenue files. The classification concerns documentary completeness only; no ownership determination is made.",
+      "headers": [
+        "Case group",
+        "Cases reviewed",
+        "Documents missing",
+        "Remaining cases"
+      ],
+      "rows": [
+        [
+          "Mutation",
+          10,
+          4,
+          6
+        ],
+        [
+          "Record correction",
+          8,
+          2,
+          6
+        ],
+        [
+          "Inheritance-related review",
+          6,
+          2,
+          4
+        ]
+      ],
+      "actions": [
+        "Junmoni Baruah to issue internal document requests for eight cases, subject to review.",
+        "Verify title records and preserve existing file versions."
+      ],
+      "decision": "Eight incomplete cases; 16 may proceed to substantive review.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Nagaon_Land_Revenue_Case_Review_2026.pdf",
+      "relatedIds": [
+        "D029",
+        "D049"
+      ],
+      "searchText": "Twenty-four cases reviewed; eight require additional ownership documents.\nCase review of 24 anonymized land revenue files. The classification concerns documentary completeness only; no ownership determination is made.\nCase group | Cases reviewed | Documents missing | Remaining cases\nMutation | 10 | 4 | 6\nRecord correction | 8 | 2 | 6\nInheritance-related review | 6 | 2 | 4\nJunmoni Baruah to issue internal document requests for eight cases, subject to review.\nVerify title records and preserve existing file versions.\nEight incomplete cases; 16 may proceed to substantive review."
+    },
+    {
+      "id": "D010",
+      "name": "Barpeta_Flood_Relief_Allocation_Statement.xlsx",
+      "department": "Disaster Management",
+      "district": "Barpeta",
+      "project": "Flood readiness",
+      "source": "PFMS",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-21",
+      "body": "Allocation covers 800 relief kits; 620 are recorded as distributed.",
+      "kind": "XLSX",
+      "title": "Barpeta flood relief allocation statement",
+      "context": "Stock allocation and distribution ledger as of 21 Nov. Quantities refer to relief kits, not people. Distribution figures are recorded quantities and need reconciliation with acknowledgment records.",
+      "headers": [
+        "Distribution point",
+        "Allocated kits",
+        "Distributed kits",
+        "Undistributed kits"
+      ],
+      "rows": [
+        [
+          "Barpeta sector A",
+          200,
+          170,
+          30
+        ],
+        [
+          "Bajali sector B",
+          180,
+          150,
+          30
+        ],
+        [
+          "Chenga sector C",
+          160,
+          110,
+          50
+        ],
+        [
+          "Sarthebari sector D",
+          140,
+          100,
+          40
+        ],
+        [
+          "Baghbar sector E",
+          120,
+          90,
+          30
+        ]
+      ],
+      "actions": [
+        "Ananya Sharma to reconcile remaining 180 kits with stock ledgers.",
+        "Check acknowledgment records before closing distribution entries."
+      ],
+      "decision": "800 allocated; 620 distributed; 180 balance.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Barpeta_Flood_Relief_Allocation_Statement.xlsx",
+      "relatedIds": [
+        "D030",
+        "D050"
+      ],
+      "searchText": "Allocation covers 800 relief kits; 620 are recorded as distributed.\nStock allocation and distribution ledger as of 21 Nov. Quantities refer to relief kits, not people. Distribution figures are recorded quantities and need reconciliation with acknowledgment records.\nDistribution point | Allocated kits | Distributed kits | Undistributed kits\nBarpeta sector A | 200 | 170 | 30\nBajali sector B | 180 | 150 | 30\nChenga sector C | 160 | 110 | 50\nSarthebari sector D | 140 | 100 | 40\nBaghbar sector E | 120 | 90 | 30\nAnanya Sharma to reconcile remaining 180 kits with stock ledgers.\nCheck acknowledgment records before closing distribution entries.\n800 allocated; 620 distributed; 180 balance."
+    },
+    {
+      "id": "D011",
+      "name": "Sonitpur_Rural_Road_Progress_Report.docx",
+      "department": "PWD",
+      "district": "Sonitpur",
+      "project": "Road improvements",
+      "source": "SharePoint",
+      "owner": "Pranjal Saikia",
+      "date": "2026-11-22",
+      "body": "Six kilometres completed against a nine kilometre target; contractor update pending.",
+      "kind": "DOCX",
+      "title": "Sonitpur rural road progress report",
+      "context": "Progress assessment for a fictional nine-kilometre rural road package. Lengths represent reported completion, subject to measurement book verification.",
+      "headers": [
+        "Package",
+        "Target km",
+        "Completed km",
+        "Remaining km"
+      ],
+      "rows": [
+        [
+          "SNT-R01",
+          3,
+          3,
+          0
+        ],
+        [
+          "SNT-R02",
+          4,
+          2,
+          2
+        ],
+        [
+          "SNT-R03",
+          2,
+          1,
+          1
+        ]
+      ],
+      "actions": [
+        "Pranjal Saikia to request contractor progress update by 27 Nov.",
+        "Validate remaining three kilometres against measurement and work schedule."
+      ],
+      "decision": "6 of 9 km reported complete; contractor update pending.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Sonitpur_Rural_Road_Progress_Report.docx",
+      "relatedIds": [
+        "D031"
+      ],
+      "searchText": "Six kilometres completed against a nine kilometre target; contractor update pending.\nProgress assessment for a fictional nine-kilometre rural road package. Lengths represent reported completion, subject to measurement book verification.\nPackage | Target km | Completed km | Remaining km\nSNT-R01 | 3 | 3 | 0\nSNT-R02 | 4 | 2 | 2\nSNT-R03 | 2 | 1 | 1\nPranjal Saikia to request contractor progress update by 27 Nov.\nValidate remaining three kilometres against measurement and work schedule.\n6 of 9 km reported complete; contractor update pending."
+    },
+    {
+      "id": "D012",
+      "name": "Cachar_District_Project_Expenditure_2026.xlsx",
+      "department": "Finance",
+      "district": "Cachar",
+      "project": "Expenditure review",
+      "source": "BigQuery",
+      "owner": "Rituparna Deka",
+      "date": "2026-11-23",
+      "body": "Recorded expenditure is ₹32 lakh against ₹50 lakh allocated.",
+      "kind": "XLSX",
+      "title": "Cachar district project expenditure statement",
+      "context": "Illustrative financial position as of 23 Nov. All amounts are in INR lakh. Recorded expenditure does not imply final audit clearance.",
+      "headers": [
+        "Project code",
+        "Budget head",
+        "Allocation (INR lakh)",
+        "Expenditure (INR lakh)",
+        "Balance (INR lakh)"
+      ],
+      "rows": [
+        [
+          "CAC-01",
+          "Road maintenance",
+          18,
+          12,
+          6
+        ],
+        [
+          "CAC-02",
+          "Health equipment",
+          12,
+          8,
+          4
+        ],
+        [
+          "CAC-03",
+          "Water supply",
+          10,
+          7,
+          3
+        ],
+        [
+          "CAC-04",
+          "School repairs",
+          10,
+          5,
+          5
+        ]
+      ],
+      "actions": [
+        "Rituparna Deka to match expenditure with vouchers and approved budget heads.",
+        "Escalate discrepancies before releasing any remaining allocation."
+      ],
+      "decision": "INR 32 lakh spent of INR 50 lakh; 64% utilization; INR 18 lakh balance.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Cachar_District_Project_Expenditure_2026.xlsx",
+      "relatedIds": [
+        "D032"
+      ],
+      "searchText": "Recorded expenditure is ₹32 lakh against ₹50 lakh allocated.\nIllustrative financial position as of 23 Nov. All amounts are in INR lakh. Recorded expenditure does not imply final audit clearance.\nProject code | Budget head | Allocation (INR lakh) | Expenditure (INR lakh) | Balance (INR lakh)\nCAC-01 | Road maintenance | 18 | 12 | 6\nCAC-02 | Health equipment | 12 | 8 | 4\nCAC-03 | Water supply | 10 | 7 | 3\nCAC-04 | School repairs | 10 | 5 | 5\nRituparna Deka to match expenditure with vouchers and approved budget heads.\nEscalate discrepancies before releasing any remaining allocation.\nINR 32 lakh spent of INR 50 lakh; 64% utilization; INR 18 lakh balance."
+    },
+    {
+      "id": "D013",
+      "name": "Tinsukia_Forest_Encroachment_Field_Report.pdf",
+      "department": "Environment",
+      "district": "Tinsukia",
+      "project": "Wetland conservation",
+      "source": "Google Drive",
+      "owner": "Arindam Bora",
+      "date": "2026-11-18",
+      "body": "Field team documented four locations for joint verification.",
+      "kind": "PDF",
+      "title": "Tinsukia forest encroachment field report",
+      "context": "Preliminary observations at four anonymized sites. Site IDs are fictional and no legal boundary, landholder or enforcement conclusion is asserted.",
+      "headers": [
+        "Site ID",
+        "Observation",
+        "Evidence needed",
+        "Status"
+      ],
+      "rows": [
+        [
+          "TIN-F01",
+          "Boundary marker discrepancy",
+          "Joint survey sketch",
+          "Pending"
+        ],
+        [
+          "TIN-F02",
+          "Temporary structure observed",
+          "Land classification",
+          "Pending"
+        ],
+        [
+          "TIN-F03",
+          "Clearing observed",
+          "Historic imagery and survey",
+          "Pending"
+        ],
+        [
+          "TIN-F04",
+          "Cultivation near mapped boundary",
+          "Boundary reconciliation",
+          "Pending"
+        ]
+      ],
+      "actions": [
+        "Arindam Bora to coordinate joint revenue and forest verification.",
+        "Record evidence and obtain competent authority review before any action."
+      ],
+      "decision": "Four sites awaiting joint verification.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Tinsukia_Forest_Encroachment_Field_Report.pdf",
+      "relatedIds": [
+        "D033"
+      ],
+      "searchText": "Field team documented four locations for joint verification.\nPreliminary observations at four anonymized sites. Site IDs are fictional and no legal boundary, landholder or enforcement conclusion is asserted.\nSite ID | Observation | Evidence needed | Status\nTIN-F01 | Boundary marker discrepancy | Joint survey sketch | Pending\nTIN-F02 | Temporary structure observed | Land classification | Pending\nTIN-F03 | Clearing observed | Historic imagery and survey | Pending\nTIN-F04 | Cultivation near mapped boundary | Boundary reconciliation | Pending\nArindam Bora to coordinate joint revenue and forest verification.\nRecord evidence and obtain competent authority review before any action.\nFour sites awaiting joint verification."
+    },
+    {
+      "id": "D014",
+      "name": "Golaghat_Circle_Office_Pending_Cases.xlsx",
+      "department": "Revenue",
+      "district": "Golaghat",
+      "project": "Land records",
+      "source": "Google Sheets",
+      "owner": "Mousumi Kalita",
+      "date": "2026-11-19",
+      "body": "Thirty-two cases remain open, including nine older than 30 days.",
+      "kind": "XLSX",
+      "title": "Golaghat circle office pending cases",
+      "context": "Snapshot of 32 open cases as of 19 Nov. Age is days since registration, with older than 30 days defined strictly as age > 30.",
+      "headers": [
+        "Case ID",
+        "Category",
+        "Age (days)",
+        "Assigned desk",
+        "Status"
+      ],
+      "rows": [
+        [
+          "GOL-001",
+          "Mutation",
+          45,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-002",
+          "Record correction",
+          41,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-003",
+          "Partition review",
+          38,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-004",
+          "Mutation",
+          36,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-005",
+          "Record correction",
+          35,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-006",
+          "Partition review",
+          34,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-007",
+          "Mutation",
+          33,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-008",
+          "Record correction",
+          32,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-009",
+          "Partition review",
+          31,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-010",
+          "Mutation",
+          1,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-011",
+          "Record correction",
+          2,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-012",
+          "Partition review",
+          3,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-013",
+          "Mutation",
+          4,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-014",
+          "Record correction",
+          5,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-015",
+          "Partition review",
+          6,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-016",
+          "Mutation",
+          7,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-017",
+          "Record correction",
+          8,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-018",
+          "Partition review",
+          9,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-019",
+          "Mutation",
+          10,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-020",
+          "Record correction",
+          11,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-021",
+          "Partition review",
+          12,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-022",
+          "Mutation",
+          13,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-023",
+          "Record correction",
+          14,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-024",
+          "Partition review",
+          15,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-025",
+          "Mutation",
+          16,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-026",
+          "Record correction",
+          17,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-027",
+          "Partition review",
+          18,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-028",
+          "Mutation",
+          19,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-029",
+          "Record correction",
+          20,
+          "Desk B",
+          "Open"
+        ],
+        [
+          "GOL-030",
+          "Partition review",
+          21,
+          "Desk C",
+          "Open"
+        ],
+        [
+          "GOL-031",
+          "Mutation",
+          22,
+          "Desk A",
+          "Open"
+        ],
+        [
+          "GOL-032",
+          "Record correction",
+          23,
+          "Desk B",
+          "Open"
+        ]
+      ],
+      "actions": [
+        "Mousumi Kalita to prioritize the nine cases over 30 days.",
+        "Check missing documents and record reasons for delay."
+      ],
+      "decision": "32 open, including nine older than 30 days.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Golaghat_Circle_Office_Pending_Cases.xlsx",
+      "relatedIds": [
+        "D034"
+      ],
+      "searchText": "Thirty-two cases remain open, including nine older than 30 days.\nSnapshot of 32 open cases as of 19 Nov. Age is days since registration, with older than 30 days defined strictly as age > 30.\nCase ID | Category | Age (days) | Assigned desk | Status\nGOL-001 | Mutation | 45 | Desk A | Open\nGOL-002 | Record correction | 41 | Desk B | Open\nGOL-003 | Partition review | 38 | Desk C | Open\nGOL-004 | Mutation | 36 | Desk A | Open\nGOL-005 | Record correction | 35 | Desk B | Open\nGOL-006 | Partition review | 34 | Desk C | Open\nGOL-007 | Mutation | 33 | Desk A | Open\nGOL-008 | Record correction | 32 | Desk B | Open\nGOL-009 | Partition review | 31 | Desk C | Open\nGOL-010 | Mutation | 1 | Desk A | Open\nGOL-011 | Record correction | 2 | Desk B | Open\nGOL-012 | Partition review | 3 | Desk C | Open\nGOL-013 | Mutation | 4 | Desk A | Open\nGOL-014 | Record correction | 5 | Desk B | Open\nGOL-015 | Partition review | 6 | Desk C | Open\nGOL-016 | Mutation | 7 | Desk A | Open\nGOL-017 | Record correction | 8 | Desk B | Open\nGOL-018 | Partition review | 9 | Desk C | Open\nGOL-019 | Mutation | 10 | Desk A | Open\nGOL-020 | Record correction | 11 | Desk B | Open\nGOL-021 | Partition review | 12 | Desk C | Open\nGOL-022 | Mutation | 13 | Desk A | Open\nGOL-023 | Record correction | 14 | Desk B | Open\nGOL-024 | Partition review | 15 | Desk C | Open\nGOL-025 | Mutation | 16 | Desk A | Open\nGOL-026 | Record correction | 17 | Desk B | Open\nGOL-027 | Partition review | 18 | Desk C | Open\nGOL-028 | Mutation | 19 | Desk A | Open\nGOL-029 | Record correction | 20 | Desk B | Open\nGOL-030 | Partition review | 21 | Desk C | Open\nGOL-031 | Mutation | 22 | Desk A | Open\nGOL-032 | Record correction | 23 | Desk B | Open\nMousumi Kalita to prioritize the nine cases over 30 days.\nCheck missing documents and record reasons for delay.\n32 open, including nine older than 30 days."
+    },
+    {
+      "id": "D015",
+      "name": "Dhemaji_Embankment_Inspection_Notes.pdf",
+      "department": "Water Resources",
+      "district": "Dhemaji",
+      "project": "Flood readiness",
+      "source": "OneDrive",
+      "owner": "Diganta Hazarika",
+      "date": "2026-11-20",
+      "body": "Three embankment sections checked; one requires urgent engineering assessment.",
+      "kind": "PDF",
+      "title": "Dhemaji embankment inspection notes",
+      "context": "Visual inspection of three fictional sections. This is not a safety certificate or a hydraulic engineering assessment.",
+      "headers": [
+        "Section",
+        "Observation",
+        "Priority",
+        "Action"
+      ],
+      "rows": [
+        [
+          "DHM-EM01",
+          "Minor surface erosion",
+          "Routine",
+          "Monitor"
+        ],
+        [
+          "DHM-EM02",
+          "Localized settlement and seepage indication",
+          "Urgent",
+          "Engineering assessment"
+        ],
+        [
+          "DHM-EM03",
+          "Vegetation obstruction",
+          "Routine",
+          "Maintenance review"
+        ]
+      ],
+      "actions": [
+        "Diganta Hazarika to escalate DHM-EM02 for qualified engineering assessment.",
+        "Coordinate with camp readiness review D002; do not infer structural safety from visual notes."
+      ],
+      "decision": "One section requires urgent assessment; two routine follow-ups.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Dhemaji_Embankment_Inspection_Notes.pdf",
+      "relatedIds": [
+        "D002",
+        "D022",
+        "D035",
+        "D042"
+      ],
+      "searchText": "Three embankment sections checked; one requires urgent engineering assessment.\nVisual inspection of three fictional sections. This is not a safety certificate or a hydraulic engineering assessment.\nSection | Observation | Priority | Action\nDHM-EM01 | Minor surface erosion | Routine | Monitor\nDHM-EM02 | Localized settlement and seepage indication | Urgent | Engineering assessment\nDHM-EM03 | Vegetation obstruction | Routine | Maintenance review\nDiganta Hazarika to escalate DHM-EM02 for qualified engineering assessment.\nCoordinate with camp readiness review D002; do not infer structural safety from visual notes.\nOne section requires urgent assessment; two routine follow-ups."
+    },
+    {
+      "id": "D016",
+      "name": "Nalbari_Public_Grievance_Register_2026.xlsx",
+      "department": "Administration",
+      "district": "Nalbari",
+      "project": "Grievance resolution",
+      "source": "Google Sheets",
+      "owner": "Priyanka Gogoi",
+      "date": "2026-11-21",
+      "body": "Of 48 grievances, 36 are resolved and 12 remain open.",
+      "kind": "XLSX",
+      "title": "Nalbari public grievance register",
+      "context": "Anonymized public grievance snapshot as of 21 Nov. No citizen names, addresses or contact details are used. Resolved refers to recorded local closure, not verified citizen satisfaction.",
+      "headers": [
+        "Grievance ID",
+        "Category",
+        "Received date",
+        "Status",
+        "Resolution note"
+      ],
+      "rows": [
+        [
+          "NLB-G001",
+          "Road maintenance",
+          "2026-11-01",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G002",
+          "Water supply",
+          "2026-11-01",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G003",
+          "Revenue service",
+          "2026-11-01",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G004",
+          "Sanitation",
+          "2026-11-02",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G005",
+          "Road maintenance",
+          "2026-11-02",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G006",
+          "Water supply",
+          "2026-11-02",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G007",
+          "Revenue service",
+          "2026-11-03",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G008",
+          "Sanitation",
+          "2026-11-03",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G009",
+          "Road maintenance",
+          "2026-11-03",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G010",
+          "Water supply",
+          "2026-11-04",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G011",
+          "Revenue service",
+          "2026-11-04",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G012",
+          "Sanitation",
+          "2026-11-04",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G013",
+          "Road maintenance",
+          "2026-11-05",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G014",
+          "Water supply",
+          "2026-11-05",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G015",
+          "Revenue service",
+          "2026-11-05",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G016",
+          "Sanitation",
+          "2026-11-06",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G017",
+          "Road maintenance",
+          "2026-11-06",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G018",
+          "Water supply",
+          "2026-11-06",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G019",
+          "Revenue service",
+          "2026-11-07",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G020",
+          "Sanitation",
+          "2026-11-07",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G021",
+          "Road maintenance",
+          "2026-11-07",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G022",
+          "Water supply",
+          "2026-11-08",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G023",
+          "Revenue service",
+          "2026-11-08",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G024",
+          "Sanitation",
+          "2026-11-08",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G025",
+          "Road maintenance",
+          "2026-11-09",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G026",
+          "Water supply",
+          "2026-11-09",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G027",
+          "Revenue service",
+          "2026-11-09",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G028",
+          "Sanitation",
+          "2026-11-10",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G029",
+          "Road maintenance",
+          "2026-11-10",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G030",
+          "Water supply",
+          "2026-11-10",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G031",
+          "Revenue service",
+          "2026-11-11",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G032",
+          "Sanitation",
+          "2026-11-11",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G033",
+          "Road maintenance",
+          "2026-11-11",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G034",
+          "Water supply",
+          "2026-11-12",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G035",
+          "Revenue service",
+          "2026-11-12",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G036",
+          "Sanitation",
+          "2026-11-12",
+          "Resolved",
+          "Closure recorded"
+        ],
+        [
+          "NLB-G037",
+          "Road maintenance",
+          "2026-11-13",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G038",
+          "Water supply",
+          "2026-11-13",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G039",
+          "Revenue service",
+          "2026-11-13",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G040",
+          "Sanitation",
+          "2026-11-14",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G041",
+          "Road maintenance",
+          "2026-11-14",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G042",
+          "Water supply",
+          "2026-11-14",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G043",
+          "Revenue service",
+          "2026-11-15",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G044",
+          "Sanitation",
+          "2026-11-15",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G045",
+          "Road maintenance",
+          "2026-11-15",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G046",
+          "Water supply",
+          "2026-11-16",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G047",
+          "Revenue service",
+          "2026-11-16",
+          "Open",
+          "Department response pending"
+        ],
+        [
+          "NLB-G048",
+          "Sanitation",
+          "2026-11-16",
+          "Open",
+          "Department response pending"
+        ]
+      ],
+      "actions": [
+        "Priyanka Gogoi to obtain department responses for 12 open grievances.",
+        "Review closure evidence and reopen cases if justified."
+      ],
+      "decision": "48 received; 36 resolved; 12 open.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Nalbari_Public_Grievance_Register_2026.xlsx",
+      "relatedIds": [
+        "D036"
+      ],
+      "searchText": "Of 48 grievances, 36 are resolved and 12 remain open.\nAnonymized public grievance snapshot as of 21 Nov. No citizen names, addresses or contact details are used. Resolved refers to recorded local closure, not verified citizen satisfaction.\nGrievance ID | Category | Received date | Status | Resolution note\nNLB-G001 | Road maintenance | 2026-11-01 | Resolved | Closure recorded\nNLB-G002 | Water supply | 2026-11-01 | Resolved | Closure recorded\nNLB-G003 | Revenue service | 2026-11-01 | Resolved | Closure recorded\nNLB-G004 | Sanitation | 2026-11-02 | Resolved | Closure recorded\nNLB-G005 | Road maintenance | 2026-11-02 | Resolved | Closure recorded\nNLB-G006 | Water supply | 2026-11-02 | Resolved | Closure recorded\nNLB-G007 | Revenue service | 2026-11-03 | Resolved | Closure recorded\nNLB-G008 | Sanitation | 2026-11-03 | Resolved | Closure recorded\nNLB-G009 | Road maintenance | 2026-11-03 | Resolved | Closure recorded\nNLB-G010 | Water supply | 2026-11-04 | Resolved | Closure recorded\nNLB-G011 | Revenue service | 2026-11-04 | Resolved | Closure recorded\nNLB-G012 | Sanitation | 2026-11-04 | Resolved | Closure recorded\nNLB-G013 | Road maintenance | 2026-11-05 | Resolved | Closure recorded\nNLB-G014 | Water supply | 2026-11-05 | Resolved | Closure recorded\nNLB-G015 | Revenue service | 2026-11-05 | Resolved | Closure recorded\nNLB-G016 | Sanitation | 2026-11-06 | Resolved | Closure recorded\nNLB-G017 | Road maintenance | 2026-11-06 | Resolved | Closure recorded\nNLB-G018 | Water supply | 2026-11-06 | Resolved | Closure recorded\nNLB-G019 | Revenue service | 2026-11-07 | Resolved | Closure recorded\nNLB-G020 | Sanitation | 2026-11-07 | Resolved | Closure recorded\nNLB-G021 | Road maintenance | 2026-11-07 | Resolved | Closure recorded\nNLB-G022 | Water supply | 2026-11-08 | Resolved | Closure recorded\nNLB-G023 | Revenue service | 2026-11-08 | Resolved | Closure recorded\nNLB-G024 | Sanitation | 2026-11-08 | Resolved | Closure recorded\nNLB-G025 | Road maintenance | 2026-11-09 | Resolved | Closure recorded\nNLB-G026 | Water supply | 2026-11-09 | Resolved | Closure recorded\nNLB-G027 | Revenue service | 2026-11-09 | Resolved | Closure recorded\nNLB-G028 | Sanitation | 2026-11-10 | Resolved | Closure recorded\nNLB-G029 | Road maintenance | 2026-11-10 | Resolved | Closure recorded\nNLB-G030 | Water supply | 2026-11-10 | Resolved | Closure recorded\nNLB-G031 | Revenue service | 2026-11-11 | Resolved | Closure recorded\nNLB-G032 | Sanitation | 2026-11-11 | Resolved | Closure recorded\nNLB-G033 | Road maintenance | 2026-11-11 | Resolved | Closure recorded\nNLB-G034 | Water supply | 2026-11-12 | Resolved | Closure recorded\nNLB-G035 | Revenue service | 2026-11-12 | Resolved | Closure recorded\nNLB-G036 | Sanitation | 2026-11-12 | Resolved | Closure recorded\nNLB-G037 | Road maintenance | 2026-11-13 | Open | Department response pending\nNLB-G038 | Water supply | 2026-11-13 | Open | Department response pending\nNLB-G039 | Revenue service | 2026-11-13 | Open | Department response pending\nNLB-G040 | Sanitation | 2026-11-14 | Open | Department response pending\nNLB-G041 | Road maintenance | 2026-11-14 | Open | Department response pending\nNLB-G042 | Water supply | 2026-11-14 | Open | Department response pending\nNLB-G043 | Revenue service | 2026-11-15 | Open | Department response pending\nNLB-G044 | Sanitation | 2026-11-15 | Open | Department response pending\nNLB-G045 | Road maintenance | 2026-11-15 | Open | Department response pending\nNLB-G046 | Water supply | 2026-11-16 | Open | Department response pending\nNLB-G047 | Revenue service | 2026-11-16 | Open | Department response pending\nNLB-G048 | Sanitation | 2026-11-16 | Open | Department response pending\nPriyanka Gogoi to obtain department responses for 12 open grievances.\nReview closure evidence and reopen cases if justified.\n48 received; 36 resolved; 12 open."
+    },
+    {
+      "id": "D017",
+      "name": "Kokrajhar_Health_Centre_Upgrade_Proposal.pdf",
+      "department": "Health",
+      "district": "Kokrajhar",
+      "project": "Health upgrades",
+      "source": "GeM",
+      "owner": "Nilutpal Das",
+      "date": "2026-11-22",
+      "body": "Proposal requests laboratory equipment and two patient beds.",
+      "kind": "PDF",
+      "title": "Kokrajhar health centre upgrade proposal",
+      "context": "Draft equipment and bed upgrade for a fictional health centre. Quantities are illustrative and costs require quotations and administrative review.",
+      "headers": [
+        "Item",
+        "Quantity",
+        "Justification",
+        "Status"
+      ],
+      "rows": [
+        [
+          "Laboratory centrifuge",
+          1,
+          "Sample processing capacity",
+          "Proposed"
+        ],
+        [
+          "Microscope",
+          1,
+          "Routine diagnostic workflow",
+          "Proposed"
+        ],
+        [
+          "Patient bed",
+          2,
+          "Observation capacity",
+          "Proposed"
+        ]
+      ],
+      "actions": [
+        "Nilutpal Das to validate specifications and available space.",
+        "Obtain procurement and budget review; no vendor selection at this stage."
+      ],
+      "decision": "Laboratory equipment and two patient beds proposed; approval pending.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Kokrajhar_Health_Centre_Upgrade_Proposal.pdf",
+      "relatedIds": [
+        "D037"
+      ],
+      "searchText": "Proposal requests laboratory equipment and two patient beds.\nDraft equipment and bed upgrade for a fictional health centre. Quantities are illustrative and costs require quotations and administrative review.\nItem | Quantity | Justification | Status\nLaboratory centrifuge | 1 | Sample processing capacity | Proposed\nMicroscope | 1 | Routine diagnostic workflow | Proposed\nPatient bed | 2 | Observation capacity | Proposed\nNilutpal Das to validate specifications and available space.\nObtain procurement and budget review; no vendor selection at this stage.\nLaboratory equipment and two patient beds proposed; approval pending."
+    },
+    {
+      "id": "D018",
+      "name": "Kamrup_Metro_DC_Meeting_Minutes_18Nov2026.docx",
+      "department": "Administration",
+      "district": "Kamrup Metro",
+      "project": "Road improvements",
+      "source": "Google Docs",
+      "owner": "Junmoni Baruah",
+      "date": "2026-11-23",
+      "body": "Meeting assigned PWD a revised inspection note and drainage estimate for review.",
+      "kind": "DOCX",
+      "title": "Kamrup Metro DC meeting minutes",
+      "context": "Fictional interdepartmental review held 18 Nov 2026; minutes compiled 23 Nov. Participants: Junmoni Baruah (recording officer), Rituparna Deka (PWD liaison), Ananya Sharma (revenue liaison).",
+      "headers": [
+        "Agenda",
+        "Decision / instruction",
+        "Responsible officer",
+        "Due date"
+      ],
+      "rows": [
+        [
+          "Guwahati road inspection",
+          "Submit revised inspection note",
+          "Rituparna Deka",
+          "2026-11-27"
+        ],
+        [
+          "Drainage work",
+          "Prepare separate estimate",
+          "Rituparna Deka",
+          "2026-11-28"
+        ],
+        [
+          "Land verification",
+          "Confirm affected records before routing",
+          "Ananya Sharma",
+          "2026-11-27"
+        ],
+        [
+          "Review coordination",
+          "Compile evidence for next review",
+          "Junmoni Baruah",
+          "2026-11-30"
+        ]
+      ],
+      "actions": [
+        "Link revised inspection to D003.",
+        "Review estimate and tender status D019 separately; no award decision recorded."
+      ],
+      "decision": "PWD deliverables pending review; minutes are not an approval of works.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Kamrup_Metro_DC_Meeting_Minutes_18Nov2026.docx",
+      "relatedIds": [
+        "D003",
+        "D023",
+        "D024",
+        "D038",
+        "D043"
+      ],
+      "searchText": "Meeting assigned PWD a revised inspection note and drainage estimate for review.\nFictional interdepartmental review held 18 Nov 2026; minutes compiled 23 Nov. Participants: Junmoni Baruah (recording officer), Rituparna Deka (PWD liaison), Ananya Sharma (revenue liaison).\nAgenda | Decision / instruction | Responsible officer | Due date\nGuwahati road inspection | Submit revised inspection note | Rituparna Deka | 2026-11-27\nDrainage work | Prepare separate estimate | Rituparna Deka | 2026-11-28\nLand verification | Confirm affected records before routing | Ananya Sharma | 2026-11-27\nReview coordination | Compile evidence for next review | Junmoni Baruah | 2026-11-30\nLink revised inspection to D003.\nReview estimate and tender status D019 separately; no award decision recorded.\nPWD deliverables pending review; minutes are not an approval of works."
+    },
+    {
+      "id": "D019",
+      "name": "Assam_PWD_Tender_Evaluation_Summary_2026.pdf",
+      "department": "PWD",
+      "district": "Kamrup Metro",
+      "project": "Tender review",
+      "source": "eOffice",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-18",
+      "body": "Three technical bids assessed; committee recommendation awaits approval.",
+      "kind": "PDF",
+      "title": "Assam PWD tender evaluation summary",
+      "context": "Illustrative technical evaluation of three fictional bidders. Names are anonymized; financial bid opening and procurement decisions require independent authorized processes.",
+      "headers": [
+        "Bid reference",
+        "Eligibility documents",
+        "Technical result",
+        "Recommendation"
+      ],
+      "rows": [
+        [
+          "BID-A",
+          "Complete",
+          "Responsive",
+          "Retain for review"
+        ],
+        [
+          "BID-B",
+          "Complete",
+          "Responsive",
+          "Retain for review"
+        ],
+        [
+          "BID-C",
+          "Clarification required",
+          "Pending clarification",
+          "Do not advance until resolved"
+        ]
+      ],
+      "actions": [
+        "Ananya Sharma to route committee recommendation for competent review.",
+        "Retain evaluation notes and obtain missing clarification; do not issue award."
+      ],
+      "decision": "Three bids assessed; committee recommendation awaits approval.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Assam_PWD_Tender_Evaluation_Summary_2026.pdf",
+      "relatedIds": [
+        "D039"
+      ],
+      "searchText": "Three technical bids assessed; committee recommendation awaits approval.\nIllustrative technical evaluation of three fictional bidders. Names are anonymized; financial bid opening and procurement decisions require independent authorized processes.\nBid reference | Eligibility documents | Technical result | Recommendation\nBID-A | Complete | Responsive | Retain for review\nBID-B | Complete | Responsive | Retain for review\nBID-C | Clarification required | Pending clarification | Do not advance until resolved\nAnanya Sharma to route committee recommendation for competent review.\nRetain evaluation notes and obtain missing clarification; do not issue award.\nThree bids assessed; committee recommendation awaits approval."
+    },
+    {
+      "id": "D020",
+      "name": "Revenue_Department_File_Movement_Register.xlsx",
+      "department": "Revenue",
+      "district": "Kamrup Metro",
+      "project": "Land records",
+      "source": "eOffice",
+      "owner": "Pranjal Saikia",
+      "date": "2026-11-19",
+      "body": "Five files are with section officers and two await joint secretary review.",
+      "kind": "XLSX",
+      "title": "Revenue department file movement register",
+      "context": "Current internal position of seven fictional active files as of 19 Nov. The register records location, not final approval.",
+      "headers": [
+        "File ID",
+        "Subject",
+        "Current desk",
+        "Assigned officer",
+        "Status"
+      ],
+      "rows": [
+        [
+          "REV-F01",
+          "Land verification",
+          "Section officer",
+          "Ananya Sharma",
+          "With section officer"
+        ],
+        [
+          "REV-F02",
+          "Notice review",
+          "Section officer",
+          "Arindam Bora",
+          "With section officer"
+        ],
+        [
+          "REV-F03",
+          "Mutation summary",
+          "Section officer",
+          "Mousumi Kalita",
+          "With section officer"
+        ],
+        [
+          "REV-F04",
+          "Record correction",
+          "Section officer",
+          "Junmoni Baruah",
+          "With section officer"
+        ],
+        [
+          "REV-F05",
+          "Dispatch reconciliation",
+          "Section officer",
+          "Pranjal Saikia",
+          "With section officer"
+        ],
+        [
+          "REV-F06",
+          "Consolidated case note",
+          "Joint secretary review",
+          "Ananya Sharma",
+          "Awaiting review"
+        ],
+        [
+          "REV-F07",
+          "File movement proposal",
+          "Joint secretary review",
+          "Pranjal Saikia",
+          "Awaiting review"
+        ]
+      ],
+      "actions": [
+        "Pranjal Saikia to verify version and receiving desk before any simulated transfer.",
+        "Route two review files through authorized approval workflow."
+      ],
+      "decision": "Five with section officers; two awaiting joint secretary review.",
+      "fictional": true,
+      "version": 1,
+      "path": "documents/Revenue_Department_File_Movement_Register.xlsx",
+      "relatedIds": [
+        "D001",
+        "D004",
+        "D021",
+        "D040",
+        "D041",
+        "D044"
+      ],
+      "searchText": "Five files are with section officers and two await joint secretary review.\nCurrent internal position of seven fictional active files as of 19 Nov. The register records location, not final approval.\nFile ID | Subject | Current desk | Assigned officer | Status\nREV-F01 | Land verification | Section officer | Ananya Sharma | With section officer\nREV-F02 | Notice review | Section officer | Arindam Bora | With section officer\nREV-F03 | Mutation summary | Section officer | Mousumi Kalita | With section officer\nREV-F04 | Record correction | Section officer | Junmoni Baruah | With section officer\nREV-F05 | Dispatch reconciliation | Section officer | Pranjal Saikia | With section officer\nREV-F06 | Consolidated case note | Joint secretary review | Ananya Sharma | Awaiting review\nREV-F07 | File movement proposal | Joint secretary review | Pranjal Saikia | Awaiting review\nPranjal Saikia to verify version and receiving desk before any simulated transfer.\nRoute two review files through authorized approval workflow.\nFive with section officers; two awaiting joint secretary review."
+    },
+    {
+      "id": "D021",
+      "name": "D021_Kamrup_Metro_Land_records_Follow-up_correspondence.eml",
+      "department": "Revenue",
+      "district": "Kamrup Metro",
+      "project": "Land records",
+      "source": "Outlook",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-20",
+      "body": "Follow-up correspondence for Land records in Kamrup Metro. Field team identified 18 parcels for verification; 6 notices are awaiting officer review. Action: Ananya Sharma to reconcile the 18 parcel files by 27 Nov. Current decision: Pending verification and notice review; no eviction or final finding is authorized. Reference: D001.",
+      "kind": "EMAIL",
+      "relatedIds": [
+        "D001"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D021_Kamrup_Metro_Land_records_Follow-up_correspondence.eml",
+      "searchText": "Follow-up correspondence for Land records in Kamrup Metro. Field team identified 18 parcels for verification; 6 notices are awaiting officer review. Action: Ananya Sharma to reconcile the 18 parcel files by 27 Nov. Current decision: Pending verification and notice review; no eviction or final finding is authorized. Reference: D001."
+    },
+    {
+      "id": "D022",
+      "name": "D022_Dhemaji_Flood_readiness_Follow-up_correspondence.txt",
+      "department": "Disaster Management",
+      "district": "Dhemaji",
+      "project": "Flood readiness",
+      "source": "SharePoint",
+      "owner": "Pranjal Saikia",
+      "date": "2026-11-21",
+      "body": "Follow-up correspondence for Flood readiness in Dhemaji. Seven relief camps have been inspected; two require water supply repairs before activation. Action: Pranjal Saikia to obtain repair estimates for RC-03 and RC-06 by 27 Nov. Current decision: Five camps ready for review; two conditional. Activation requires separate approval. Reference: D002.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D002"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D022_Dhemaji_Flood_readiness_Follow-up_correspondence.txt",
+      "searchText": "Follow-up correspondence for Flood readiness in Dhemaji. Seven relief camps have been inspected; two require water supply repairs before activation. Action: Pranjal Saikia to obtain repair estimates for RC-03 and RC-06 by 27 Nov. Current decision: Five camps ready for review; two conditional. Activation requires separate approval. Reference: D002."
+    },
+    {
+      "id": "D023",
+      "name": "Guwahati_Road_Inspection_Followup_Email.eml",
+      "department": "PWD",
+      "district": "Kamrup Metro",
+      "project": "Road improvements",
+      "source": "Outlook",
+      "owner": "Rituparna Deka",
+      "date": "2026-11-22",
+      "body": "Rituparna Deka requests the revised inspection note by 27 Nov and separate drainage estimate by 28 Nov. The inspection register D003 lists 12 stretches, with three resurfacing and two drainage repairs. No work order has been issued.",
+      "kind": "EMAIL",
+      "relatedIds": [
+        "D003",
+        "D018"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/Guwahati_Road_Inspection_Followup_Email.eml",
+      "searchText": "Rituparna Deka requests the revised inspection note by 27 Nov and separate drainage estimate by 28 Nov. The inspection register D003 lists 12 stretches, with three resurfacing and two drainage repairs. No work order has been issued."
+    },
+    {
+      "id": "D024",
+      "name": "Guwahati_Road_Inspection_Review_Brief.txt",
+      "department": "PWD",
+      "district": "Kamrup Metro",
+      "project": "Road improvements",
+      "source": "SharePoint",
+      "owner": "Rituparna Deka",
+      "date": "2026-11-23",
+      "body": "Road review brief: 12 stretches inspected, five require action (three resurfacing, two drainage), seven routine monitoring. Revised note and drainage estimate pending as recorded in D018. Review D003 before drafting a recommendation.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D003",
+        "D018"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/Guwahati_Road_Inspection_Review_Brief.txt",
+      "searchText": "Road review brief: 12 stretches inspected, five require action (three resurfacing, two drainage), seven routine monitoring. Revised note and drainage estimate pending as recorded in D018. Review D003 before drafting a recommendation."
+    },
+    {
+      "id": "D025",
+      "name": "D025_Dibrugarh_Health_upgrades_Follow-up_correspondence.txt",
+      "department": "Health",
+      "district": "Dibrugarh",
+      "project": "Health upgrades",
+      "source": "Jira",
+      "owner": "Mousumi Kalita",
+      "date": "2026-11-20",
+      "body": "Follow-up correspondence for Health upgrades in Dibrugarh. Four facilities inspected; two require equipment procurement. Action: Mousumi Kalita to obtain inventory verification and specifications by 29 Nov. Current decision: Two procurement assessments pending; no purchase order issued. Reference: D005.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D005"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D025_Dibrugarh_Health_upgrades_Follow-up_correspondence.txt",
+      "searchText": "Follow-up correspondence for Health upgrades in Dibrugarh. Four facilities inspected; two require equipment procurement. Action: Mousumi Kalita to obtain inventory verification and specifications by 29 Nov. Current decision: Two procurement assessments pending; no purchase order issued. Reference: D005."
+    },
+    {
+      "id": "D026",
+      "name": "D026_Jorhat_School_inspection_Follow-up_correspondence.txt",
+      "department": "Education",
+      "district": "Jorhat",
+      "project": "School inspection",
+      "source": "Confluence",
+      "owner": "Diganta Hazarika",
+      "date": "2026-11-21",
+      "body": "Follow-up correspondence for School inspection in Jorhat. Nine schools inspected; three require sanitation improvements. Action: Diganta Hazarika to request repair plans for JOR-S02, S05 and S08. Current decision: Three schools need sanitation improvements; six routine monitoring. Reference: D006.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D006"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D026_Jorhat_School_inspection_Follow-up_correspondence.txt",
+      "searchText": "Follow-up correspondence for School inspection in Jorhat. Nine schools inspected; three require sanitation improvements. Action: Diganta Hazarika to request repair plans for JOR-S02, S05 and S08. Current decision: Three schools need sanitation improvements; six routine monitoring. Reference: D006."
+    },
+    {
+      "id": "D027",
+      "name": "D027_Majuli_Erosion_mitigation_Follow-up_correspondence.txt",
+      "department": "Water Resources",
+      "district": "Majuli",
+      "project": "Erosion mitigation",
+      "source": "Google Drive",
+      "owner": "Priyanka Gogoi",
+      "date": "2026-11-22",
+      "body": "Follow-up correspondence for Erosion mitigation in Majuli. Proposal covers two vulnerable riverbank sections; technical review is pending. Action: Priyanka Gogoi to arrange joint technical survey by 30 Nov. Current decision: Technical review pending; no construction authorization. Reference: D007.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D007"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D027_Majuli_Erosion_mitigation_Follow-up_correspondence.txt",
+      "searchText": "Follow-up correspondence for Erosion mitigation in Majuli. Proposal covers two vulnerable riverbank sections; technical review is pending. Action: Priyanka Gogoi to arrange joint technical survey by 30 Nov. Current decision: Technical review pending; no construction authorization. Reference: D007."
+    },
+    {
+      "id": "D028",
+      "name": "D028_Sivasagar_Wetland_conservation_Follow-up_correspondence.txt",
+      "department": "Environment",
+      "district": "Sivasagar",
+      "project": "Wetland conservation",
+      "source": "eOffice",
+      "owner": "Nilutpal Das",
+      "date": "2026-11-23",
+      "body": "Follow-up correspondence for Wetland conservation in Sivasagar. Survey recorded 14 water bodies; five require follow-up monitoring. Action: Nilutpal Das to schedule repeat observations for five flagged records. Current decision: Five follow-ups, nine routine records. Reference: D008.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D008"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D028_Sivasagar_Wetland_conservation_Follow-up_correspondence.txt",
+      "searchText": "Follow-up correspondence for Wetland conservation in Sivasagar. Survey recorded 14 water bodies; five require follow-up monitoring. Action: Nilutpal Das to schedule repeat observations for five flagged records. Current decision: Five follow-ups, nine routine records. Reference: D008."
+    },
+    {
+      "id": "D029",
+      "name": "D029_Nagaon_Land_records_Follow-up_correspondence.txt",
+      "department": "Revenue",
+      "district": "Nagaon",
+      "project": "Land records",
+      "source": "Google Docs",
+      "owner": "Junmoni Baruah",
+      "date": "2026-11-20",
+      "body": "Follow-up correspondence for Land records in Nagaon. Twenty-four cases reviewed; eight require additional ownership documents. Action: Junmoni Baruah to issue internal document requests for eight cases, subject to review. Current decision: Eight incomplete cases; 16 may proceed to substantive review. Reference: D009.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D009"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D029_Nagaon_Land_records_Follow-up_correspondence.txt",
+      "searchText": "Follow-up correspondence for Land records in Nagaon. Twenty-four cases reviewed; eight require additional ownership documents. Action: Junmoni Baruah to issue internal document requests for eight cases, subject to review. Current decision: Eight incomplete cases; 16 may proceed to substantive review. Reference: D009."
+    },
+    {
+      "id": "D030",
+      "name": "D030_Barpeta_Flood_readiness_Follow-up_correspondence.txt",
+      "department": "Disaster Management",
+      "district": "Barpeta",
+      "project": "Flood readiness",
+      "source": "BigQuery",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-21",
+      "body": "Follow-up correspondence for Flood readiness in Barpeta. Allocation covers 800 relief kits; 620 are recorded as distributed. Action: Ananya Sharma to reconcile remaining 180 kits with stock ledgers. Current decision: 800 allocated; 620 distributed; 180 balance. Reference: D010.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D010"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D030_Barpeta_Flood_readiness_Follow-up_correspondence.txt",
+      "searchText": "Follow-up correspondence for Flood readiness in Barpeta. Allocation covers 800 relief kits; 620 are recorded as distributed. Action: Ananya Sharma to reconcile remaining 180 kits with stock ledgers. Current decision: 800 allocated; 620 distributed; 180 balance. Reference: D010."
+    },
+    {
+      "id": "D031",
+      "name": "D031_Sonitpur_Road_improvements_Officer_review_note.eml",
+      "department": "PWD",
+      "district": "Sonitpur",
+      "project": "Road improvements",
+      "source": "Outlook",
+      "owner": "Pranjal Saikia",
+      "date": "2026-11-22",
+      "body": "Officer review note for Road improvements in Sonitpur. Six kilometres completed against a nine kilometre target; contractor update pending. Action: Validate remaining three kilometres against measurement and work schedule. Current decision: 6 of 9 km reported complete; contractor update pending. Reference: D011.",
+      "kind": "EMAIL",
+      "relatedIds": [
+        "D011"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D031_Sonitpur_Road_improvements_Officer_review_note.eml",
+      "searchText": "Officer review note for Road improvements in Sonitpur. Six kilometres completed against a nine kilometre target; contractor update pending. Action: Validate remaining three kilometres against measurement and work schedule. Current decision: 6 of 9 km reported complete; contractor update pending. Reference: D011."
+    },
+    {
+      "id": "D032",
+      "name": "D032_Cachar_Expenditure_review_Officer_review_note.txt",
+      "department": "Finance",
+      "district": "Cachar",
+      "project": "Expenditure review",
+      "source": "SharePoint",
+      "owner": "Rituparna Deka",
+      "date": "2026-11-23",
+      "body": "Finance review: INR 32 lakh expenditure against INR 50 lakh allocation (64%); INR 18 lakh unspent. Match four project ledger rows in D012 with vouchers before authorizing further release.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D012"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D032_Cachar_Expenditure_review_Officer_review_note.txt",
+      "searchText": "Finance review: INR 32 lakh expenditure against INR 50 lakh allocation (64%); INR 18 lakh unspent. Match four project ledger rows in D012 with vouchers before authorizing further release."
+    },
+    {
+      "id": "D033",
+      "name": "D033_Tinsukia_Wetland_conservation_Officer_review_note.eml",
+      "department": "Environment",
+      "district": "Tinsukia",
+      "project": "Wetland conservation",
+      "source": "Gmail",
+      "owner": "Arindam Bora",
+      "date": "2026-11-20",
+      "body": "Officer review note for Wetland conservation in Tinsukia. Field team documented four locations for joint verification. Action: Record evidence and obtain competent authority review before any action. Current decision: Four sites awaiting joint verification. Reference: D013.",
+      "kind": "EMAIL",
+      "relatedIds": [
+        "D013"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D033_Tinsukia_Wetland_conservation_Officer_review_note.eml",
+      "searchText": "Officer review note for Wetland conservation in Tinsukia. Field team documented four locations for joint verification. Action: Record evidence and obtain competent authority review before any action. Current decision: Four sites awaiting joint verification. Reference: D013."
+    },
+    {
+      "id": "D034",
+      "name": "D034_Golaghat_Land_records_Officer_review_note.txt",
+      "department": "Revenue",
+      "district": "Golaghat",
+      "project": "Land records",
+      "source": "Microsoft Teams",
+      "owner": "Mousumi Kalita",
+      "date": "2026-11-21",
+      "body": "Officer review note for Land records in Golaghat. Thirty-two cases remain open, including nine older than 30 days. Action: Check missing documents and record reasons for delay. Current decision: 32 open, including nine older than 30 days. Reference: D014.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D014"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D034_Golaghat_Land_records_Officer_review_note.txt",
+      "searchText": "Officer review note for Land records in Golaghat. Thirty-two cases remain open, including nine older than 30 days. Action: Check missing documents and record reasons for delay. Current decision: 32 open, including nine older than 30 days. Reference: D014."
+    },
+    {
+      "id": "D035",
+      "name": "D035_Dhemaji_Flood_readiness_Officer_review_note.txt",
+      "department": "Water Resources",
+      "district": "Dhemaji",
+      "project": "Flood readiness",
+      "source": "Jira",
+      "owner": "Diganta Hazarika",
+      "date": "2026-11-22",
+      "body": "Officer review note for Flood readiness in Dhemaji. Three embankment sections checked; one requires urgent engineering assessment. Action: Coordinate with camp readiness review D002; do not infer structural safety from visual notes. Current decision: One section requires urgent assessment; two routine follow-ups. Reference: D015.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D015"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D035_Dhemaji_Flood_readiness_Officer_review_note.txt",
+      "searchText": "Officer review note for Flood readiness in Dhemaji. Three embankment sections checked; one requires urgent engineering assessment. Action: Coordinate with camp readiness review D002; do not infer structural safety from visual notes. Current decision: One section requires urgent assessment; two routine follow-ups. Reference: D015."
+    },
+    {
+      "id": "D036",
+      "name": "D036_Nalbari_Grievance_resolution_Officer_review_note.txt",
+      "department": "Administration",
+      "district": "Nalbari",
+      "project": "Grievance resolution",
+      "source": "Confluence",
+      "owner": "Priyanka Gogoi",
+      "date": "2026-11-23",
+      "body": "Officer review note for Grievance resolution in Nalbari. Of 48 grievances, 36 are resolved and 12 remain open. Action: Review closure evidence and reopen cases if justified. Current decision: 48 received; 36 resolved; 12 open. Reference: D016.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D016"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D036_Nalbari_Grievance_resolution_Officer_review_note.txt",
+      "searchText": "Officer review note for Grievance resolution in Nalbari. Of 48 grievances, 36 are resolved and 12 remain open. Action: Review closure evidence and reopen cases if justified. Current decision: 48 received; 36 resolved; 12 open. Reference: D016."
+    },
+    {
+      "id": "D037",
+      "name": "D037_Kokrajhar_Health_upgrades_Officer_review_note.txt",
+      "department": "Health",
+      "district": "Kokrajhar",
+      "project": "Health upgrades",
+      "source": "Google Drive",
+      "owner": "Nilutpal Das",
+      "date": "2026-11-20",
+      "body": "Officer review note for Health upgrades in Kokrajhar. Proposal requests laboratory equipment and two patient beds. Action: Obtain procurement and budget review; no vendor selection at this stage. Current decision: Laboratory equipment and two patient beds proposed; approval pending. Reference: D017.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D017"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D037_Kokrajhar_Health_upgrades_Officer_review_note.txt",
+      "searchText": "Officer review note for Health upgrades in Kokrajhar. Proposal requests laboratory equipment and two patient beds. Action: Obtain procurement and budget review; no vendor selection at this stage. Current decision: Laboratory equipment and two patient beds proposed; approval pending. Reference: D017."
+    },
+    {
+      "id": "D038",
+      "name": "Guwahati_Road_Inspection_Office_Note.txt",
+      "department": "Administration",
+      "district": "Kamrup Metro",
+      "project": "Road improvements",
+      "source": "eOffice",
+      "owner": "Junmoni Baruah",
+      "date": "2026-11-21",
+      "body": "Internal office note referencing D018 and D003. Revised inspection note and drainage estimate are pending. Route draft to the reviewer; no external dispatch or sanction recorded.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D003",
+        "D018"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/Guwahati_Road_Inspection_Office_Note.txt",
+      "searchText": "Internal office note referencing D018 and D003. Revised inspection note and drainage estimate are pending. Route draft to the reviewer; no external dispatch or sanction recorded."
+    },
+    {
+      "id": "D039",
+      "name": "D039_Kamrup_Metro_Tender_review_Officer_review_note.txt",
+      "department": "PWD",
+      "district": "Kamrup Metro",
+      "project": "Tender review",
+      "source": "Google Docs",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-22",
+      "body": "Officer review note for Tender review in Kamrup Metro. Three technical bids assessed; committee recommendation awaits approval. Action: Retain evaluation notes and obtain missing clarification; do not issue award. Current decision: Three bids assessed; committee recommendation awaits approval. Reference: D019.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D019"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D039_Kamrup_Metro_Tender_review_Officer_review_note.txt",
+      "searchText": "Officer review note for Tender review in Kamrup Metro. Three technical bids assessed; committee recommendation awaits approval. Action: Retain evaluation notes and obtain missing clarification; do not issue award. Current decision: Three bids assessed; committee recommendation awaits approval. Reference: D019."
+    },
+    {
+      "id": "D040",
+      "name": "D040_Kamrup_Metro_Land_records_Officer_review_note.txt",
+      "department": "Revenue",
+      "district": "Kamrup Metro",
+      "project": "Land records",
+      "source": "BigQuery",
+      "owner": "Pranjal Saikia",
+      "date": "2026-11-23",
+      "body": "Officer review note for Land records in Kamrup Metro. Five files are with section officers and two await joint secretary review. Action: Route two review files through authorized approval workflow. Current decision: Five with section officers; two awaiting joint secretary review. Reference: D020.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D020"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D040_Kamrup_Metro_Land_records_Officer_review_note.txt",
+      "searchText": "Officer review note for Land records in Kamrup Metro. Five files are with section officers and two await joint secretary review. Action: Route two review files through authorized approval workflow. Current decision: Five with section officers; two awaiting joint secretary review. Reference: D020."
+    },
+    {
+      "id": "D041",
+      "name": "D041_Kamrup_Metro_Land_records_Progress_update.eml",
+      "department": "Revenue",
+      "district": "Kamrup Metro",
+      "project": "Land records",
+      "source": "Outlook",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-20",
+      "body": "Progress update for Land records in Kamrup Metro. Field team identified 18 parcels for verification; 6 notices are awaiting officer review. Action: Retain original field sketches and record any objections. Current decision: Pending verification and notice review; no eviction or final finding is authorized. Reference: D001.",
+      "kind": "EMAIL",
+      "relatedIds": [
+        "D001"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D041_Kamrup_Metro_Land_records_Progress_update.eml",
+      "searchText": "Progress update for Land records in Kamrup Metro. Field team identified 18 parcels for verification; 6 notices are awaiting officer review. Action: Retain original field sketches and record any objections. Current decision: Pending verification and notice review; no eviction or final finding is authorized. Reference: D001."
+    },
+    {
+      "id": "D042",
+      "name": "D042_Dhemaji_Flood_readiness_Progress_update.txt",
+      "department": "Disaster Management",
+      "district": "Dhemaji",
+      "project": "Flood readiness",
+      "source": "SharePoint",
+      "owner": "Pranjal Saikia",
+      "date": "2026-11-21",
+      "body": "Progress update: five of seven camps ready for review; RC-03 and RC-06 need water supply repairs. Request revised repair estimates and check access before activation. Source D002.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D002"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D042_Dhemaji_Flood_readiness_Progress_update.txt",
+      "searchText": "Progress update: five of seven camps ready for review; RC-03 and RC-06 need water supply repairs. Request revised repair estimates and check access before activation. Source D002."
+    },
+    {
+      "id": "D043",
+      "name": "Guwahati_Road_Inspection_Field_Summary.txt",
+      "department": "PWD",
+      "district": "Kamrup Metro",
+      "project": "Road improvements",
+      "source": "Google Drive",
+      "owner": "Rituparna Deka",
+      "date": "2026-11-22",
+      "body": "Field summary: 12 stretches inspected; RD-01, RD-04 and RD-08 require resurfacing; RD-02 and RD-10 require drainage repairs. D003 is the measurement reference. The field team recommends engineering validation before estimates are approved.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D003",
+        "D018"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/Guwahati_Road_Inspection_Field_Summary.txt",
+      "searchText": "Field summary: 12 stretches inspected; RD-01, RD-04 and RD-08 require resurfacing; RD-02 and RD-10 require drainage repairs. D003 is the measurement reference. The field team recommends engineering validation before estimates are approved."
+    },
+    {
+      "id": "D044",
+      "name": "D044_Kamrup_Metro_Land_records_Progress_update.txt",
+      "department": "Revenue",
+      "district": "Kamrup Metro",
+      "project": "Land records",
+      "source": "Microsoft Teams",
+      "owner": "Arindam Bora",
+      "date": "2026-11-23",
+      "body": "Progress update for Land records in Kamrup Metro. Of 42 dispatch entries, 35 were issued and 7 await signature. Action: Arindam Bora to reconcile dispatch IDs 036–042 against the signature queue. Current decision: 35 issued; seven awaiting signature. Reference: D004.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D004"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D044_Kamrup_Metro_Land_records_Progress_update.txt",
+      "searchText": "Progress update for Land records in Kamrup Metro. Of 42 dispatch entries, 35 were issued and 7 await signature. Action: Arindam Bora to reconcile dispatch IDs 036–042 against the signature queue. Current decision: 35 issued; seven awaiting signature. Reference: D004."
+    },
+    {
+      "id": "D045",
+      "name": "D045_Dibrugarh_Health_upgrades_Progress_update.txt",
+      "department": "Health",
+      "district": "Dibrugarh",
+      "project": "Health upgrades",
+      "source": "Jira",
+      "owner": "Mousumi Kalita",
+      "date": "2026-11-20",
+      "body": "Progress update for Health upgrades in Dibrugarh. Four facilities inspected; two require equipment procurement. Action: Mousumi Kalita to obtain inventory verification and specifications by 29 Nov. Current decision: Two procurement assessments pending; no purchase order issued. Reference: D005.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D005"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D045_Dibrugarh_Health_upgrades_Progress_update.txt",
+      "searchText": "Progress update for Health upgrades in Dibrugarh. Four facilities inspected; two require equipment procurement. Action: Mousumi Kalita to obtain inventory verification and specifications by 29 Nov. Current decision: Two procurement assessments pending; no purchase order issued. Reference: D005."
+    },
+    {
+      "id": "D046",
+      "name": "D046_Jorhat_School_inspection_Progress_update.txt",
+      "department": "Education",
+      "district": "Jorhat",
+      "project": "School inspection",
+      "source": "Confluence",
+      "owner": "Diganta Hazarika",
+      "date": "2026-11-21",
+      "body": "Progress update for School inspection in Jorhat. Nine schools inspected; three require sanitation improvements. Action: Diganta Hazarika to request repair plans for JOR-S02, S05 and S08. Current decision: Three schools need sanitation improvements; six routine monitoring. Reference: D006.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D006"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D046_Jorhat_School_inspection_Progress_update.txt",
+      "searchText": "Progress update for School inspection in Jorhat. Nine schools inspected; three require sanitation improvements. Action: Diganta Hazarika to request repair plans for JOR-S02, S05 and S08. Current decision: Three schools need sanitation improvements; six routine monitoring. Reference: D006."
+    },
+    {
+      "id": "D047",
+      "name": "D047_Majuli_Erosion_mitigation_Progress_update.txt",
+      "department": "Water Resources",
+      "district": "Majuli",
+      "project": "Erosion mitigation",
+      "source": "Google Drive",
+      "owner": "Priyanka Gogoi",
+      "date": "2026-11-22",
+      "body": "Progress update for Erosion mitigation in Majuli. Proposal covers two vulnerable riverbank sections; technical review is pending. Action: Priyanka Gogoi to arrange joint technical survey by 30 Nov. Current decision: Technical review pending; no construction authorization. Reference: D007.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D007"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D047_Majuli_Erosion_mitigation_Progress_update.txt",
+      "searchText": "Progress update for Erosion mitigation in Majuli. Proposal covers two vulnerable riverbank sections; technical review is pending. Action: Priyanka Gogoi to arrange joint technical survey by 30 Nov. Current decision: Technical review pending; no construction authorization. Reference: D007."
+    },
+    {
+      "id": "D048",
+      "name": "D048_Sivasagar_Wetland_conservation_Progress_update.txt",
+      "department": "Environment",
+      "district": "Sivasagar",
+      "project": "Wetland conservation",
+      "source": "eOffice",
+      "owner": "Nilutpal Das",
+      "date": "2026-11-23",
+      "body": "Progress update for Wetland conservation in Sivasagar. Survey recorded 14 water bodies; five require follow-up monitoring. Action: Nilutpal Das to schedule repeat observations for five flagged records. Current decision: Five follow-ups, nine routine records. Reference: D008.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D008"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D048_Sivasagar_Wetland_conservation_Progress_update.txt",
+      "searchText": "Progress update for Wetland conservation in Sivasagar. Survey recorded 14 water bodies; five require follow-up monitoring. Action: Nilutpal Das to schedule repeat observations for five flagged records. Current decision: Five follow-ups, nine routine records. Reference: D008."
+    },
+    {
+      "id": "D049",
+      "name": "D049_Nagaon_Land_records_Progress_update.txt",
+      "department": "Revenue",
+      "district": "Nagaon",
+      "project": "Land records",
+      "source": "Google Docs",
+      "owner": "Junmoni Baruah",
+      "date": "2026-11-20",
+      "body": "Progress update for Land records in Nagaon. Twenty-four cases reviewed; eight require additional ownership documents. Action: Junmoni Baruah to issue internal document requests for eight cases, subject to review. Current decision: Eight incomplete cases; 16 may proceed to substantive review. Reference: D009.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D009"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D049_Nagaon_Land_records_Progress_update.txt",
+      "searchText": "Progress update for Land records in Nagaon. Twenty-four cases reviewed; eight require additional ownership documents. Action: Junmoni Baruah to issue internal document requests for eight cases, subject to review. Current decision: Eight incomplete cases; 16 may proceed to substantive review. Reference: D009."
+    },
+    {
+      "id": "D050",
+      "name": "D050_Barpeta_Flood_readiness_Progress_update.txt",
+      "department": "Disaster Management",
+      "district": "Barpeta",
+      "project": "Flood readiness",
+      "source": "BigQuery",
+      "owner": "Ananya Sharma",
+      "date": "2026-11-21",
+      "body": "Progress update for Flood readiness in Barpeta. Allocation covers 800 relief kits; 620 are recorded as distributed. Action: Ananya Sharma to reconcile remaining 180 kits with stock ledgers. Current decision: 800 allocated; 620 distributed; 180 balance. Reference: D010.",
+      "kind": "DOC",
+      "relatedIds": [
+        "D010"
+      ],
+      "fictional": true,
+      "version": 1,
+      "path": "supporting/D050_Barpeta_Flood_readiness_Progress_update.txt",
+      "searchText": "Progress update for Flood readiness in Barpeta. Allocation covers 800 relief kits; 620 are recorded as distributed. Action: Ananya Sharma to reconcile remaining 180 kits with stock ledgers. Current decision: 800 allocated; 620 distributed; 180 balance. Reference: D010."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "title": "Review Land records — Kamrup Metro",
+      "owner": "Ananya Sharma",
+      "project": "Land records",
+      "district": "Kamrup Metro",
+      "description": "Field team identified 18 parcels for verification; 6 notices are awaiting officer review.",
+      "status": "In progress",
+      "doc": "D001",
+      "relatedDocumentIds": [
+        "D001",
+        "D004",
+        "D020",
+        "D021",
+        "D040",
+        "D041",
+        "D044"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T002",
+      "title": "Prepare follow-up for Flood readiness — Dhemaji",
+      "owner": "Pranjal Saikia",
+      "project": "Flood readiness",
+      "district": "Dhemaji",
+      "description": "Seven relief camps have been inspected; two require water supply repairs before activation.",
+      "status": "Pending review",
+      "doc": "D002",
+      "relatedDocumentIds": [
+        "D002",
+        "D015",
+        "D022",
+        "D035",
+        "D042"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T003",
+      "title": "Verify Road improvements — Kamrup Metro",
+      "owner": "Rituparna Deka",
+      "project": "Road improvements",
+      "district": "Kamrup Metro",
+      "description": "Inspection covered 12 road stretches; 3 need resurfacing and 2 need drainage repairs.",
+      "status": "Open",
+      "doc": "D003",
+      "relatedDocumentIds": [
+        "D003",
+        "D018",
+        "D023",
+        "D024",
+        "D038",
+        "D043"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "High"
+    },
+    {
+      "id": "T004",
+      "title": "Review Land records — Kamrup Metro",
+      "owner": "Arindam Bora",
+      "project": "Land records",
+      "district": "Kamrup Metro",
+      "description": "Of 42 dispatch entries, 35 were issued and 7 await signature.",
+      "status": "In progress",
+      "doc": "D004",
+      "relatedDocumentIds": [
+        "D004",
+        "D001",
+        "D020",
+        "D021",
+        "D040",
+        "D041",
+        "D044"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T005",
+      "title": "Prepare follow-up for Health upgrades — Dibrugarh",
+      "owner": "Mousumi Kalita",
+      "project": "Health upgrades",
+      "district": "Dibrugarh",
+      "description": "Four facilities inspected; two require equipment procurement.",
+      "status": "Pending review",
+      "doc": "D005",
+      "relatedDocumentIds": [
+        "D005",
+        "D025",
+        "D045"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T006",
+      "title": "Verify School inspection — Jorhat",
+      "owner": "Diganta Hazarika",
+      "project": "School inspection",
+      "district": "Jorhat",
+      "description": "Nine schools inspected; three require sanitation improvements.",
+      "status": "Open",
+      "doc": "D006",
+      "relatedDocumentIds": [
+        "D006",
+        "D026",
+        "D046"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T007",
+      "title": "Review Erosion mitigation — Majuli",
+      "owner": "Priyanka Gogoi",
+      "project": "Erosion mitigation",
+      "district": "Majuli",
+      "description": "Proposal covers two vulnerable riverbank sections; technical review is pending.",
+      "status": "In progress",
+      "doc": "D007",
+      "relatedDocumentIds": [
+        "D007",
+        "D027",
+        "D047"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T008",
+      "title": "Prepare follow-up for Wetland conservation — Sivasagar",
+      "owner": "Nilutpal Das",
+      "project": "Wetland conservation",
+      "district": "Sivasagar",
+      "description": "Survey recorded 14 water bodies; five require follow-up monitoring.",
+      "status": "Pending review",
+      "doc": "D008",
+      "relatedDocumentIds": [
+        "D008",
+        "D028",
+        "D048"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T009",
+      "title": "Verify Land records — Nagaon",
+      "owner": "Junmoni Baruah",
+      "project": "Land records",
+      "district": "Nagaon",
+      "description": "Twenty-four cases reviewed; eight require additional ownership documents.",
+      "status": "Open",
+      "doc": "D009",
+      "relatedDocumentIds": [
+        "D009",
+        "D029",
+        "D049"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T010",
+      "title": "Review Flood readiness — Barpeta",
+      "owner": "Ananya Sharma",
+      "project": "Flood readiness",
+      "district": "Barpeta",
+      "description": "Allocation covers 800 relief kits; 620 are recorded as distributed.",
+      "status": "In progress",
+      "doc": "D010",
+      "relatedDocumentIds": [
+        "D010",
+        "D030",
+        "D050"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T011",
+      "title": "Prepare follow-up for Road improvements — Sonitpur",
+      "owner": "Pranjal Saikia",
+      "project": "Road improvements",
+      "district": "Sonitpur",
+      "description": "Six kilometres completed against a nine kilometre target; contractor update pending.",
+      "status": "Pending review",
+      "doc": "D011",
+      "relatedDocumentIds": [
+        "D011",
+        "D031"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T012",
+      "title": "Verify Expenditure review — Cachar",
+      "owner": "Rituparna Deka",
+      "project": "Expenditure review",
+      "district": "Cachar",
+      "description": "Recorded expenditure is ₹32 lakh against ₹50 lakh allocated.",
+      "status": "Open",
+      "doc": "D012",
+      "relatedDocumentIds": [
+        "D012",
+        "D032"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T013",
+      "title": "Review Wetland conservation — Tinsukia",
+      "owner": "Arindam Bora",
+      "project": "Wetland conservation",
+      "district": "Tinsukia",
+      "description": "Field team documented four locations for joint verification.",
+      "status": "In progress",
+      "doc": "D013",
+      "relatedDocumentIds": [
+        "D013",
+        "D033"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T014",
+      "title": "Prepare follow-up for Land records — Golaghat",
+      "owner": "Mousumi Kalita",
+      "project": "Land records",
+      "district": "Golaghat",
+      "description": "Thirty-two cases remain open, including nine older than 30 days.",
+      "status": "Pending review",
+      "doc": "D014",
+      "relatedDocumentIds": [
+        "D014",
+        "D034"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "Medium"
+    },
+    {
+      "id": "T015",
+      "title": "Verify Flood readiness — Dhemaji",
+      "owner": "Diganta Hazarika",
+      "project": "Flood readiness",
+      "district": "Dhemaji",
+      "description": "Three embankment sections checked; one requires urgent engineering assessment.",
+      "status": "Open",
+      "doc": "D015",
+      "relatedDocumentIds": [
+        "D015",
+        "D002",
+        "D022",
+        "D035",
+        "D042"
+      ],
+      "dueDate": "2026-11-28",
+      "priority": "High"
+    }
+  ],
+  "projects": [
+    "Land records",
+    "Flood readiness",
+    "Road improvements",
+    "Health upgrades",
+    "School inspection",
+    "Erosion mitigation",
+    "Wetland conservation",
+    "Expenditure review",
+    "Grievance resolution",
+    "Tender review"
+  ],
+  "apps": [
+    "Google Drive",
+    "Gmail",
+    "Google Docs",
+    "Google Sheets",
+    "Google Calendar",
+    "Outlook",
+    "Microsoft Teams",
+    "SharePoint",
+    "OneDrive",
+    "Slack",
+    "Salesforce",
+    "Jira",
+    "Confluence",
+    "BigQuery",
+    "Snowflake",
+    "GitHub",
+    "Dropbox",
+    "eOffice",
+    "DigiLocker",
+    "UMANG",
+    "GeM",
+    "PFMS",
+    "Bhunaksha",
+    "Departmental systems"
+  ]
+}

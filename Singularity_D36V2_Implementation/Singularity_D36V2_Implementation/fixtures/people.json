@@ -1,0 +1,137 @@
+[
+  {
+    "id": "P01",
+    "name": "Anup Kumar Baruah",
+    "designation": "Commissioner & Secretary",
+    "office_id": "PPG",
+    "role": "leadership",
+    "manager_id": null,
+    "classification": "training"
+  },
+  {
+    "id": "P02",
+    "name": "Madhumita Saikia",
+    "designation": "Joint Secretary",
+    "office_id": "PPG",
+    "role": "supervisor",
+    "manager_id": "P01",
+    "classification": "training"
+  },
+  {
+    "id": "P03",
+    "name": "Ranjit Kumar Nath",
+    "designation": "Deputy Secretary",
+    "office_id": "PENSION",
+    "role": "supervisor",
+    "manager_id": "P02",
+    "classification": "training"
+  },
+  {
+    "id": "P04",
+    "name": "Nandita Dutta",
+    "designation": "Under Secretary",
+    "office_id": "GRIEVANCE",
+    "role": "supervisor",
+    "manager_id": "P02",
+    "classification": "training"
+  },
+  {
+    "id": "P05",
+    "name": "Bimal Chandra Das",
+    "designation": "Superintendent",
+    "office_id": "PENSION",
+    "role": "supervisor",
+    "manager_id": "P03",
+    "classification": "training"
+  },
+  {
+    "id": "P06",
+    "name": "Rupam Bora",
+    "designation": "Pension Dealing Assistant",
+    "office_id": "PENSION",
+    "role": "pension_assistant",
+    "manager_id": "P05",
+    "classification": "training"
+  },
+  {
+    "id": "P07",
+    "name": "Priyanka Kalita",
+    "designation": "Grievance Officer",
+    "office_id": "GRIEVANCE",
+    "role": "grievance_officer",
+    "manager_id": "P04",
+    "classification": "training"
+  },
+  {
+    "id": "P08",
+    "name": "Diganta Hazarika",
+    "designation": "Dealing Assistant",
+    "office_id": "ADMIN",
+    "role": "staff",
+    "manager_id": "P02",
+    "classification": "training"
+  },
+  {
+    "id": "P09",
+    "name": "Kabita Sharma",
+    "designation": "Head of Office",
+    "office_id": "DEEO-NGN",
+    "role": "head_of_office",
+    "manager_id": null,
+    "classification": "training"
+  },
+  {
+    "id": "P10",
+    "name": "Nirmal Chandra Barman",
+    "designation": "DDO",
+    "office_id": "DEEO-NGN",
+    "role": "staff",
+    "manager_id": "P09",
+    "classification": "training"
+  },
+  {
+    "id": "P11",
+    "name": "Partha Pratim Das",
+    "designation": "Pension Processing Officer",
+    "office_id": "DOP",
+    "role": "directorate_officer",
+    "manager_id": null,
+    "classification": "training"
+  },
+  {
+    "id": "P12",
+    "name": "Rina Begum",
+    "designation": "Audit Officer",
+    "office_id": "PPG",
+    "role": "audit_officer",
+    "manager_id": null,
+    "classification": "training"
+  },
+  {
+    "id": "P13",
+    "name": "Saurav Kalita",
+    "designation": "System Administrator",
+    "office_id": "ADMIN",
+    "role": "system_admin",
+    "manager_id": null,
+    "classification": "training"
+  },
+  {
+    "id": "P14",
+    "name": "Purnima Das",
+    "designation": "Records Assistant",
+    "office_id": "PENSION",
+    "role": "staff",
+    "manager_id": "P05",
+    "classification": "training"
+  },
+  {
+    "id": "P15",
+    "name": "Arup Jyoti Saikia",
+    "designation": "District Coordination Officer",
+    "office_id": "DEE",
+    "role": "staff",
+    "manager_id": null,
+    "classification": "training"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "PPG",
+    "name": "Pension & Public Grievances",
+    "location": "Assam Secretariat, Dispur",
+    "parent_id": null
+  },
+  {
+    "id": "PENSION",
+    "name": "Pension Branch",
+    "location": "Dispur",
+    "parent_id": "PPG"
+  },
+  {
+    "id": "GRIEVANCE",
+    "name": "Public Grievance Wing",
+    "location": "Dispur",
+    "parent_id": "PPG"
+  },
+  {
+    "id": "ADMIN",
+    "name": "Administration Branch",
+    "location": "Dispur",
+    "parent_id": "PPG"
+  },
+  {
+    "id": "DEEO-NGN",
+    "name": "District Elementary Education Office",
+    "location": "Nagaon",
+    "parent_id": null
+  },
+  {
+    "id": "DEE",
+    "name": "Directorate of Elementary Education",
+    "location": "Assam",
+    "parent_id": null
+  },
+  {
+    "id": "DOP",
+    "name": "Directorate of Pension",
+    "location": "Assam",
+    "parent_id": null
+  },
+  {
+    "id": "AG",
+    "name": "Accountant General (A&E)",
+    "location": "Assam",
+    "parent_id": null
+  },
+  {
+    "id": "TREASURY",
+    "name": "Treasury",
+    "location": "Assam",
+    "parent_id": null
+  }
+]
