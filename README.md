@@ -13,7 +13,7 @@ npm run dev
 
 Open <http://localhost:3000>. The production commands are `npm run build` and `npm start`.
 
-The existing Python training server remains available separately on port 8001 while migration work is verified. It is not required by Next.js or Vercel.
+The legacy Python training server is retained only for its SQLite workflow regression tests. It does not serve the frontend and is not required by Next.js or Vercel. Vercel serves this repository as a Next.js App Router project from the repository root.
 
 ## Online and offline storage
 

@@ -1,6 +1,6 @@
 """Singularity local training workspace. Standard-library server and SQLite store."""
 from __future__ import annotations
-import hashlib, json, mimetypes, os, re, secrets, sqlite3, time, zipfile, io, html
+import hashlib, json, os, re, secrets, sqlite3, time, zipfile, io, html
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -344,14 +344,9 @@ class Handler(BaseHTTPRequestHandler):
       elif fmt=='pptx':b=make_pptx(d[0]['title'],body);ct='application/vnd.openxmlformats-officedocument.presentationml.presentation'
       else:self.json(400,{'error':'Unsupported format'});return
       audit(actor,'document.export',did,'created',fmt);self.send(200,b,ct,{'Content-Disposition':f'attachment; filename="{re.sub(r"[^A-Za-z0-9_-]","_",d[0]["title"])}.{fmt}"'});return
-    self.static(path)
+    self.send(404,'Not found','text/plain')
   def person(self,pid):
     x=rows('SELECT * FROM people WHERE id=?',(pid,));return x[0] if x else None
-  def static(self,path):
-    rel='index.html' if path=='/' else path.lstrip('/');
-    if rel not in {'index.html','style.css','app.js','assets/brand/lotus.png'}:self.send(404,'Not found','text/plain');return
-    f=(ROOT/rel).resolve()
-    self.send(200,f.read_bytes(),mimetypes.guess_type(f.name)[0] or 'application/octet-stream')
   def do_POST(self):
     actor=actor_for(self); path=urlparse(self.path).path
     if not actor:self.json(401,{'error':'A local training session is required.'});return
