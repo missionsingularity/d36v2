@@ -2,16 +2,16 @@
 
 ## Current verification update — 26 November 2026
 
-This update supersedes the stale production-commit statements below. The current remote production deployment is commit `c4bf7673c9daaaeac2c2698ead2fc687eeaffdac` (`c4bf767`), deployment `dpl_6ERbh59vWcLAQKk8b1e6cir9L97W` at `https://d36v2-5ru5pazzs-s-ac7e.vercel.app`; it is READY in the existing `d36v2` project. This is a deployment observed through Vercel, not a deployment created by this checkout.
+GitHub `main` now contains tested commit `eaabf60` (`Improve workspace 404 and retry transient Gemini failures`), pushed to `missionsingularity/d36v2`. After the push, the production domain began serving the custom `WorkspaceNotFound` module for invalid routes. The Vercel deployment-list and deployment-detail APIs returned 403/404 in this session, so a deployment ID, READY state, and commit metadata could not be independently retrieved.
 
 ### Verified in this run
 
-- Production HTTP: `/` 200, `/search` 200, `/cases` 200, `/documents` 200, `/tasks` 200; `/api/demo-workspace/records` 200 and returns an empty list for a fresh session. `GET /api/chat` returns 405, consistent with its POST-only contract. An unknown route returns 404 with the default Next error document, reproducing the reported black 404.
+- Production HTTP: `/` 200, `/search` 200, `/cases` 200, `/documents` 200, `/tasks` 200; `/api/demo-workspace/records` 200 and returns an empty list for a fresh session. `GET /api/chat` returns 405, consistent with its POST-only contract. An unknown route returns the expected 404 and its rendered React Server Component output references `WorkspaceNotFound`; the styled page is now included at the production domain. Visual browser rendering remains unverified.
 - Vercel production environment inventory contains Supabase public URL/key variables and a sensitive `GEMINI_API_KEY`; no secret values were inspected or printed. `GEMINI_MODEL` is absent, so source default `gemini-3.5-flash-lite` is selected.
 - A recent production runtime log shows a real `POST /api/chat` invocation reached Gemini and received HTTP 503 `UNAVAILABLE` (“This model is currently experiencing high demand”). This proves the request reached Gemini, not that a response was generated. A bounded SDK retry (two attempts, short backoff) is now configured for chat tool-planning and streamed-generation calls; it has not yet been deployed or verified against a live Gemini success.
 - Local after the retry change: `npm run typecheck`, `npm run lint`, `npm test` (27/27 across 6 files), and `npm run build` all passed. The build includes the root and `/search`, `/api/chat`, and `/api/demo-workspace/records` routes.
 - The Playwright run reported all seven individual workspace checks as `ok`, including the new styled 404 assertion; the test runner was interrupted during process shutdown before it printed its final summary. Treat this as partial browser-test evidence, not a clean full-suite pass.
-- A custom light workspace 404 page and a matching e2e assertion have been added locally. They are not part of the observed c4 production deployment.
+- A custom light workspace 404 page and matching e2e assertion were pushed in `eaabf60`; production HTTP retrieval after the push confirms the custom component module on an invalid route.
 - The local implementation package screenshots were inspected; duplicated `references/approved` images have matching hashes. The Google Drive reference folder could not be opened with available tools, so its full reference inventory and exact visual comparison remain outstanding.
 
 ### Acceptance evidence
@@ -32,7 +32,7 @@ The package contains 20 scenarios in `D36_Implementation_Package/tests/acceptanc
 ### Remaining deployment and access blockers
 
 - GitHub app identity `slevel7` reports no push permission for `missionsingularity/d36v2`; the repo `.git` directory is read-only in this workspace. No commit or push was made. `D36_Implementation_Package/` remains untracked and must stay out of Git because it includes private reference material.
-- No production deployment containing the local 404 or Gemini retry changes was created. Production remains c4 until an authorized repository push/deployment path is available.
+- The repository push succeeded; Vercel metadata access is blocked (deployment list 403, detail 403/404). Production chat and live Gemini success after the retry change are still unverified.
 - Live chat POST, Gemini success, Supabase app write/read-back, generated-file download from chat, and the 20 production acceptance scenarios remain unverified.
 
 
@@ -71,7 +71,7 @@ Updated 25 November 2026. This report distinguishes local verification, direct S
 
 - Existing Vercel project: d36v2; domain: https://d36v2-4fg7.vercel.app.
 - Production /search returned HTTP 200.
-- The latest production deployment still points to commit 77b2db8761dc517f8926e5b7f3a8864fc16f41ec (prefix 77b2db8).
+- Production now serves the pushed custom 404 component after commit `eaabf60`; Vercel deployment commit metadata was not accessible.
 - Production /api/demo-workspace/records returned HTTP 404, confirming the session-scoped workspace API in this checkout is not deployed.
 - The production acceptance interface could not be operated in this session: no browser session was available, and the connected GitHub identity slevel7 has no repository push permission. No Vercel deployment containing these source changes was created.
 
@@ -81,7 +81,7 @@ The referenced Word specification is not present in the project checkout. The fo
 
 | # | Scenario | Evidence/status |
 |---|---|---|
-| 1 | Find pending pension cases with exact citations | Not run on the deployed chat; current production source remains 77b2db8. |
+| 1 | Find pending pension cases with exact citations | Not run on the deployed chat; current production chat was not exercised in this run. |
 | 2 | Identify the Head of Office from prior case context | Not run on the deployed chat; structured context changes are local only. |
 | 3 | Prepare a formal office note | Local action proposal path exists; Gemini and production execution not verified. |
 | 4 | Revise the note with reasons and recommendations | Not accepted: revision/version continuity was not exercised through production chat. |
