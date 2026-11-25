@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import nextEnv from "@next/env";
 import { createClient } from "@supabase/supabase-js";
+import { mapGrievanceRecord, mapOfficeRecord, mapPensionRecord } from "./import-mapping.ts";
 
 type RecordData = Record<string, unknown>;
 const projectRoot = process.cwd();
@@ -58,22 +59,14 @@ async function main() {
   const departmentId = "ASSAM_PENSION_PUBLIC_GRIEVANCES";
   const { error: departmentError } = await supabase.from("departments").upsert({ id: departmentId, name: "Pension & Public Grievances, Assam", classification: "training" }, { onConflict: "id", ignoreDuplicates: true });
   if (departmentError) throw new Error(`departments: ${departmentError.message}`);
-  await upsert("offices", offices.map((office) => ({ ...office, department_id: departmentId, classification: "training" })));
+  await upsert("offices", offices.map((office) => mapOfficeRecord(office, departmentId)));
   await upsert("employees", people.map((person) => ({ ...person, classification: "training", attributes: person })));
   await upsert("responsibilities", people.map((person) => ({ employee_id: person.id, description: String(person.designation ?? person.role), source: "Supplied officer profile", classification: "training" })), "employee_id,description");
 
   const pensionerIds = new Map(pensions.map((record) => [String(record.id), stableUuid(String(record.id))]));
   await upsert("pensioners", pensions.map((record) => ({ id: pensionerIds.get(String(record.id)), name: record.pensioner_name, district: record.district, office_id: record.office_id, classification: "training" })));
-  await upsert("pension_cases", pensions.map((record) => ({
-    id: record.id, pensioner_id: pensionerIds.get(String(record.id)), owner_id: record.owner_id, office_id: record.office_id,
-    district: record.district, department: record.department, unresolved: record.unresolved, stage: record.stage,
-    issue: record.issue, late_objection: record.late_objection, visible_before_retirement: record.visible_before_retirement,
-    payload: record, classification: "training", version: 1,
-  })));
-  await upsert("grievances", grievances.map((record) => ({
-    id: record.id, case_id: record.proposal_id, owner_id: record.owner_id, received: record.received, status: record.status,
-    disposed: record.disposed, atr_date: record.atr_date, outcome_verified: record.outcome_verified, payload: record, classification: "training",
-  })));
+  await upsert("pension_cases", pensions.map((record) => mapPensionRecord(record, String(pensionerIds.get(String(record.id))))));
+  await upsert("grievances", grievances.map(mapGrievanceRecord));
   await upsert("audit_events", audits.map((record) => ({ ...record, timestamp: record.timestamp, payload: record, classification: "training" })));
   await upsert("knowledge_changes", knowledge.map((record) => ({
     id: record.id, source_id: record.source_id, requester_id: record.requester_id, reviewer_id: record.reviewer_id,

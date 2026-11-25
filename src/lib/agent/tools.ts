@@ -7,7 +7,6 @@ import {
   demoPeople,
   demoPensions,
   demoSources,
-  demoOfficer,
   primaryCase,
 } from "@/lib/demo/data";
 import { assessKnowledgeChange, calculateBacklog, compareGrievanceDisposals, summarizeAudit } from "./workflows";
@@ -179,7 +178,8 @@ export function executeAssistantTool(name: string, rawArgs: unknown): ToolExecut
     if (!parsed.success) return { ok: false, output: { error: "The requested action did not match a supported preparation template." }, ...empty };
     const record = findCase(parsed.data.case_id);
     if (!record) return { ok: false, output: { error: "An action can only be prepared for a case found in the workspace." }, ...empty };
-    const assignee = parsed.data.assignee_id ? demoPeople.find((person) => person.id === parsed.data.assignee_id) : demoOfficer;
+    const assigneeId = parsed.data.assignee_id ?? record.owner_id;
+    const assignee = demoPeople.find((person) => person.id === assigneeId);
     if (!assignee) return { ok: false, output: { error: "Choose an officer from the workspace directory." }, ...empty };
     const kind = parsed.data.action === "draft_office_note" ? "draft" : parsed.data.action === "create_follow_up_task" ? "task" : "meeting";
     const action: PreparedAction = { kind, case_id: record.case_id ?? record.id, title: parsed.data.title, description: parsed.data.description, assignee_id: assignee.id, ...(parsed.data.due_date ? { due_date: parsed.data.due_date } : {}) };

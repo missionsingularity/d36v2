@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { FileText, Search, Upload } from "lucide-react";
 import type { demoSources } from "@/lib/demo/data";
 import type { DemoDraft } from "@/lib/demo/data";
-import { readDrafts, saveDraft } from "@/lib/demo/store";
+import { persistenceMessage, readDrafts, saveDraft } from "@/lib/demo/store";
 
 type SourceRecord = (typeof demoSources)[number];
 export function DocumentsWorkspace({ sources }: { sources: SourceRecord[] }) {
@@ -19,8 +19,8 @@ export function DocumentsWorkspace({ sources }: { sources: SourceRecord[] }) {
     if (!file) return;
     if (!/\.(txt|md|csv)$/i.test(file.name) || file.size > 2_000_000) { setNotice("Choose a TXT, Markdown or CSV document under 2 MB."); return; }
     const id = `LOCAL-${crypto.randomUUID().slice(0,8).toUpperCase()}`;
-    saveDraft({ id, title: file.name.replace(/\.[^.]+$/, ""), content: await file.text(), version: 1, caseId: "PEN-NGN-2026-041", updatedAt: new Date().toISOString(), comments: [] });
-    setNotice(`${file.name} was added as a local working document. The original file was not changed.`);
+    const receipt = await saveDraft({ id, title: file.name.replace(/\.[^.]+$/, ""), content: await file.text(), version: 1, caseId: "PEN-NGN-2026-041", updatedAt: new Date().toISOString(), comments: [] });
+    setNotice(`${file.name}: ${persistenceMessage(receipt)} The original file was not changed.`);
   }
   return <><div className="page-heading"><div><div className="eyebrow">Pension & Public Grievances</div><h1>Documents</h1><p className="mt-2 text-sm text-secondary">Source records stay unchanged. Edits are saved as local working revisions.</p></div><label className="btn upload-control"><Upload size={16}/>Upload working copy<input type="file" accept=".txt,.md,.csv,text/plain,text/markdown,text/csv" onChange={(event) => void upload(event.target.files?.[0])}/></label></div>
     {notice && <p role="status" className="inline-notice">{notice}</p>}

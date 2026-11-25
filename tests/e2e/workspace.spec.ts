@@ -65,3 +65,43 @@ test("profile settings persist and update the workspace identity and appearance"
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
 });
+
+test("tasks can be created, assigned, broken into subtasks and updated", async ({ page }) => {
+  await page.goto("/work");
+  await page.getByRole("button", { name: "New task" }).click();
+  await page.getByLabel("Task title").fill("Check service book documents");
+  await page.getByLabel("Description").fill("Review the original service entries.");
+  await page.getByLabel("Due date").fill("2026-12-10");
+  await page.getByRole("button", { name: "Save task" }).click();
+  await expect(page.getByText("Check service book documents", { exact: true })).toBeVisible();
+  page.once("dialog", (dialog) => void dialog.accept("Verify appointment date"));
+  await page.getByRole("button", { name: "Add subtask" }).click();
+  await expect(page.getByText("Verify appointment date")).toBeVisible();
+  await page.getByRole("combobox", { name: "Status for Check service book documents" }).selectOption("in_progress");
+  await expect(page.getByRole("status")).toContainText(/Saved (on this device only|to this isolated demo workspace).+Task status: in progress/i);
+  await page.reload();
+  await expect(page.getByText("Check service book documents", { exact: true })).toBeVisible();
+});
+
+test("calendar meetings retain agenda and notes and are reachable from Apps", async ({ page }) => {
+  await page.goto("/apps");
+  await page.getByRole("link", { name: "Open Calendar" }).click();
+  await expect(page.getByRole("heading", { name: "Calendar" })).toBeVisible();
+  await page.getByRole("button", { name: "Prepare meeting" }).click();
+  await page.getByLabel("Meeting title").fill("Pension case review");
+  await page.getByLabel("Start date and time").fill("2026-12-12T10:30");
+  await page.getByLabel("Attendees / offices").fill("Pension Section");
+  await page.getByLabel("Agenda").fill("Review pending service records");
+  await page.getByRole("button", { name: "Save meeting" }).click();
+  await expect(page.getByText("Pension case review", { exact: true })).toBeVisible();
+  let promptCount = 0;
+  page.on("dialog", (dialog) => void dialog.accept(promptCount++ === 0 ? "Confirm the file references before discussion." : "2026-12-12T10:30"));
+  await page.getByRole("button", { name: "Edit notes / time" }).click();
+  await expect(page.getByText(/Confirm the file references/)).toBeVisible();
+  await page.goto("/notifications");
+  await expect(page.getByRole("heading", { name: "Notifications" })).toBeVisible();
+  await page.goto("/profile");
+  await expect(page.getByRole("heading", { name: "My Profile" })).toBeVisible();
+  await page.goto("/help");
+  await expect(page.getByRole("heading", { name: "Help" })).toBeVisible();
+});

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FilePlus2, ListTodo } from "lucide-react";
+import { saveTask } from "@/lib/demo/store";
 
 type EmployeeOption = { id: string; name: string; role: string };
 export function CaseActions({ caseId, employees }: { caseId: string; employees: EmployeeOption[] }) {
@@ -26,13 +27,9 @@ export function CaseActions({ caseId, employees }: { caseId: string; employees: 
 
   async function assignTask(event: React.FormEvent) {
     event.preventDefault(); setBusy(true); setNotice("");
-    try {
-      const response = await fetch("/api/tasks", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ title, assignee_id: assignee, case_id: caseId, due_date: dueDate || null }) });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error ?? "Task assignment failed.");
-      setNotice(`Task ${result.task.id} was assigned and recorded.`);
-    } catch (cause) { setNotice(cause instanceof Error ? cause.message : "Task assignment failed."); }
-    finally { setBusy(false); }
+    saveTask({ id: `TASK-${crypto.randomUUID()}`, title, description: "Prepared follow-up task for officer review.", assignee, caseId, dueDate, status: "prepared", createdAt: new Date().toISOString() });
+    setNotice("Task saved in this session as Prepared. It has not been officially assigned or completed.");
+    setBusy(false);
   }
 
   return <div className="panel mt-5 grid gap-5 p-5 lg:grid-cols-2">

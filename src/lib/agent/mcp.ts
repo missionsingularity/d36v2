@@ -3,9 +3,9 @@ import { InMemoryTransport, McpServer } from "@modelcontextprotocol/server";
 import {
   assistantFunctionDeclarations,
   assistantToolInputSchemas,
-  executeAssistantTool,
   type ToolExecution,
 } from "@/lib/agent/tools";
+import { executeDatabaseAssistantTool } from "@/lib/agent/database-tools";
 import { demoPensions, demoSources } from "@/lib/demo/data";
 
 function textResult(execution: ToolExecution) {
@@ -26,7 +26,7 @@ export function createAssistantMcpServer() {
     server.registerTool(toolName, {
       description: definition.description ?? "Registered Singularity workspace operation.",
       inputSchema,
-    }, async (args: unknown) => textResult(executeAssistantTool(toolName, args)));
+    }, async (args: unknown) => textResult(await executeDatabaseAssistantTool(toolName, args)));
   }
 
   for (const source of demoSources) {

@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Activity, Archive, BookOpen, BriefcaseBusiness, Building2, CalendarDays, ChartNoAxesCombined, ClipboardList, FileSpreadsheet, Files, FolderKanban, Mail, MessageCircleWarning, NotebookTabs, PanelTop, Search, ShieldCheck, TableProperties, UsersRound, Workflow } from "lucide-react";
+import { Activity, Archive, BookOpen, BriefcaseBusiness, Building2, CalendarDays, ChartNoAxesCombined, FileSpreadsheet, Files, Mail, MessageCircleWarning, NotebookTabs, PanelTop, Search, ShieldCheck, TableProperties, UsersRound, Workflow } from "lucide-react";
 
 const workspace = [
-  ["Pensions", "pensions", Building2], ["Grievances", "grievances", MessageCircleWarning], ["Work", "work", BriefcaseBusiness], ["Projects", "projects", FolderKanban],
-  ["Documents", "documents", Files], ["Approvals", "approvals", ShieldCheck], ["Knowledge", "knowledge", BookOpen], ["Forms", "forms", ClipboardList],
+  ["Pensions", "pensions", Building2], ["Grievances", "grievances", MessageCircleWarning], ["Tasks", "work", BriefcaseBusiness], ["Calendar", "calendar", CalendarDays],
+  ["Documents", "documents", Files], ["Approvals", "approvals", ShieldCheck], ["Knowledge", "knowledge", BookOpen],
   ["Analytics", "analytics", ChartNoAxesCombined], ["Meetings", "meetings", CalendarDays], ["Reports", "reports", TableProperties], ["Audit", "audit", Activity],
 ] as const;
 const productivity = [["Google Drive", Files], ["Google Docs", NotebookTabs], ["Google Sheets", FileSpreadsheet], ["Google Slides", PanelTop], ["Microsoft 365", PanelTop], ["Teams", UsersRound], ["SharePoint", Archive], ["Outlook", Mail], ["Slack", MessageCircleWarning], ["Notion", NotebookTabs]] as const;

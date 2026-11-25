@@ -10,6 +10,7 @@ singularity-training.sqlite3-wal
 
 node_modules/
 .next/
+.next-check/
 dist/
 *.tsbuildinfo
 __pycache__/
@@ -36,3 +37,4 @@ Singularity_D36V2_Implementation/README.md
 Singularity_D36V2_Implementation/MASTER_CODEX_PROMPT.md
 Singularity_D36V2_Implementation/fixtures/README.md
 SINGULARITY_D36_CODEX_PROMPT.md
+/test-results/

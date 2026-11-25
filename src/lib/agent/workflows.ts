@@ -1,4 +1,4 @@
-export type PensionCase = { id: string; district: string; stage: string; unresolved: boolean; late_objection: boolean; visible_before_retirement: boolean };
+export type PensionCase = { id: string; district: string; stage: string; unresolved: boolean; late_objection: boolean | null; visible_before_retirement: boolean | null };
 export type Grievance = { id: string; case_id: string | null; status: string; disposed: boolean; atr_date: string | null; outcome_verified: boolean };
 export type AuditEvent = { id: string; decision: string; external_disclosure_confirmed: boolean; action: string };
 export type KnowledgeChange = { authority_verified: boolean; signature_verified: boolean; effective_date_verified: boolean; rule_compatibility_verified: boolean; publication_approved: boolean; payload?: { potential_case_ids?: string[]; manual_review_case_ids?: string[] } };
