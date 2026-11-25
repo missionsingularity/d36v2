@@ -1,10 +1,10 @@
-import people from "../../../Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/fixtures/people.json";
-import offices from "../../../Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/fixtures/offices.json";
-import pensions from "../../../Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/fixtures/pensions.json";
-import grievances from "../../../Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/fixtures/grievances.json";
-import auditEvents from "../../../Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/fixtures/audit_events.json";
-import knowledgeChanges from "../../../Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/fixtures/knowledge_changes.json";
-import sourceManifest from "../../../Singularity_D36V2_Implementation/Singularity_D36V2_Implementation/fixtures/source_manifest.json";
+import people from "../../../Singularity_D36V2_Implementation/fixtures/people.json";
+import offices from "../../../Singularity_D36V2_Implementation/fixtures/offices.json";
+import pensions from "../../../Singularity_D36V2_Implementation/fixtures/pensions.json";
+import grievances from "../../../Singularity_D36V2_Implementation/fixtures/grievances.json";
+import auditEvents from "../../../Singularity_D36V2_Implementation/fixtures/audit_events.json";
+import knowledgeChanges from "../../../Singularity_D36V2_Implementation/fixtures/knowledge_changes.json";
+import sourceManifest from "../../../Singularity_D36V2_Implementation/fixtures/source_manifest.json";
 
 export type DemoPerson = { id: string; name: string; designation: string; office_id: string; role: string; manager_id: string | null };
 export type DemoPension = { id: string; case_id?: string; pensioner_name: string; office_id: string; district: string; department: string; unresolved: boolean; stage: string; issue: string | null; late_objection: boolean | null; visible_before_retirement: boolean | null; potential_clarification_match?: boolean; manual_review?: boolean; owner_id: string; as_of: string; designation?: string; appointment_date?: string; retirement_date?: string; claimed_service_months?: number; verified_record_service_months?: number; leave_start?: string; leave_end?: string; leave_type?: string; leave_sanction_order_available?: boolean; efile?: string; ppo_status?: string; payment_status?: string };

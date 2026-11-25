@@ -8,9 +8,10 @@ import { DEMO_STORAGE_KEYS, demoOfficer, demoPeople } from "@/lib/demo/data";
 import { BrandMark } from "@/components/brand-mark";
 import { readConversations, saveConversation, saveDraft, saveTask, saveMeeting } from "@/lib/demo/store";
 import type { Language } from "@/lib/demo/i18n";
+import type { PreparedAction } from "@/lib/agent/tools";
 
 type Citation = NonNullable<DemoConversationMessage["citations"]>[number];
-type Message = DemoConversationMessage & { kind?: "finding" | "draft" | "task" | "meeting"; related?: string[] };
+type Message = DemoConversationMessage & { kind?: "finding" | "draft" | "task" | "meeting"; related?: string[]; action?: PreparedAction };
 const suggestions = [
   { label: "Check applicable rules", prompt: "Check the applicable rules for Pranab Kumar Deka's pension case.", icon: FileText },
   { label: "Find past precedents", prompt: "Find past precedents related to this pension case.", icon: Gavel },
@@ -78,7 +79,7 @@ export function SearchExperience() {
       const response = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, signal: controller.signal, body: JSON.stringify({ query: userText, conversation_id: id, history: previous.map(({ role, content }) => ({ role, content })), response_language: responseLanguage }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error ?? "The request could not be completed.");
-      const assistant: Message = { role: "assistant", content: result.language_fallback ? `${result.answer}\n\nThe local evidence response is in English; the requested translation service is not configured.` : result.answer, citations: result.citations, related: result.related, kind: result.kind, timestamp: new Date().toISOString() };
+      const assistant: Message = { role: "assistant", content: result.language_fallback ? `${result.answer}\n\nThe local evidence response is in English; the requested translation service is not configured.` : result.answer, citations: result.citations, related: result.related, kind: result.kind, action: result.action, timestamp: new Date().toISOString() };
       const next = [...withUser, assistant]; setMessages(next);
       saveConversation({ id, title, updatedAt: assistant.timestamp, messages: next });
       window.history.replaceState(null, "", `/search?conversation=${encodeURIComponent(id)}`);
@@ -96,13 +97,14 @@ export function SearchExperience() {
 
   function saveWorkingDraft(message: Message, index: number) {
     const id = `DRAFT-${conversationId ?? "LOCAL"}-${index}`;
-    saveDraft({ id, title: message.content.startsWith("**") ? message.content.split("\n")[0]!.replaceAll("*", "") : "Singularity working draft", content: message.content, version: 1, caseId: "PEN-NGN-2026-041", updatedAt: new Date().toISOString(), comments: [] });
+    saveDraft({ id, title: message.action?.title ?? (message.content.startsWith("**") ? message.content.split("\n")[0]!.replaceAll("*", "") : "Singularity working draft"), content: message.content, version: 1, caseId: message.action?.case_id ?? "PEN-NGN-2026-041", updatedAt: new Date().toISOString(), comments: [] });
     setError("Draft saved in this browser. It has not been submitted or approved.");
   }
 
-  function createTask() {
+  function createTask(message: Message) {
+    const action = message.action;
     const id = `TASK-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
-    saveTask({ id, title: `Follow up on ${"PEN-NGN-2026-041"}`, description: "Verify the leave sanction order and reconcile qualifying service.", assignee: demoOfficer.id, caseId: "PEN-NGN-2026-041", dueDate: "", status: "prepared", createdAt: new Date().toISOString() });
+    saveTask({ id, title: action?.title ?? "Follow up on pension case", description: action?.description ?? "Review the cited case records and record the required next step.", assignee: action?.assignee_id ?? demoOfficer.id, caseId: action?.case_id ?? "PEN-NGN-2026-041", dueDate: action?.due_date ?? "", status: "prepared", createdAt: new Date().toISOString() });
     setError("Task saved in this browser as Prepared. It has not been assigned or completed.");
   }
 
@@ -121,8 +123,8 @@ export function SearchExperience() {
           {(message.citations?.length || message.related?.length) ? <><div className="response-tabs"><button className={activeTab[index] !== "related" ? "selected" : ""} onClick={() => setActiveTab((s) => ({ ...s, [index]: "sources" }))}>Sources{message.citations?.length ? ` (${message.citations.length})` : ""}</button><button className={activeTab[index] === "related" ? "selected" : ""} onClick={() => setActiveTab((s) => ({ ...s, [index]: "related" }))}>Related{message.related?.length ? ` (${message.related.length})` : ""}</button></div>
             {activeTab[index] === "related" ? <div className="source-list">{message.related?.map((item) => <Link key={item} href={relatedHref(item)} className="source-item"><FolderOpen size={18}/><span><b>{item}</b><small>Open related record</small></span><ArrowRight size={16}/></Link>)}</div> : <div className="source-list">{message.citations?.map((citation) => <SourceItem key={`${citation.document_id}-${citation.version}`} citation={citation}/>)}</div>}</> : null}
           {message.kind === "draft" && <div className="response-actions"><button className="btn" onClick={() => saveWorkingDraft(message, index)}>Save working draft</button><span>Not submitted for approval</span></div>}
-          {message.kind === "task" && <div className="response-actions"><button className="btn btn-primary" onClick={createTask}>Prepare follow-up task</button></div>}
-          {message.kind === "meeting" && <div className="response-actions"><button className="btn" onClick={() => { saveMeeting({ id: `MTG-${Date.now()}`, title: "Pension review meeting", participants: "Pension Section, Head of Office", status: "prepared", createdAt: new Date().toISOString() }); setError("Meeting saved as Prepared. No invitation was sent."); }}>Save meeting record</button></div>}
+          {message.kind === "task" && <div className="response-actions"><button className="btn btn-primary" onClick={() => createTask(message)}>Prepare follow-up task</button></div>}
+          {message.kind === "meeting" && <div className="response-actions"><button className="btn" onClick={() => { saveMeeting({ id: `MTG-${Date.now()}`, title: message.action?.title ?? "Pension review meeting", participants: message.action?.description ?? "Participants to confirm", status: "prepared", createdAt: new Date().toISOString() }); setError("Meeting saved as Prepared. No invitation was sent."); }}>Save meeting record</button></div>}
         </div>}
       </article>)}{busy && <div className="assistant-loading"><LoaderCircle className="spin" size={18}/>Searching linked records…</div>}{error && <p role="status" className="inline-notice">{error}</p>}</div>
       <Composer query={query} setQuery={setQuery} onSubmit={() => void send()} busy={busy} onStop={() => aborter.current?.abort()} attachment={attachment?.name} onAttach={attachFile} inputRef={textarea} />

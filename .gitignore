@@ -25,3 +25,14 @@ venv/
 .vercel
 .env*
 supabase/.temp/
+references/
+d36-reference/
+/fixtures/
+requirements/
+source-records/
+Singularity_D36V2_Implementation/requirements/
+Singularity_D36V2_Implementation/source-records/
+Singularity_D36V2_Implementation/README.md
+Singularity_D36V2_Implementation/MASTER_CODEX_PROMPT.md
+Singularity_D36V2_Implementation/fixtures/README.md
+SINGULARITY_D36_CODEX_PROMPT.md

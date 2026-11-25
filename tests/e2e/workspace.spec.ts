@@ -11,15 +11,16 @@ test("fresh visitor opens the workspace without authentication", async ({ page }
   await expect(page.getByRole("heading", { name: "Sign in to your workspace" })).toHaveCount(0);
 });
 
-test("Search returns fixture evidence, opens citations, and restores a conversation after refresh", async ({ page }) => {
+test("Search retrieves fixture evidence, opens citations, and restores a conversation after refresh", async ({ page }) => {
   await page.goto("/search");
   const composer = page.getByRole("textbox", { name: "Ask a question" });
   await composer.fill("Why has Pranab Kumar Deka not received his pension?");
   await composer.press("Enter");
-  await expect(page.getByText(/six-month discrepancy/).first()).toBeVisible();
+  await expect(page.getByText(/388 months/).first()).toBeVisible();
+  await expect(page.getByText(/382 months/).first()).toBeVisible();
   await expect(page.getByRole("link", { name: /Pension Proposal/ })).toBeVisible();
   await page.reload();
-  await expect(page.getByText(/six-month discrepancy/).first()).toBeVisible();
+  await expect(page.getByText(/388 months/).first()).toBeVisible();
   await page.getByRole("link", { name: /Pension Proposal/ }).click();
   await expect(page.getByRole("heading", { name: "Pension Proposal" })).toBeVisible();
   await expect(page.getByText(/Original logical page|Qualifying service/).first()).toBeVisible();

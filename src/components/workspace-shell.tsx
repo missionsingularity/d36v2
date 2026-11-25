@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Bell, ChevronDown, CircleHelp, FileText, Landmark, Layers3, MessageSquare, MoreHorizontal, Pencil, Plus, Search, SlidersHorizontal, Trash2, Workflow } from "lucide-react";
+import { Bell, ChevronDown, CircleHelp, FileText, Layers3, MessageSquare, MoreHorizontal, Pencil, Plus, Search, SlidersHorizontal, Trash2, Workflow } from "lucide-react";
 import type { WorkspaceProfile } from "@/lib/auth/context";
 import { demoPeople, DEMO_STORAGE_KEYS, type DemoConversation } from "@/lib/demo/data";
 import { BrandMark } from "@/components/brand-mark";
@@ -74,7 +74,7 @@ export function WorkspaceShell({ profile, children }: { profile: WorkspaceProfil
   return <div className="workspace">
     <header className="government-header">
       <Link href="/search" className="header-brand" aria-label="Singularity home"><BrandMark size={40}/><span>Singularity</span></Link>
-      <div className="government-title"><Landmark size={34} strokeWidth={1.7} aria-hidden="true"/><span>Government of Assam</span></div>
+      <div className="government-title"><Image src="/branding/assam-seal.webp" width={40} height={44} unoptimized alt="State Emblem of Assam"/><span>Government of Assam</span></div>
       <div className="header-actions"><button className="icon-button" aria-label="Notifications" title="Notifications" onClick={() => router.push("/settings?section=notifications")}><Bell size={20}/></button><button className="icon-button" aria-label="Help" title="Help" onClick={() => router.push("/settings?section=setup")}><CircleHelp size={20}/></button>
         <details className="profile-menu"><summary className="profile-select"><span className="avatar">{profilePhoto ? <Image src={profilePhoto} width={42} height={42} unoptimized alt=""/> : selectedProfile.name.split(/\s+/).slice(0,2).map((part) => part[0]).join("")}</span><span className="profile-select-text"><b>{selectedProfile.name}</b><small>{selectedProfile.designation}</small></span><ChevronDown size={16}/></summary><div className="profile-menu-items"><Link href="/settings?section=profile">{translate(language, "profile.myProfile")}</Link><Link href="/settings">{translate(language, "profile.settings")}</Link><Link href="/settings?section=language-and-region">{translate(language, "profile.language")}</Link><Link href="/settings?section=appearance">{translate(language, "profile.appearance")}</Link><Link href="/settings?section=setup">{translate(language, "profile.help")}</Link><label>Officer profile<select aria-label="Select officer profile" value={selectedProfile.employee_id} onChange={(event) => changePersona(event.target.value)}><option value="DEMO-PB">Prabir Borgohain — Deputy Secretary</option>{demoPeople.map((person) => <option key={person.id} value={person.id}>{person.name} — {person.designation}</option>)}</select></label></div></details>
       </div>
