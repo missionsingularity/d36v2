@@ -148,3 +148,10 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Live production test asked about the synthetic `PEN-NGN-2026-041` case. It returned `service=assisted`, `tool_protocol=MCP`, one registered tool call, six exact citations, and Search/Context stages. The test used the bundled synthetic fixtures through MCP; it did not read or modify Supabase pension tables.
 - Supabase remains migration-current. Remote read-only counts remain 0 pensioners and 1 demo workspace record; no database changes were made. `SUPABASE_SERVICE_ROLE_KEY` is still absent, so the 186-record import and verified remote CRUD remain outstanding.
 - The development server continues to run at `http://localhost:3000`. Vercel production now has Gemini enabled; full online Supabase persistence still requires the service-role key configured locally and a reviewed import.
+
+### Supabase production connection — 25 November 2026
+
+- Added the existing project's `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` to the existing Vercel Production environment as public `Config` values. They are intended to be browser-visible; RLS remains enabled. The Gemini key remains a Hidden Secret.
+- Fresh production deployment `dpl_2AmXNA4YHynxNqLrMvVEgsMbqK4F` is Ready and aliases the existing domain. The production page's fresh-browser status reads `Workspace synced`, confirming a read-only connection to the existing `demo_workspace_records` table. No rows were created or changed in this check.
+- After the Supabase config change, live production chat still returns `service=assisted`, `tool_protocol=MCP`, one tool call, and six citations. `/` remains 307 to `/search`; `/search` returns 200. The local dev server remains at `http://localhost:3000`.
+- The remote database still contains 0 pensioner rows and 1 existing public demo-workspace record. No service-role key is configured, so the 186-record import and remote CRUD writes remain unverified; existing records were preserved.
