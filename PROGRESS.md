@@ -140,3 +140,11 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Remaining deployment work is limited to safely provisioning the existing Vercel project with authorized server-side Gemini/Supabase environment values, importing the 186 synthetic pension records through the server-role importer, and then verifying production chat plus persistent demo sync. Production visual browser tooling was unavailable; HTTP, production DOM markup checks and local Playwright covered the interface.
 
 - Commit/deployment association check: GitHub's `Vercel` status for commit `584c4d94c1d3637c1ce02b8438fe510feaf8587b` is `success` and links to deployment `dpl_CuYR9SsWUMieCnKtiJtPVsy99oNV` in the existing `s-ac7e/d36v2` project. This confirms the final pushed main commit reached the Ready production deployment and the existing alias.
+
+### Production Gemini enablement — 25 November 2026
+
+- Confirmed the replacement `GEMINI_API_KEY` exists in local `.env.local` without printing or committing its value. Stored it as a Vercel `Secret`, scoped to `Production` only, in the existing `s-ac7e/d36v2` project. No Preview or Development variables were added.
+- Redeployed the existing production app; deployment `dpl_AwfAuxYGN5fADoKXLXpmQyQpMBKq` is Ready and aliases `https://d36v2-4fg7.vercel.app`.
+- Live production test asked about the synthetic `PEN-NGN-2026-041` case. It returned `service=assisted`, `tool_protocol=MCP`, one registered tool call, six exact citations, and Search/Context stages. The test used the bundled synthetic fixtures through MCP; it did not read or modify Supabase pension tables.
+- Supabase remains migration-current. Remote read-only counts remain 0 pensioners and 1 demo workspace record; no database changes were made. `SUPABASE_SERVICE_ROLE_KEY` is still absent, so the 186-record import and verified remote CRUD remain outstanding.
+- The development server continues to run at `http://localhost:3000`. Vercel production now has Gemini enabled; full online Supabase persistence still requires the service-role key configured locally and a reviewed import.
