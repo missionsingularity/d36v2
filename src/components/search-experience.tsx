@@ -2,16 +2,18 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, FilePlus2, FolderOpen, Gavel, LoaderCircle, Paperclip, Search, Square, FileText, PencilLine } from "lucide-react";
+import { ArrowRight, FilePlus2, FolderOpen, Gavel, LoaderCircle, Paperclip, Search, Square, FileText, PencilLine, Download } from "lucide-react";
 import type { DemoConversationMessage } from "@/lib/demo/data";
-import { DEMO_STORAGE_KEYS, demoOfficer, demoPeople } from "@/lib/demo/data";
+import { DEMO_STORAGE_KEYS, demoPeople } from "@/lib/demo/data";
 import { BrandMark } from "@/components/brand-mark";
-import { readConversations, saveConversation, saveDraft, saveTask, saveMeeting } from "@/lib/demo/store";
+import { readConversations, saveConversation, saveDraft, saveTask, saveMeeting, readDrafts, recordDemoExport, type PersistenceReceipt } from "@/lib/demo/store";
 import type { Language } from "@/lib/demo/i18n";
 import type { PreparedAction } from "@/lib/agent/tools";
 
 type Citation = NonNullable<DemoConversationMessage["citations"]>[number];
-type Message = DemoConversationMessage & { kind?: "finding" | "draft" | "task" | "meeting"; related?: string[]; action?: PreparedAction };
+type ConversationContext = { case_ids: string[]; document_ids: string[]; version_ids: string[]; task_ids: string[]; approval_ids: string[] };
+type ActionCardResult = { action: PreparedAction; status: "awaiting_explicit_confirmation"; verified: false; receipt: null };
+type Message = DemoConversationMessage & { kind?: "finding" | "draft" | "task" | "meeting"; related?: string[]; action?: PreparedAction; actionResults?: ActionCardResult[]; context?: ConversationContext; attachment?: { name: string; text: string } };
 const suggestions = [
   { label: "Check applicable rules", prompt: "Check the applicable rules for Pranab Kumar Deka's pension case.", icon: FileText },
   { label: "Find past precedents", prompt: "Find past precedents related to this pension case.", icon: Gavel },
@@ -24,11 +26,15 @@ export function SearchExperience() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [streamingAnswer, setStreamingAnswer] = useState("");
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState<Record<number, "sources" | "related">>({});
   const [attachment, setAttachment] = useState<{ name: string; text: string } | null>(null);
   const [officerName, setOfficerName] = useState("Prabir Borgohain");
   const [responseLanguage, setResponseLanguage] = useState<Language>("en");
+  const [actionReceipts, setActionReceipts] = useState<Record<string, { id: string; receipt: PersistenceReceipt }>>({});
+  const [exportReceipts, setExportReceipts] = useState<Record<string, { file: string; audit: PersistenceReceipt }>>({});
+  const [structuredContext, setStructuredContext] = useState<ConversationContext>({ case_ids: [], document_ids: [], version_ids: [], task_ids: [], approval_ids: [] });
   const textarea = useRef<HTMLTextAreaElement>(null);
   const aborter = useRef<AbortController | null>(null);
 
@@ -44,13 +50,13 @@ export function SearchExperience() {
       const id = params.get("conversation");
       if (!id) return;
       const found = readConversations().find((item) => item.id === id);
-      if (found) { setConversationId(found.id); setMessages(found.messages as Message[]); setQuery(""); setError(""); }
+      if (found) { const restored = found.messages as Message[]; setConversationId(found.id); setMessages(restored); setStructuredContext(restored.toReversed().find((message) => message.context)?.context ?? { case_ids: [], document_ids: [], version_ids: [], task_ids: [], approval_ids: [] }); setQuery(""); setError(""); }
     }
     const onNew = () => { aborter.current?.abort(); setConversationId(null); setMessages([]); setQuery(""); setError(""); window.history.replaceState(null, "", "/search"); };
     const onOpen = (event: Event) => {
       const id = (event as CustomEvent<string>).detail;
       const found = readConversations().find((item) => item.id === id);
-      if (found) { setConversationId(found.id); setMessages(found.messages as Message[]); setQuery(""); setError(""); }
+      if (found) { const restored = found.messages as Message[]; setConversationId(found.id); setMessages(restored); setStructuredContext(restored.toReversed().find((message) => message.context)?.context ?? { case_ids: [], document_ids: [], version_ids: [], task_ids: [], approval_ids: [] }); setQuery(""); setError(""); }
     };
     const onProfile = (event: Event) => { const value = (event as CustomEvent<{ name?: string }>).detail; if (value.name) setOfficerName(value.name); };
     const onSettings = (event: Event) => { const value = (event as CustomEvent<{ responseLanguage?: Language }>).detail; setResponseLanguage(value.responseLanguage ?? "en"); };
@@ -65,47 +71,75 @@ export function SearchExperience() {
   async function send(value = query) {
     const text = value.trim();
     if ((!text && !attachment) || busy) return;
-    const userText = attachment ? `${text || "Review this attachment"}\n\nAttached text file: ${attachment.name}\n${attachment.text}` : text;
     const now = new Date().toISOString();
-    const userMessage: Message = { role: "user", content: text || `Review ${attachment?.name}`, timestamp: now };
+    const userMessage: Message = { role: "user", content: text || `Review ${attachment?.name}`, ...(attachment ? { attachment } : {}), timestamp: now };
     const previous = messages;
     const withUser = [...previous, userMessage];
     const id = conversationId ?? crypto.randomUUID();
     const title = previous.length ? (readConversations().find((item) => item.id === id)?.title ?? text.slice(0, 54)) : text.slice(0, 54) || `Review ${attachment?.name}`;
-    setConversationId(id); setMessages(withUser); setQuery(""); setError(""); setBusy(true);
+    setConversationId(id); setMessages(withUser); setQuery(""); setError(""); setBusy(true); setStreamingAnswer("");
     if (attachment) setAttachment(null);
     const controller = new AbortController(); aborter.current = controller;
     try {
-      const response = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, signal: controller.signal, body: JSON.stringify({ query: userText, conversation_id: id, history: previous.map(({ role, content }) => ({ role, content })), response_language: responseLanguage }) });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error ?? "The request could not be completed.");
-      const assistant: Message = { role: "assistant", content: result.language_fallback ? `${result.answer}\n\nThe local evidence response is in English; the requested translation service is not configured.` : result.answer, citations: result.citations, related: result.related, kind: result.kind, action: result.action, timestamp: new Date().toISOString() };
+      const response = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json", accept: "text/event-stream" }, signal: controller.signal, body: JSON.stringify({ query: text, attachment: attachment ? { name: attachment.name, text: attachment.text } : undefined, conversation_id: id, history: previous.map(({ role, content, attachment }) => ({ role, content, ...(attachment ? { attachment } : {}) })), context: structuredContext, response_language: responseLanguage }) });
+      if (!response.ok || !response.body) throw new Error("The request could not be completed.");
+      const reader = response.body.getReader(); const decoder = new TextDecoder(); let buffer = ""; let result: Record<string, unknown> | null = null;
+      while (true) { const { value, done } = await reader.read(); if (done) break; buffer += decoder.decode(value, { stream: true }); const events = buffer.split("\n\n"); buffer = events.pop() ?? ""; for (const event of events) { const data = event.split("\n").find((line) => line.startsWith("data: "))?.slice(6); if (!data) continue; const parsed = JSON.parse(data) as { phase?: string; message?: string; token?: string; status?: number; body?: Record<string, unknown> }; if (parsed.phase) setError(""); if (parsed.token) setStreamingAnswer((answer) => answer + parsed.token); if (parsed.body) result = parsed.body; if (parsed.status && parsed.status >= 400) throw new Error(String(parsed.body?.error ?? "The request could not be completed.")); } }
+      if (!result) throw new Error("The streamed response ended before a result was received.");
+      const responseData = result as { answer?: string; language_fallback?: boolean; citations?: Message["citations"]; related?: string[]; kind?: Message["kind"]; action?: PreparedAction; actionResults?: ActionCardResult[]; context?: ConversationContext };
+      const assistant: Message = { role: "assistant", content: responseData.language_fallback ? `${responseData.answer}\n\nThe local evidence response is in English; the requested translation service is not configured.` : responseData.answer ?? "", citations: responseData.citations, related: responseData.related, kind: responseData.kind, action: responseData.action, actionResults: responseData.actionResults, context: responseData.context, timestamp: new Date().toISOString() };
+      if (assistant.context) setStructuredContext(assistant.context);
       const next = [...withUser, assistant]; setMessages(next);
       saveConversation({ id, title, updatedAt: assistant.timestamp, messages: next });
       window.history.replaceState(null, "", `/search?conversation=${encodeURIComponent(id)}`);
     } catch (cause) {
       if (cause instanceof DOMException && cause.name === "AbortError") return;
       setError(cause instanceof Error ? cause.message : "The request could not be completed.");
-    } finally { setBusy(false); aborter.current = null; textarea.current?.focus(); }
+    } finally { setBusy(false); setStreamingAnswer(""); aborter.current = null; textarea.current?.focus(); }
   }
 
   async function attachFile(file?: File) {
     if (!file) return;
-    if (!/\.(txt|md|csv)$/i.test(file.name) || file.size > 2_000_000) { setError("Attach a TXT, Markdown, or CSV file under 2 MB."); return; }
+    if (!/\.(txt|md|csv)$/i.test(file.name) || file.size > 80_000) { setError("Attach a TXT, Markdown, or CSV file under 80 KB so its full text can be analyzed."); return; }
     setAttachment({ name: file.name, text: await file.text() }); setError("");
   }
 
-  function saveWorkingDraft(message: Message, index: number) {
-    const id = `DRAFT-${conversationId ?? "LOCAL"}-${index}`;
-    saveDraft({ id, title: message.action?.title ?? (message.content.startsWith("**") ? message.content.split("\n")[0]!.replaceAll("*", "") : "Singularity working draft"), content: message.content, version: 1, caseId: message.action?.case_id ?? "PEN-NGN-2026-041", updatedAt: new Date().toISOString(), comments: [] });
-    setError("Draft saved in this browser. It has not been submitted or approved.");
+  async function saveWorkingDraft(message: Message, index: number, action = message.action, actionIndex = 0) {
+    if (!action) { setError("No prepared document is attached to this response. Ask for a draft first."); return; }
+    const id = `DRAFT-${conversationId ?? "LOCAL"}-${index}-${actionIndex}`;
+    const existing = readDrafts().filter((draft) => draft.id === id).sort((a, b) => b.version - a.version)[0];
+    const version = (existing?.version ?? 0) + 1;
+    const receipt = await saveDraft({ id, title: action.title || "Singularity working draft", content: message.content, version, caseId: action.case_id, updatedAt: new Date().toISOString(), comments: [] });
+    setActionReceipts((items) => ({ ...items, [`${index}-${actionIndex}`]: { id, receipt } }));
   }
 
-  function createTask(message: Message) {
-    const action = message.action;
+  async function createTask(message: Message, index: number, action = message.action, actionIndex = 0) {
+    if (!action) { setError("No prepared task is attached to this response. Ask for a task proposal first."); return; }
     const id = `TASK-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
-    saveTask({ id, title: action?.title ?? "Follow up on pension case", description: action?.description ?? "Review the cited case records and record the required next step.", assignee: action?.assignee_id ?? demoOfficer.id, caseId: action?.case_id ?? "PEN-NGN-2026-041", dueDate: action?.due_date ?? "", status: "prepared", createdAt: new Date().toISOString() });
-    setError("Task saved in this browser as Prepared. It has not been assigned or completed.");
+    const receipt = await saveTask({ id, title: action.title, description: action.description, assignee: action.assignee_id, caseId: action.case_id, dueDate: action.due_date ?? "", status: "prepared", createdAt: new Date().toISOString() });
+    setActionReceipts((items) => ({ ...items, [`${index}-${actionIndex}`]: { id, receipt } }));
+  }
+
+  async function saveProposedMeeting(message: Message, index: number, action = message.action, actionIndex = 0) {
+    if (!action) { setError("No meeting proposal is attached to this response."); return; }
+    const id = `MTG-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
+    const receipt = await saveMeeting({ id, title: action.title, participants: action.description, status: "prepared", createdAt: new Date().toISOString() });
+    setActionReceipts((items) => ({ ...items, [`${index}-${actionIndex}`]: { id, receipt } }));
+  }
+
+  async function downloadExport(message: Message, index: number, format: "pdf" | "docx" | "xlsx" | "pptx") {
+    const key = `${index}-${format}`;
+    try {
+      const title = message.action?.title || "Singularity workspace response";
+      const response = await fetch("/api/demo/export", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ title, content: message.content, format }) });
+      if (!response.ok) throw new Error("The requested file could not be generated.");
+      const blob = await response.blob();
+      const disposition = response.headers.get("content-disposition") ?? "";
+      const filename = disposition.match(/filename="([^"]+)"/)?.[1] ?? `singularity-response.${format}`;
+      const url = URL.createObjectURL(blob); const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; anchor.click(); URL.revokeObjectURL(url);
+      const audit = await recordDemoExport(format, `${conversationId ?? "conversation"}:${index}:${format}`);
+      setExportReceipts((items) => ({ ...items, [key]: { file: filename, audit } }));
+    } catch (cause) { setError(cause instanceof Error ? cause.message : "The file could not be generated."); }
   }
 
   const home = messages.length === 0;
@@ -119,18 +153,37 @@ export function SearchExperience() {
     </> : <>
       <div className="conversation-scroll" aria-live="polite">{messages.map((message, index) => <article key={`${message.timestamp}-${index}`} className={`message-row ${message.role}`}>
         {message.role === "assistant" && <span className="assistant-mark"><BrandMark size={34}/></span>}
-        {message.role === "user" ? <div className="user-bubble">{message.content}</div> : <div className="assistant-panel"><div className="assistant-answer">{message.content.split(/\n/).map((line, lineIndex) => <p key={lineIndex}>{line.replaceAll("**", "")}</p>)}</div>
+        {message.role === "user" ? <div className="user-bubble">{message.content}{message.attachment && <small className="attachment-chip"><Paperclip size={13}/>{message.attachment.name}</small>}</div> : <div className="assistant-panel"><div className="assistant-answer">{message.content.split(/\n/).map((line, lineIndex) => <p key={lineIndex}>{line.replaceAll("**", "")}</p>)}</div>
           {(message.citations?.length || message.related?.length) ? <><div className="response-tabs"><button className={activeTab[index] !== "related" ? "selected" : ""} onClick={() => setActiveTab((s) => ({ ...s, [index]: "sources" }))}>Sources{message.citations?.length ? ` (${message.citations.length})` : ""}</button><button className={activeTab[index] === "related" ? "selected" : ""} onClick={() => setActiveTab((s) => ({ ...s, [index]: "related" }))}>Related{message.related?.length ? ` (${message.related.length})` : ""}</button></div>
             {activeTab[index] === "related" ? <div className="source-list">{message.related?.map((item) => <Link key={item} href={relatedHref(item)} className="source-item"><FolderOpen size={18}/><span><b>{item}</b><small>Open related record</small></span><ArrowRight size={16}/></Link>)}</div> : <div className="source-list">{message.citations?.map((citation) => <SourceItem key={`${citation.document_id}-${citation.version}`} citation={citation}/>)}</div>}</> : null}
-          {message.kind === "draft" && <div className="response-actions"><button className="btn" onClick={() => saveWorkingDraft(message, index)}>Save working draft</button><span>Not submitted for approval</span></div>}
-          {message.kind === "task" && <div className="response-actions"><button className="btn btn-primary" onClick={() => createTask(message)}>Prepare follow-up task</button></div>}
-          {message.kind === "meeting" && <div className="response-actions"><button className="btn" onClick={() => { saveMeeting({ id: `MTG-${Date.now()}`, title: message.action?.title ?? "Pension review meeting", participants: message.action?.description ?? "Participants to confirm", status: "prepared", createdAt: new Date().toISOString() }); setError("Meeting saved as Prepared. No invitation was sent."); }}>Save meeting record</button></div>}
+          {(message.actionResults?.length ? message.actionResults.map((item) => item.action) : message.action ? [message.action] : []).map((action, actionIndex) => <div className="response-actions" key={`${action.kind}-${action.case_id}-${actionIndex}`}>
+            {action.kind === "draft" && <button className="btn" onClick={() => void saveWorkingDraft(message, index, action, actionIndex)}>Save working draft</button>}
+            {action.kind === "task" && <button className="btn btn-primary" onClick={() => void createTask(message, index, action, actionIndex)}>Save task proposal</button>}
+            {action.kind === "meeting" && <button className="btn" onClick={() => void saveProposedMeeting(message, index, action, actionIndex)}>Save meeting proposal</button>}
+            <span>{action.title} · {action.kind === "draft" ? "Saving does not submit or approve it." : action.kind === "meeting" ? "No invitation is sent." : "This records a proposed task in the isolated workspace."}</span>
+            {actionReceipts[`${index}-${actionIndex}`] && <p role="status" className="inline-notice mt-3">{receiptMessage(actionReceipts[`${index}-${actionIndex}`]!.receipt)} <Link className="text-primary underline" href={actionLink(action.kind, actionReceipts[`${index}-${actionIndex}`]!.id)}>Open saved record</Link>{action.kind === "draft" ? ` · Version ${readDrafts().find((item) => item.id === actionReceipts[`${index}-${actionIndex}`]!.id)?.version ?? 1}` : ""}</p>}
+          </div>)}
+          <div className="response-actions export-actions"><Download size={16}/>{(["pdf", "docx", "xlsx", "pptx"] as const).map((format) => <button className="btn" key={format} onClick={() => void downloadExport(message, index, format)}>Download {format.toUpperCase()}</button>)}
+            {Object.entries(exportReceipts).filter(([key]) => key.startsWith(`${index}-`)).map(([key, receipt]) => <small role="status" key={key}>{receipt.file} downloaded; {receipt.audit.cloudPersisted ? "audit event confirmed in cloud" : "audit event is local only"}.</small>)}
+          </div>
         </div>}
-      </article>)}{busy && <div className="assistant-loading"><LoaderCircle className="spin" size={18}/>Searching linked records…</div>}{error && <p role="status" className="inline-notice">{error}</p>}</div>
+      </article>)}{busy && <div className="assistant-loading"><LoaderCircle className="spin" size={18}/>{streamingAnswer || "Searching linked records…"}</div>}{error && <p role="status" className="inline-notice">{error}</p>}</div>
       <Composer query={query} setQuery={setQuery} onSubmit={() => void send()} busy={busy} onStop={() => aborter.current?.abort()} attachment={attachment?.name} onAttach={attachFile} inputRef={textarea} />
     </>}
     {error && home && <p role="status" className="inline-notice home-notice">{error}</p>}
   </div>;
+}
+
+function receiptMessage(receipt: PersistenceReceipt) {
+  if (receipt.cloudPersisted) return "Saved to this isolated demo workspace.";
+  if (receipt.localPersisted) return "Saved on this device only. Cloud storage did not confirm the save.";
+  return "The save failed. No record was confirmed.";
+}
+
+function actionLink(kind: Message["kind"], id: string) {
+  if (kind === "task") return "/work";
+  if (kind === "meeting") return "/calendar";
+  return `/documents/${encodeURIComponent(id)}`;
 }
 
 function relatedHref(id: string) { if (id.startsWith("GRV-")) return `/grievances/${encodeURIComponent(id)}`; if (id.startsWith("DOC-")) return `/documents/${encodeURIComponent(id)}`; if (id.startsWith("AUD-")) return "/logs"; return `/cases/${encodeURIComponent(id)}`; }
@@ -143,7 +196,7 @@ function Composer({ query, setQuery, onSubmit, busy, onStop, attachment, onAttac
   return <form className={`composer-shell ${home ? "composer-home" : "composer-followup"}`} onSubmit={(event) => { event.preventDefault(); onSubmit(); }}>
     <Search className="composer-search-icon" size={25}/><textarea ref={inputRef} value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); onSubmit(); } }} placeholder={home ? "Ask a question..." : "Ask a follow-up..."} aria-label={home ? "Ask a question" : "Ask a follow-up"} rows={1}/>
     {attachment && <span className="attachment-chip"><Paperclip size={14}/>{attachment}</span>}
-    <label className="attach-button" title="Attach TXT, Markdown or CSV"><FilePlus2 size={19}/><input type="file" accept=".txt,.md,.csv,text/plain,text/csv,text/markdown" onChange={(event) => onAttach(event.target.files?.[0])} /></label>
+    <label className="attach-button" title="Attach TXT, Markdown or CSV, up to 80 KB"><FilePlus2 size={19}/><input type="file" accept=".txt,.md,.csv,text/plain,text/csv,text/markdown" onChange={(event) => onAttach(event.target.files?.[0])} /></label>
     {busy ? <button className="send-button stop-button" type="button" onClick={onStop} aria-label="Stop generation"><Square size={16}/></button> : <button className="send-button" type="submit" disabled={!query.trim() && !attachment} aria-label="Send"><ArrowRight size={25}/></button>}
   </form>;
 }
