@@ -28,6 +28,7 @@ export type DemoConversationMessage = {
   content: string;
   citations?: Array<{ document_id: string; title: string; version: number; section: string; passage: string }>;
   related?: string[];
+  table?: { columns: Array<{ key: string; label: string }>; rows: Array<Record<string, string | number | boolean | null>>; caption?: string };
   timestamp: string;
 };
 export type DemoConversation = { id: string; title: string; updatedAt: string; messages: DemoConversationMessage[] };

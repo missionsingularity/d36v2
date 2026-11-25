@@ -151,6 +151,11 @@ a { color: inherit; text-decoration: none; }
 .assistant-answer {padding:22px 26px 18px;font-size:17px;line-height:1.65;color:#202b3a}
 .assistant-answer p {margin:0 0 10px;white-space:pre-wrap}
 .assistant-answer p:last-child {margin-bottom:0}
+.record-table-wrap {overflow:auto;margin:0 22px 18px;border:1px solid var(--border);border-radius:10px;background:#fff}
+.record-table {width:100%;border-collapse:collapse;font-size:13px;text-align:left}
+.record-table caption {padding:10px 12px;text-align:left;font-weight:600;color:#334155}
+.record-table th,.record-table td {padding:9px 12px;border-top:1px solid var(--border);vertical-align:top;white-space:normal}
+.record-table th {font-weight:600;color:#475569;background:#f8fafc}
 .response-tabs {display:flex;gap:30px;padding:0 25px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .response-tabs button {position:relative;padding:15px 3px 13px;border:0;background:none;color:#667085;font-size:14px}
 .response-tabs button.selected {color:#1554a2;font-weight:650}

@@ -17,7 +17,7 @@ const searchArgs = z.object({
   limit: z.number().int().min(1).max(15).default(8),
 });
 const caseArgs = z.object({ case_id: z.string().trim().min(2).max(100) });
-const backlogArgs = z.object({ district: z.string().trim().min(2).max(80).optional(), unresolved_only: z.boolean().default(true) });
+const backlogArgs = z.object({ district: z.string().trim().min(2).max(80).optional(), unresolved_only: z.boolean().default(true), page: z.number().int().min(1).default(1), page_size: z.number().int().min(1).max(100).default(50) });
 const grievancesArgs = z.object({ grievance_ids: z.array(z.string().trim().min(2).max(100)).min(1).max(10) });
 const auditArgs = z.object({ proposal_id: z.string().trim().min(2).max(100).optional(), from: z.string().date().optional(), to: z.string().date().optional() });
 const knowledgeArgs = z.object({ change_id: z.string().trim().min(2).max(100) });
@@ -53,8 +53,8 @@ export const assistantFunctionDeclarations = [
   },
   {
     name: "calculate_backlog",
-    description: "Calculate pension registry totals directly from records, with unresolved case IDs and stage and issue breakdowns.",
-    parameters: { type: "OBJECT", properties: { district: { type: "STRING", description: "Optional district filter." }, unresolved_only: { type: "BOOLEAN", description: "Use only unresolved records; defaults to true." } } },
+    description: "Calculate pension registry totals directly from records, with paginated matching case rows, stage and issue breakdowns.",
+    parameters: { type: "OBJECT", properties: { district: { type: "STRING", description: "Optional district filter." }, unresolved_only: { type: "BOOLEAN", description: "Use only unresolved records; defaults to true." }, page: { type: "INTEGER", description: "One-based result page; defaults to 1." }, page_size: { type: "INTEGER", description: "Rows per page, up to 100; defaults to 50." } } },
   },
   {
     name: "compare_grievances",

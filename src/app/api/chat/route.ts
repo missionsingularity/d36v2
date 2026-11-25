@@ -1,6 +1,6 @@
 import { FunctionCallingConfigMode, GoogleGenAI, type Content, type FunctionDeclaration } from "@google/genai";
 import { z } from "zod";
-import { assistantFunctionDeclarations, localSearchAnswer, type AssistantCitation, type PreparedAction } from "@/lib/agent/tools";
+import { assistantFunctionDeclarations, type AssistantCitation, type PreparedAction } from "@/lib/agent/tools";
 import { callAssistantMcpTool, connectAssistantMcp } from "@/lib/agent/mcp";
 import { caseReferenceFromContext, detectActionIntents } from "@/lib/agent/action-intent";
 
@@ -33,6 +33,74 @@ const GEMINI_HTTP_OPTIONS = {
 };
 const declarations = assistantFunctionDeclarations as unknown as FunctionDeclaration[];
 const toolNames = declarations.map((declaration) => declaration.name).filter((name): name is string => Boolean(name));
+
+function isBacklogQuestion(query: string) {
+  return /\b(backlog|unresolved|pending cases|overdue cases|case list|all cases)\b/i.test(query)
+    && /\b(pension|case|district|backlog|unresolved|pending|overdue)\b/i.test(query);
+}
+
+export function backlogRequestArguments(query: string) {
+  const district = query.match(/\b(?:in|for|district\s+of)\s+([\p{L}][\p{L} -]{1,50}?)(?=\s+(?:district|backlog|cases|pension|that|with|where|and)\b|[?.!,]|$)/iu)?.[1]?.trim();
+  const allRows = /\b(all|every|list|show|records)\b/i.test(query);
+  return { ...(district ? { district } : {}), unresolved_only: !/\b(all cases|total pension cases|entire registry)\b/i.test(query), page: 1, page_size: allRows ? 100 : 30 };
+}
+
+function backlogTable(output: Record<string, unknown>) {
+  const rows = Array.isArray(output.records) ? output.records as Array<Record<string, unknown>> : [];
+  return {
+    columns: [
+      { key: "case_id", label: "Case ID" }, { key: "pensioner_name", label: "Pensioner" },
+      { key: "district", label: "District" }, { key: "stage", label: "Stage" }, { key: "issue", label: "Recorded issue" },
+    ],
+    rows: rows.map((row) => Object.fromEntries(["case_id", "pensioner_name", "district", "stage", "issue"].map((key) => [key, typeof row[key] === "string" ? row[key] as string : "—"]))),
+    caption: `Matching records · page ${String(output.page ?? 1)} · ${String(output.total_count ?? rows.length)} total`,
+  };
+}
+
+function backlogSummary(output: Record<string, unknown>, query: string) {
+  const district = typeof output.records === "object" && Array.isArray(output.records) ? (output.records as Array<Record<string, unknown>>)[0]?.district : undefined;
+  const scope = /\bin\s+([\p{L}][\p{L} -]{1,50}?)(?=\s+(?:district|backlog|cases|pension)|[?.!,]|$)/iu.exec(query)?.[1];
+  const label = scope ? ` in ${scope}` : district ? ` in ${String(district)}` : " across the available registry";
+  const total = Number(output.total_count ?? output.total ?? 0);
+  const unresolved = Number(output.unresolved ?? total);
+  const rows = Array.isArray(output.records) ? output.records as unknown[] : [];
+  const more = output.has_more === true;
+  return `The registry records ${total} ${output.unresolved === undefined ? "" : "matching "}case${total === 1 ? "" : "s"}${label}; ${unresolved} ${output.unresolved === undefined ? "are in scope" : "are marked unresolved"}. Showing ${rows.length}${more ? " on this page; more records are available" : " matching records"}. These are registry facts, not a determination of pension eligibility.`;
+}
+
+export function isRetryableGeminiError(error: unknown) {
+  const message = error instanceof Error ? `${error.message} ${error.cause instanceof Error ? error.cause.message : ""}` : String(error);
+  const status = Number(message.match(/\b(408|429|500|502|503|504)\b/)?.[1] ?? 0);
+  return [408, 429, 500, 502, 503, 504].includes(status) || /high demand|temporarily unavailable|socket|network|fetch failed|timeout/i.test(message);
+}
+
+async function generateWithFallback(ai: GoogleGenAI, primaryModel: string, contents: Content[], config: Parameters<GoogleGenAI["models"]["generateContent"]>[0]["config"]) {
+  try { return await ai.models.generateContent({ model: primaryModel, contents, config }); }
+  catch (error) {
+    const fallbackModel = process.env.GEMINI_FALLBACK_MODEL ?? "gemini-3.6-flash";
+    if (fallbackModel === primaryModel || !isRetryableGeminiError(error)) throw error;
+    console.warn("[chat] transient model failure; attempting configured fallback model");
+    return ai.models.generateContent({ model: fallbackModel, contents, config });
+  }
+}
+
+async function* streamAnswerWithFallback(ai: GoogleGenAI, primaryModel: string, contents: Content[], config: Parameters<GoogleGenAI["models"]["generateContentStream"]>[0]["config"]) {
+  const fallbackModel = process.env.GEMINI_FALLBACK_MODEL ?? "gemini-3.6-flash";
+  for (const model of [...new Set([primaryModel, fallbackModel])]) {
+    let hasText = false;
+    try {
+      const stream = await ai.models.generateContentStream({ model, contents, config });
+      for await (const chunk of stream) {
+        if (chunk.text) hasText = true;
+        yield chunk;
+      }
+      return;
+    } catch (error) {
+      if (model === fallbackModel || hasText || !isRetryableGeminiError(error)) throw error;
+      console.warn("[chat] transient streamed-generation failure; attempting configured fallback model");
+    }
+  }
+}
 
 function mergeCitations(existing: AssistantCitation[], incoming: AssistantCitation[]) {
   const citations = new Map<string, AssistantCitation>();
@@ -109,10 +177,38 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
   const id = conversation_id ?? crypto.randomUUID();
   const apiKey = process.env.GEMINI_API_KEY;
 
+  if (isBacklogQuestion(effectiveQuery)) {
+    try {
+      const mcp = await connectAssistantMcp();
+      try {
+        const execution = await callAssistantMcpTool(mcp.client, "calculate_backlog", backlogRequestArguments(effectiveQuery));
+        if (execution.ok) {
+          const output = execution.output;
+          const records = Array.isArray(output.records) ? output.records as Array<Record<string, unknown>> : [];
+          const district = /\bin\s+([\p{L}][\p{L} -]{1,50}?)(?=\s+(?:district|backlog|cases|pension)|[?.!,]|$)/iu.exec(effectiveQuery)?.[1];
+          const total = Number(output.total_count ?? output.total ?? 0);
+          const answer = district && total === 0
+            ? `No matching pension cases were found for ${district} in the available registry.`
+            : backlogSummary(output, effectiveQuery);
+          const ids = records.map((row) => String(row.case_id ?? row.id ?? "")).filter(Boolean);
+          return streamedJson({
+            conversation_id: id, answer, citations: execution.citations, related: ids,
+            table: backlogTable(output), kind: "finding", stages: ["Search", "Context"],
+            persistence: "read-only", service: "database-tool", tool_protocol: "MCP",
+            data_sources: [String(output.data_source ?? "unknown")], language: response_language,
+            language_fallback: response_language !== "en", tool_calls: 1, actionResults: [],
+            context: { case_ids: ids.slice(0, 50), document_ids: [], version_ids: [], task_ids: [], approval_ids: [] },
+            operational_execution: false, response_complete: true,
+          });
+        }
+      } finally { await mcp.close().catch(() => undefined); }
+    } catch (error) {
+      console.error("[chat] deterministic backlog operation failed:", error instanceof Error ? error.name : typeof error);
+    }
+  }
+
   if (!apiKey) {
-    const local = localSearchAnswer(effectiveQuery);
-    const answer = response_language === "en" ? local.answer : `${local.answer}\n\nThe requested response language is unavailable in local retrieval mode.`;
-    return streamedJson({ conversation_id: id, ...local, answer, stages: ["Search", "Context"], persistence: "local-first", service: "local", data_sources: ["fixture_fallback"], language: "en", language_fallback: response_language !== "en", tool_calls: 1, actionResults: [], action: undefined, operational_execution: false });
+    return streamedJson({ conversation_id: id, answer: "The conversational answer service is not configured for this request. No answer or operational action was generated. Try again when the service is available.", citations: [], related: [], stages: ["Search"], persistence: "none", service: "unavailable", data_sources: [], language: response_language, language_fallback: false, tool_calls: 0, actionResults: [], action: undefined, operational_execution: false, response_complete: false });
   }
 
   try {
@@ -136,17 +232,14 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
     ].join(" ");
 
     let contents = safeModelContents(effectiveQuery, history);
-    let response = await ai.models.generateContent({
-      model,
-      contents,
-      config: {
+    const firstConfig = {
         httpOptions: GEMINI_HTTP_OPTIONS,
         systemInstruction,
         maxOutputTokens: 8192,
         tools,
         toolConfig: { functionCallingConfig: { mode: FunctionCallingConfigMode.ANY, allowedFunctionNames: toolNames } },
-      },
-    });
+      };
+    let response = await generateWithFallback(ai, model, contents, firstConfig);
 
     const citations: AssistantCitation[] = [];
     const related = new Set<string>();
@@ -176,23 +269,19 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
         results.push({ functionResponse: { name: name || "unknown_tool", ...(call.id ? { id: call.id } : {}), response: { ok: execution.ok, output: execution.output, citations: execution.citations, related: execution.related, ...(preparedAction ? { action: preparedAction } : {}) } } });
       }
       contents = [...contents, { role: "user", parts: results }];
-      response = await ai.models.generateContent({
-        model,
-        contents,
-        config: {
+      response = await generateWithFallback(ai, model, contents, {
           httpOptions: GEMINI_HTTP_OPTIONS,
           systemInstruction,
           maxOutputTokens: 8192,
           tools,
           toolConfig: { functionCallingConfig: { mode: FunctionCallingConfigMode.AUTO } },
-        },
       });
     }
 
     let streamedAnswer = "";
     let finishReason = "";
     if (!(response.functionCalls?.length)) {
-      const answerStream = await ai.models.generateContentStream({ model, contents, config: { httpOptions: GEMINI_HTTP_OPTIONS, systemInstruction, maxOutputTokens: 8192 } });
+      const answerStream = streamAnswerWithFallback(ai, model, contents, { httpOptions: GEMINI_HTTP_OPTIONS, systemInstruction, maxOutputTokens: 8192 });
       for await (const chunk of answerStream) {
         const text = chunk.text ?? "";
         if (text) { streamedAnswer += text; onToken?.(text); }
@@ -203,8 +292,7 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
     const modelAnswer = (streamedAnswer || response.text || "").trim();
     const answer = reachedOutputLimit && modelAnswer ? `${modelAnswer}\n\nThis response reached the safe output limit and may be incomplete. Ask me to continue from the last section.` : modelAnswer;
     if (!answer) {
-      const local = localSearchAnswer(effectiveQuery);
-      return streamedJson({ conversation_id: id, ...local, answer: "The available records were retrieved, but a written summary could not be completed. Review the sources below.", stages: ["Search", "Context"], persistence: "local-first", service: "local", language: "en", language_fallback: response_language !== "en", tool_calls: executedTools, actionResults: [], action: undefined, operational_execution: false });
+      return streamedJson({ conversation_id: id, answer: "Relevant records may have been retrieved, but a supported response could not be completed. No operational action was executed.", citations: mergeCitations([], citations), related: [...related], stages: ["Search", "Context"], persistence: "none", service: "unavailable", language: response_language, language_fallback: false, tool_calls: executedTools, actionResults: [], action: undefined, operational_execution: false, response_complete: false });
     }
     const intents = detectActionIntents(effectiveQuery);
     const caseReference = caseReferenceFromContext(effectiveQuery, history) ?? priorContext?.case_ids?.at(-1) ?? null;
@@ -251,10 +339,8 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
       ? `; cause=${error.cause.name}:${error.cause.message}${error.cause instanceof AggregateError ? `; network=${error.cause.errors.map((item) => item instanceof Error ? `${item.name}:${"code" in item ? String(item.code) : "unknown"}` : typeof item).join(",")}` : ""}`
       : "";
     const diagnostic = error instanceof Error ? `${error.message}${cause}`.replaceAll(apiKey, "[redacted]").slice(0, 320) : "non-error exception";
-    console.error("[chat] Gemini/MCP request fell back to local retrieval:", error instanceof Error ? error.name : typeof error, diagnostic);
-    const local = localSearchAnswer(effectiveQuery);
-    const suffix = response_language === "en" ? "" : "\n\nThe requested response language is unavailable in local retrieval mode.";
-    return streamedJson({ conversation_id: id, ...local, answer: `${local.answer}\n\nThe response service is unavailable; these are direct record matches.${suffix}`, stages: ["Search", "Context"], persistence: "local-first", service: "local", data_sources: ["fixture_fallback"], language: "en", language_fallback: response_language !== "en", tool_calls: 1, actionResults: [], action: undefined, execution_receipts: [], operational_execution: false });
+    console.error("[chat] Gemini/MCP request could not produce a supported answer:", error instanceof Error ? error.name : typeof error, diagnostic);
+    return streamedJson({ conversation_id: id, answer: "The response service is temporarily unavailable. No operational action was executed; please try again shortly.", citations: [], related: [], stages: ["Search"], persistence: "none", service: "unavailable", data_sources: [], language: response_language, language_fallback: false, tool_calls: 0, actionResults: [], action: undefined, execution_receipts: [], operational_execution: false, response_complete: false });
   }
 }
 

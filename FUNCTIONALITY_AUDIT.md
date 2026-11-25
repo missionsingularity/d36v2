@@ -2,6 +2,12 @@
 
 ## Current verification update — 26 November 2026
 
+- Local source changes add a deterministic MCP backlog path with full-scope calculation, district filtering, pagination, and a rendered case table. Generic raw-record fallback was removed from no-key and model/MCP error paths. Transient Gemini failures now try `GEMINI_FALLBACK_MODEL` (default `gemini-3.6-flash`) on planning and streamed answer generation, while permanent errors and partially streamed answers are not retried.
+- Local validation after these changes: focused chat helper tests pass (3/3); full Vitest suite passes (30/30 across 7 files); ESLint, `tsc --noEmit`, `git diff --check`, fixture `db:check` and `next build` pass. The build reports both `/` and `/search` plus expected API routes.
+- Supabase verification evidence from the read-only project inventory: required training-record counts are present, but `documents`, `document_versions`, `document_passages`, and `storage.objects` contain zero rows. The insert-only source importer cannot execute in this environment because the importer process lacks `SUPABASE_SERVICE_ROLE_KEY`. No records were reset, overwritten, or inserted during this update.
+- The official source catalog has 10 URLs; two public Assam PPG pages could be read, while the others timed out or could not be retrieved by the available fetch method. No catalog sources or 18 private original documents are represented as ingested/indexed in Supabase. The earlier 18 local source hashes validate against the package manifest.
+- The new code is local and has not been pushed, deployed, or exercised against production chat. Last verified production commit remains `0d81822`; production acceptance remains 0/20. The external chat POST/browser path and successful live Gemini fallback response are not verified.
+
 GitHub `main` now contains tested commit `eaabf60` (`Improve workspace 404 and retry transient Gemini failures`), pushed to `missionsingularity/d36v2`. After the push, the production domain began serving the custom `WorkspaceNotFound` module for invalid routes. The Vercel deployment-list and deployment-detail APIs returned 403/404 in this session, so a deployment ID, READY state, and commit metadata could not be independently retrieved.
 
 ### Verified in this run

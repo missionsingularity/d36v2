@@ -79,14 +79,29 @@ export async function executeDatabaseAssistantTool(name: string, args: unknown):
       return { ok: true, output: withSource({ found: true, case: row }), citations: citations(snapshot, [text(row.id), text(row.case_id)]), related: [text(row.id), text(row.case_id)] };
     }
     if (name === "calculate_backlog") {
-      const input = args as { district?: string; unresolved_only?: boolean };
+      const input = args as { district?: string; unresolved_only?: boolean; page?: number; page_size?: number };
       const all = snapshot.pensions.map(asCase);
       const districtRows = input.district ? all.filter((row) => text(row.district).toLocaleLowerCase() === input.district!.toLocaleLowerCase()) : all;
       const rows = input.unresolved_only === false ? districtRows : districtRows.filter((row) => Boolean(row.unresolved));
       const summary = calculateBacklog(rows.map((row) => ({ id: text(row.id), district: text(row.district), stage: text(row.stage), unresolved: Boolean(row.unresolved), late_objection: row.late_objection == null ? null : Boolean(row.late_objection), visible_before_retirement: row.visible_before_retirement == null ? null : Boolean(row.visible_before_retirement) })));
       const by_issue = rows.reduce<Record<string, number>>((out, row) => { const key = text(row.issue) || "unspecified"; out[key] = (out[key] ?? 0) + 1; return out; }, {});
-      const related = rows.map((row) => text(row.id));
-      return { ok: true, output: withSource({ ...summary, by_issue, as_of: new Date().toISOString().slice(0, 10), case_ids: related }), citations: citations(snapshot, [], ["DOC-013"]), related };
+      const page = Math.max(1, Math.floor(input.page ?? 1));
+      const pageSize = Math.min(100, Math.max(1, Math.floor(input.page_size ?? 50)));
+      const start = (page - 1) * pageSize;
+      const pageRows = rows.slice(start, start + pageSize);
+      const related = pageRows.map((row) => text(row.id));
+      const records = pageRows.map((row) => ({
+        id: text(row.id),
+        case_id: text(row.case_id),
+        pensioner_name: text(row.pensioner_name) || "Name not recorded",
+        district: text(row.district) || "District not recorded",
+        department: text(row.department) || "Department not recorded",
+        stage: text(row.stage) || "Stage not recorded",
+        issue: text(row.issue) || "Issue not recorded",
+        unresolved: Boolean(row.unresolved),
+        as_of: text(row.as_of) || null,
+      }));
+      return { ok: true, output: withSource({ ...summary, by_issue, as_of: new Date().toISOString().slice(0, 10), total_count: rows.length, page, page_size: pageSize, has_more: start + pageRows.length < rows.length, case_ids: rows.map((row) => text(row.case_id)), records }), citations: citations(snapshot, [], ["DOC-013"]), related };
     }
     if (name === "compare_grievances") {
       const ids = (args as { grievance_ids?: string[] }).grievance_ids ?? [];
