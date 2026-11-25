@@ -1,4 +1,15 @@
-# Singularity implementation progress
+﻿# Singularity implementation progress
+
+## Current update — 26 November 2026
+
+- Read the available `D36_Implementation_Package` requirements, route contracts, structured chat schema, official-source notes, and all 20 rows in `tests/acceptance.csv`. Reviewed the local screenshot set and its duplicate approved folder. The linked Google Drive folder itself is inaccessible with the connected tools, so its full reference inventory and exact visual comparison remain outstanding.
+- Added a light workspace-style Next.js 404 page for workspace and root invalid routes, plus an e2e assertion. The fix is local and not in production.
+- Added bounded Gemini SDK retry settings (two attempts, short backoff, transient HTTP statuses) to chat planning and streamed response requests. The current production Vercel log showed a real Gemini 503 capacity response. The retry change has not been deployed; no successful live model response was verified.
+- Checks after these changes: TypeScript passed, ESLint passed, Vitest 27/27 passed, and the production build passed. Playwright printed seven passing test results (including 404), then required Ctrl+C during shutdown; its run is partial rather than a completed clean suite.
+- Existing production deployment observed: Vercel project `d36v2`, deployment `dpl_6ERbh59vWcLAQKk8b1e6cir9L97W`, commit `c4bf7673c9daaaeac2c2698ead2fc687eeaffdac`, READY. Production `/`, `/search`, `/cases`, `/documents`, `/tasks`, and `/api/demo-workspace/records` returned 200; `GET /api/chat` returned expected 405; invalid path returned 404 with the default error document. The Supabase demo GET returned an empty list for a fresh session.
+- Acceptance result: 0/20 production scenarios exercised. Production chat POST and browser operation were unavailable, local outbound Gemini/Supabase access was denied, and the recent production Gemini invocation ended in 503.
+- GitHub checkpoint/push and Vercel deployment of this local checkpoint remain blocked: connected identity `slevel7` has no push permission and `.git` is read-only. Do not add the untracked private implementation package to Git. No commit or push was made.
+
 
 Updated: 24 November 2026 (Asia/Kolkata)
 
@@ -13,7 +24,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Added server-side evidence retrieval, dynamic registry calculations, audit summary, task assignment/status events, version-bound approvals, separate authorized case-change execution, immutable source originals, append-only audit/approval events, conversation persistence and local connection requests.
 - Added generated native DOCX, PDF, XLSX and PPTX exports and opened each format with document libraries in the test suite.
 - Added saved-document revision controls that create a new immutable version, reset to draft and submit a fresh exact-version approval.
-- Added role-scope tests including direct source ID denial, case grants, reviewer separation, task assignment, conversation persistence and the Manisha Saikia return → version 2 → approval → separate execution workflow.
+- Added role-scope tests including direct source ID denial, case grants, reviewer separation, task assignment, conversation persistence and the Manisha Saikia return â†’ version 2 â†’ approval â†’ separate execution workflow.
 
 ## Latest refinement
 
@@ -44,7 +55,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 ## Frontend reconstruction follow-up
 
 - Captured signed-in Search at 1440x900 and 1280x800, Apps at 1440x900, and People at 1280x800. The images are in `qa/screenshots/`; `qa/README.md` records how to recapture them and what they cover.
-- Visually inspected the populated Search, Apps and People screens after session bootstrap. Search retains the clean headline without the gray subheading; the ordinary UI contains no “AI” or “demo” wording. Synthetic record labels remain visible.
+- Visually inspected the populated Search, Apps and People screens after session bootstrap. Search retains the clean headline without the gray subheading; the ordinary UI contains no â€œAIâ€ or â€œdemoâ€ wording. Synthetic record labels remain visible.
 - Added `qa/capture_screens.py` to recapture the three routes with the locally bundled Chromium and CDP. No Playwright/Selenium dependency was added.
 - `python -m py_compile server.py`, `node --check app.js`, all 7 workflow tests and `git diff --check` passed after the UI changes. `http://127.0.0.1:8001` returns HTTP 200 and remains running.
 - Visual coverage is limited to the landing Search, Apps catalogue and People directory. Citation drawer, live conversation, app detail, organization chart, document and approval views were not visually checked in this pass.
@@ -64,7 +75,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 
 - Baseline only: `3e6894b414081c4313ca3b29d7ebfcec920ba1e1` (`Singularity D36 V2 implementation`). This task's changes are uncommitted because `.git` is mounted read-only; GitHub API reports `push: false`.
 
-### Reference redesign and local-first workspace � 24 November 2026
+### Reference redesign and local-first workspace — 24 November 2026
 
 - Updated the Next.js workspace to the supplied Singularity / Government of Assam screenshots: compact blue navigation, header identity, welcome/search, conversation evidence tabs, case detail and documents, pension workflow progress, and audit screens. The sidebar now includes New chat, Search, Cases, Documents, Workflows and Logs.
 - Removed sign-in gating from the demonstration workspace. Fictional officer personas are selectable; source fixtures and workspace activities stay available offline in browser storage. Optional Supabase sync is available after applying `202611240002_public_demo_workspace.sql` and configuring the existing project. No cloud project was accessed or changed.
@@ -72,7 +83,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - `npm.cmd run db:check`, `npm.cmd run typecheck`, `npm.cmd run lint`, `npm.cmd run test` and `npm.cmd run test:e2e -- --workers=1` pass. Browser coverage: unauthenticated entry, local conversation restore after reload, cited source navigation, case document tab and workflow view. `npm.cmd run build` passed after the final source changes. `npm.cmd run lint`, `npm.cmd run typecheck`, `npm.cmd run test` (10 tests), `npm.cmd run test:e2e -- --workers=1` (3 browser flows), `npm.cmd run db:check` and `git diff --check` passed.
 - Online/offline parity means the same synthetic fixtures and locally stored actions remain usable offline; cloud sharing depends on the external Supabase migration/configuration and has not been verified. Search and exports are local-capable.
 - The existing Python service and historical SQLite database are retained. Production Python retirement remains gated on a verified cloud migration.
-## App Router migration status — 2026-11-24
+## App Router migration status â€” 2026-11-24
 
 - Added a Next.js 16 App Router application using TypeScript, React, Tailwind CSS 4, Supabase SSR/Auth/Postgres/Storage clients, a server-side Gemini tool route, an RLS-backed departmental workspace, task and approval APIs, citation/document views, and binary DOCX/PDF/XLSX/PPTX exports.
 - Added the relational schema and RLS migration in `supabase/migrations/202611240001_singularity_schema.sql`, plus an insert-only, hash-verifying fixture importer. No Supabase project credentials were available, so this SQL has not been applied and the importer has not written to a live database.
@@ -91,7 +102,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Complete UI flows currently represented as unavailable/configurable, perform full browser QA (including permissions and people/chart screens), and compare against all supplied BrahmaGPT references.
 - Deploy to a preview first, run the requested production-like checks, then deploy to the existing production project only after those checks pass. Verify the deployed commit and the live URL before retiring Python/SQLite.
 
-### Complete frontend rebuild brief follow-up — 24 November 2026
+### Complete frontend rebuild brief follow-up â€” 24 November 2026
 
 - Restored the reference default synthetic officer identity, Prabir Borgohain, and made `SG-PPG-2026-00481` the primary displayed case identifier while retaining the fixture record key `PEN-NGN-2026-041`. The case route resolves either identifier.
 - Added the Profile and Settings workspace with editable name, designation, department, email, phone and photo; region/date preferences; separate interface and response languages; notifications; document format; and an honest permissions, data security, connections, logs and usage overview. Changes persist in browser storage and update the header and greeting immediately.
@@ -102,9 +113,9 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Remaining: Supabase sync, Gemini-assisted response translation, and production deployment have not been exercised because project configuration/credentials are unavailable. Only shell and profile-menu strings are translated; other page content currently uses the stated English fallback. GitHub write permission and writable Git metadata remain unavailable, so no commit or push was made.
 - Post-build smoke checks: `/search`, `/settings`, `/cases/SG-PPG-2026-00481`, and `/api/chat` return expected responses on port 3000; `/` returns HTTP 200 on the legacy Python port 8001. The Settings E2E also verifies reset returns language/theme to English/light.
 
-### Search → Context → Act assistant refinement — 25 November 2026
+### Search â†’ Context â†’ Act assistant refinement â€” 25 November 2026
 
-- Updated fixture imports after the implementation fixtures were moved to `Singularity_D36V2_Implementation/fixtures/`; this resolves the local route and chat 500s without moving or rewriting the user’s implementation documents.
+- Updated fixture imports after the implementation fixtures were moved to `Singularity_D36V2_Implementation/fixtures/`; this resolves the local route and chat 500s without moving or rewriting the userâ€™s implementation documents.
 - Added a server-side Gemini tool loop with validated, bounded registered operations for record/source/officer search, pension-case retrieval, backlog calculation, grievance comparison, audit review, knowledge-change assessment, and prepared actions. Prepared tasks/documents/meetings are proposals; they require an explicit officer save action.
 - Exact fixture source citations are returned with responses. When Gemini is unavailable, the assistant falls back to token-scored record retrieval and labels the result accurately.
 - Added unit coverage for the registered assistant tools and fixed the Vitest exclusions for Vercel build output. Updated the Search browser test to assert retrieved service-month evidence rather than its obsolete fixed answer.
@@ -115,7 +126,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - GitHub push/commit remains blocked by the read-only `.git` metadata and previously confirmed read-only GitHub identity. No commit or push was made in this refinement.
 - The specifically named `SINGULARITY_D36_CODEX_PROMPT.md` and `d36-reference`/NESFIC app are absent from this checkout. The available local `references/` material was inspected in the prior pass; those unavailable references could not be inspected.
 
-### Retry verification and MCP retrieval — 25 November 2026
+### Retry verification and MCP retrieval â€” 25 November 2026
 
 - Read the now-present `SINGULARITY_D36_CODEX_PROMPT.md` completely. The specifically named `d36-reference/` folder was not present; inspected the available 15 interface screenshots, the supplied Singularity logo and Assam emblem, and all 21 pages of `references/NESFIC D-36 Application.pdf`. These private reference files remain outside the application bundle. The requested Assam emblem is now copied to `public/branding/assam-seal.webp` and displayed in the workspace header.
 - Added the official MCP TypeScript SDK client/server to the Gemini route. Gemini function calls now travel over a real in-memory MCP transport to the same Zod-validated operational handlers. MCP exposes the seven registered, bounded operations and read-only resources for 18 sources and 186 pension cases. Unknown tools are rejected by the protocol. `tests/mcp.test.ts` verifies handshake, tools/list, tool execution/citations, resources/list/read, and unknown-tool rejection.
@@ -129,7 +140,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 
 - Checkpoint update: commit `22e4746` was created after the checks above. Read-only `git ls-remote` confirmed GitHub `main` was still `95dba6b3f47f4a89864f10922fcc3791af7e87c1`, the direct parent checkpoint, so a normal fast-forward push is safe to attempt. Push and Vercel preview remain pending.
 
-### Push and production deployment verification — 25 November 2026
+### Push and production deployment verification â€” 25 November 2026
 
 - Verified GitHub `main` now points to `58044d5448c3e4bad79e3259410c10aab26f0cc6`. The application checkpoint is `22e4746`; the progress checkpoint is `58044d5`. Both commits were pushed normally to `missionsingularity/d36v2` after confirming the previous remote head; no force push was used.
 - GitHub triggered the existing Vercel project `s-ac7e/d36v2`. Deployment `dpl_GjfsreZFrvPtfSEHzC3DnyUXKi2q` is Ready at `https://d36v2-47m40kc4b-s-ac7e.vercel.app` and aliases the existing production URL `https://d36v2-4fg7.vercel.app`.
@@ -141,7 +152,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 
 - Commit/deployment association check: GitHub's `Vercel` status for commit `584c4d94c1d3637c1ce02b8438fe510feaf8587b` is `success` and links to deployment `dpl_CuYR9SsWUMieCnKtiJtPVsy99oNV` in the existing `s-ac7e/d36v2` project. This confirms the final pushed main commit reached the Ready production deployment and the existing alias.
 
-### Production Gemini enablement — 25 November 2026
+### Production Gemini enablement â€” 25 November 2026
 
 - Confirmed the replacement `GEMINI_API_KEY` exists in local `.env.local` without printing or committing its value. Stored it as a Vercel `Secret`, scoped to `Production` only, in the existing `s-ac7e/d36v2` project. No Preview or Development variables were added.
 - Redeployed the existing production app; deployment `dpl_AwfAuxYGN5fADoKXLXpmQyQpMBKq` is Ready and aliases `https://d36v2-4fg7.vercel.app`.
@@ -149,7 +160,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Supabase remains migration-current. Remote read-only counts remain 0 pensioners and 1 demo workspace record; no database changes were made. `SUPABASE_SERVICE_ROLE_KEY` is still absent, so the 186-record import and verified remote CRUD remain outstanding.
 - The development server continues to run at `http://localhost:3000`. Vercel production now has Gemini enabled; full online Supabase persistence still requires the service-role key configured locally and a reviewed import.
 
-### Supabase production connection — 25 November 2026
+### Supabase production connection â€” 25 November 2026
 
 - Added the existing project's `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` to the existing Vercel Production environment as public `Config` values. They are intended to be browser-visible; RLS remains enabled. The Gemini key remains a Hidden Secret.
 - Fresh production deployment `dpl_2AmXNA4YHynxNqLrMvVEgsMbqK4F` is Ready and aliases the existing domain. The production page's fresh-browser status reads `Workspace synced`, confirming a read-only connection to the existing `demo_workspace_records` table. No rows were created or changed in this check.
@@ -167,7 +178,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Production /api/chat returned HTTP 200 for five existing demonstrations via Gemini/MCP, with 1-3 tool calls and expected fixture citations. Five follow-up requests returned HTTP 200 answers, but the deployed version did not prepare actions consistently. They did not exercise the pending local changes.
 - Local typecheck, lint and unit tests passed before the last action-intent change; a failed test expectation was corrected. Playwright was blocked because port 3100 is already occupied. /search returned HTTP 200 on ports 3000 and 3100. Rerun tests after the final build.
 - Existing deletion D lotus-inspect.png is unrelated and preserved. No migration, upload, commit, push or deployment is completed in this checkpoint.
-### Supabase-backed prototype hardening � 25 November 2026
+### Supabase-backed prototype hardening — 25 November 2026
 
 - Corrected the fixture mappings against the live schema: office classification is carried in `attributes`, grievance disposal dates map to `disposed` plus `disposal_date`, nullable pension flags stay null, and each original source row remains in the payload. `npm run db:check` confirms 186 pensions, 41 unresolved, 23 Head-of-Office, 15 employees, 9 offices, 2 grievances, 47 audit events, 2 knowledge changes, and all 18 source hashes.
 - Added a reviewed additive migration for nullable pension flags, grievance disposal date, office attributes, anonymous workspace session scoping and training-only RLS reads. A dry run identified this migration. Supabase CLI requested explicit confirmation before applying; no migration was executed and existing records remain untouched.
@@ -177,15 +188,15 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - Existing production Vercel chat previously returned HTTP 200 for the five demonstration questions through Gemini/MCP with fixture citations. The currently deployed build does not contain these local changes; its five follow-up requests returned HTTP 200 but did not consistently prepare actions. No deployment has been made in this checkpoint.
 - Pending: user confirmation to apply the exact reviewed migration; a secure service-role value added by the project owner to local/Vercel before importing/uploading originals; then remote RLS/CRUD, storage, production Gemini/MCP, five demonstrations and five follow-ups must be verified. GitHub push remains pending until migration-dependent code is safe to deploy.
 
-### Production acceptance request � 25 November 2026
+### Production acceptance request — 25 November 2026
 
-- The requested `Singularity_D36_Demo_Questions_and_Answers.docx` is not present in this checkout, requirements folders, or the supplied Codex attachments directory. The repository acceptance file contains A1�A13, not the requested 35 question/answer list; no replacement questions were fabricated.
+- The requested `Singularity_D36_Demo_Questions_and_Answers.docx` is not present in this checkout, requirements folders, or the supplied Codex attachments directory. The repository acceptance file contains A1–A13, not the requested 35 question/answer list; no replacement questions were fabricated.
 - Production `/search` could not be reached from this environment (direct HTTPS connection failed; shared browser tools were unavailable and the web reader reported the URL inaccessible). Therefore no production response/action is marked passed in this run.
-- Ran five dynamic local chat probes from the available A2�A6 acceptance criteria. Results: Pranab case was `assisted` via MCP (1 tool, `fixture_fallback`, citations DOC-001/002/003/004/008/009); grievance comparison fell to `local` retrieval (fixture citations DOC-001..012 and DOC-015, not its comparison tool); backlog was `assisted` via MCP (1 tool, `fixture_fallback`, DOC-013); audit summary was `assisted` via MCP (1 tool, `fixture_fallback`, DOC-015/016); knowledge assessment fell to `local` search (no knowledge citation). These are not DB-backed acceptance passes.
+- Ran five dynamic local chat probes from the available A2–A6 acceptance criteria. Results: Pranab case was `assisted` via MCP (1 tool, `fixture_fallback`, citations DOC-001/002/003/004/008/009); grievance comparison fell to `local` retrieval (fixture citations DOC-001..012 and DOC-015, not its comparison tool); backlog was `assisted` via MCP (1 tool, `fixture_fallback`, DOC-013); audit summary was `assisted` via MCP (1 tool, `fixture_fallback`, DOC-015/016); knowledge assessment fell to `local` search (no knowledge citation). These are not DB-backed acceptance passes.
 - Local PDF/DOCX/XLSX/PPTX export endpoint returned HTTP 200 and valid signatures (PDF `%PDF-1.7`; Office formats ZIP/OOXML `PK`). This verifies format generation only; no chat-triggered export flow or 41-row report was verified.
 - `npm run typecheck`, `npm run lint`, `npm test` (26/26), and `npm run db:check` (18/18 original source hashes) pass. Existing local app routes remain available; the 4-test Playwright suite previously reached its last scenario but hung at shutdown and was interrupted.
 - The additive Supabase migration remains unapplied because the CLI requires explicit confirmation. No database, production, or source storage writes occurred. Private source upload still requires a configured service-role key.
-### Functional workspace routes and local acceptance � 25 November 2026
+### Functional workspace routes and local acceptance — 25 November 2026
 
 - Added dedicated Tasks, Calendar, Notifications, Profile and Help pages without changing the approved Search screen. The header now opens notifications/help directly; the officer menu links secondary workspaces. Apps links point to working task/calendar screens, and unsupported Projects/Forms tiles were removed.
 - Tasks support creating and searching records, filtering status, assignment, priority, due date, comments, subtasks and status changes. Calendar supports preparing internal meetings, dates, attendees, agendas, notes, rescheduling and cancellation. Actions save through the existing local-first store and session-scoped Supabase sync when available. UI explicitly says external invitations are not sent and local/offline changes remain on-device until sync works.
@@ -194,7 +205,7 @@ Updated: 24 November 2026 (Asia/Kolkata)
 - During Playwright's chat scenario, external Gemini requests are denied by this environment (`EACCES`) and the UI exercised its local retrieval fallback. No Gemini connectivity is claimed by this browser run.
 - Vercel and Supabase CLI checks could not run: neither CLI is installed in `node_modules/.bin`, and `npx` attempts do not complete in this network-restricted environment. `.vercel/project.json` contains settings only and no project mapping. The public production URL is inaccessible via the external web reader. This checkpoint did not deploy, apply migrations, import records, upload documents or mutate the remote database.
 - Existing `.git` metadata is read-only in this workspace, so no local commit or push was created. The verified current GitHub `main` head is `77b2db8761dc517f8926e5b7f3a8864fc16f41ec`; all local changes, including the pre-existing `lotus-inspect.png` deletion, remain uncommitted/preserved.
-### Production-mode local check and checkpoint attempt � 25 November 2026
+### Production-mode local check and checkpoint attempt — 25 November 2026
 
 - Started `next start` on `http://127.0.0.1:3211` alongside the existing local development server. Production-mode HTTP checks: `/` 307, `/search`, `/work`, `/calendar`, `/notifications`, `/profile` and `/help` all 200.
 - Attempted a normal GitHub feature-branch checkpoint from the verified `main` head using the connected GitHub integration. GitHub rejected branch creation with HTTP 403 `Resource not accessible by integration`; no remote commit was created. The checkout's `.git` metadata is read-only, so local commit/push is unavailable as well.

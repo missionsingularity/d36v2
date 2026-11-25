@@ -18,6 +18,19 @@ const requestSchema = z.object({
 
 const MAX_TOOL_CALLS = 12;
 const MAX_TOOL_ROUNDS = 5;
+// Gemini occasionally returns transient 429/5xx capacity errors. Keep the
+// retry bounded so the request can still fall back within the route budget.
+const GEMINI_HTTP_OPTIONS = {
+  timeout: 18_000,
+  retryOptions: {
+    attempts: 2,
+    initialDelay: 0.5,
+    maxDelay: 1,
+    expBase: 2,
+    jitter: 0.2,
+    httpStatusCodes: [408, 429, 500, 502, 503, 504],
+  },
+};
 const declarations = assistantFunctionDeclarations as unknown as FunctionDeclaration[];
 const toolNames = declarations.map((declaration) => declaration.name).filter((name): name is string => Boolean(name));
 
@@ -127,6 +140,7 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
       model,
       contents,
       config: {
+        httpOptions: GEMINI_HTTP_OPTIONS,
         systemInstruction,
         maxOutputTokens: 8192,
         tools,
@@ -166,6 +180,7 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
         model,
         contents,
         config: {
+          httpOptions: GEMINI_HTTP_OPTIONS,
           systemInstruction,
           maxOutputTokens: 8192,
           tools,
@@ -177,7 +192,7 @@ async function executeChat(request: Request, onToken?: (token: string) => void) 
     let streamedAnswer = "";
     let finishReason = "";
     if (!(response.functionCalls?.length)) {
-      const answerStream = await ai.models.generateContentStream({ model, contents, config: { systemInstruction, maxOutputTokens: 8192 } });
+      const answerStream = await ai.models.generateContentStream({ model, contents, config: { httpOptions: GEMINI_HTTP_OPTIONS, systemInstruction, maxOutputTokens: 8192 } });
       for await (const chunk of answerStream) {
         const text = chunk.text ?? "";
         if (text) { streamedAnswer += text; onToken?.(text); }

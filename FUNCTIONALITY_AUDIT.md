@@ -1,5 +1,41 @@
 ﻿# D-36 functional audit
 
+## Current verification update — 26 November 2026
+
+This update supersedes the stale production-commit statements below. The current remote production deployment is commit `c4bf7673c9daaaeac2c2698ead2fc687eeaffdac` (`c4bf767`), deployment `dpl_6ERbh59vWcLAQKk8b1e6cir9L97W` at `https://d36v2-5ru5pazzs-s-ac7e.vercel.app`; it is READY in the existing `d36v2` project. This is a deployment observed through Vercel, not a deployment created by this checkout.
+
+### Verified in this run
+
+- Production HTTP: `/` 200, `/search` 200, `/cases` 200, `/documents` 200, `/tasks` 200; `/api/demo-workspace/records` 200 and returns an empty list for a fresh session. `GET /api/chat` returns 405, consistent with its POST-only contract. An unknown route returns 404 with the default Next error document, reproducing the reported black 404.
+- Vercel production environment inventory contains Supabase public URL/key variables and a sensitive `GEMINI_API_KEY`; no secret values were inspected or printed. `GEMINI_MODEL` is absent, so source default `gemini-3.5-flash-lite` is selected.
+- A recent production runtime log shows a real `POST /api/chat` invocation reached Gemini and received HTTP 503 `UNAVAILABLE` (“This model is currently experiencing high demand”). This proves the request reached Gemini, not that a response was generated. A bounded SDK retry (two attempts, short backoff) is now configured for chat tool-planning and streamed-generation calls; it has not yet been deployed or verified against a live Gemini success.
+- Local after the retry change: `npm run typecheck`, `npm run lint`, `npm test` (27/27 across 6 files), and `npm run build` all passed. The build includes the root and `/search`, `/api/chat`, and `/api/demo-workspace/records` routes.
+- The Playwright run reported all seven individual workspace checks as `ok`, including the new styled 404 assertion; the test runner was interrupted during process shutdown before it printed its final summary. Treat this as partial browser-test evidence, not a clean full-suite pass.
+- A custom light workspace 404 page and a matching e2e assertion have been added locally. They are not part of the observed c4 production deployment.
+- The local implementation package screenshots were inspected; duplicated `references/approved` images have matching hashes. The Google Drive reference folder could not be opened with available tools, so its full reference inventory and exact visual comparison remain outstanding.
+
+### Acceptance evidence
+
+The package contains 20 scenarios in `D36_Implementation_Package/tests/acceptance.csv`. No scenario was submitted through the live production chat in this run: the available production fetch is GET-only, there is no browser surface, and local outbound access to Gemini and Supabase is denied. Therefore **0/20 production scenarios are verified**. Existing local unit/e2e/export checks do not establish the requested production actions, citations, or data persistence.
+
+| IDs | Required area | Result |
+|---|---|---|
+| T01–T03 | Case retrieval/citations, officer context, office note | Not run on production chat |
+| T04, T09, T13 | Revisions/versioning; PDF/DOCX/XLSX exports; PDF/DOCX/XLSX/TXT/MD/CSV attachment analysis | Not run end-to-end; current UI attachment support is text/Markdown/CSV only |
+| T05–T07, T10–T11 | Tasks, meetings, approvals, audit history, dependent combined actions | Not run on production; anonymous formal approvals remain authorization-gated |
+| T08 | Assamese translation | Not run with a live model |
+| T12, T14–T15, T19–T20 | Citation continuity, persistence/session isolation, fault fallback, idempotency, routes/history/invalid sources | Production chat/API writes not exercised; route GET and a prior isolated SQL rollback check are not full acceptance tests |
+| T16 | Official government source retrieval | Not verified against the required live official-source catalog in production |
+| T17 | Visual comparison of all non-login reference screens | Blocked by inaccessible Drive folder; local included images were reviewed but are defect/reference screenshots |
+| T18 | Deny anonymous official approval | Existing code gates official RPCs on authenticated employee identity; negative production request not exercised |
+
+### Remaining deployment and access blockers
+
+- GitHub app identity `slevel7` reports no push permission for `missionsingularity/d36v2`; the repo `.git` directory is read-only in this workspace. No commit or push was made. `D36_Implementation_Package/` remains untracked and must stay out of Git because it includes private reference material.
+- No production deployment containing the local 404 or Gemini retry changes was created. Production remains c4 until an authorized repository push/deployment path is available.
+- Live chat POST, Gemini success, Supabase app write/read-back, generated-file download from chat, and the 20 production acceptance scenarios remain unverified.
+
+
 Updated 25 November 2026. This report distinguishes local verification, direct Supabase verification, and the currently deployed production source. It is not a production acceptance certificate.
 
 ## Source changes in this checkout

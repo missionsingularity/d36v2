@@ -11,6 +11,14 @@ test("fresh visitor opens the workspace without authentication", async ({ page }
   await expect(page.getByRole("heading", { name: "Sign in to your workspace" })).toHaveCount(0);
 });
 
+test("invalid routes show the workspace 404 with recovery actions", async ({ page }) => {
+  const response = await page.goto("/not-a-real-workspace-route");
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: "We couldn’t find that page" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Go to Search" })).toHaveAttribute("href", "/search");
+  await expect(page.getByRole("button", { name: "Back" })).toBeVisible();
+});
+
 test("Search retrieves fixture evidence, opens citations, and restores a conversation after refresh", async ({ page }) => {
   await page.goto("/search");
   const composer = page.getByRole("textbox", { name: "Ask a question" });
